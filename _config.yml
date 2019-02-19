@@ -1,2 +1,3 @@
     name: James Atkin
     markdown: kramdown
+    permalink: /blog/:year/:month/:day/:title

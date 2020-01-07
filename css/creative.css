@@ -10786,6 +10786,19 @@ html {
   color: rgba(255, 255, 255, 0.75);
 }
 
+hr.divider_left {
+  max-width: 3.25rem;
+  border-width: 0.2rem;
+  margin-left: 0;
+  border-color: #f4623a;
+}
+
+hr.divider_center {
+  max-width: 3.25rem;
+  border-width: 0.2rem;
+  border-color: #f4623a;
+}
+
 hr.divider {
   max-width: 3.25rem;
   border-width: 0.2rem;

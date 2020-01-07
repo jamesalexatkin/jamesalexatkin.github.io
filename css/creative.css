@@ -91,34 +91,112 @@ p {
   margin-bottom: 1rem;
 }
 
+
+
+.header {
+  width: 80%;
+  text-align: right;
+  position: relative;
+  margin-left: 10%;
+}
+.header .logo {
+  position: absolute;
+  top: 0;
+  font-size: 28px;
+  font-weight: 100;
+  /*padding: 26px;*/
+}
+
+.link {
+  display: inline-block;
+  padding: 15px 0;
+  margin: 15px 25px;
+  position: relative;
+  text-decoration: none;
+  font-family: 'Alata', sans-serif;
+  text-transform: uppercase;
+  color: #0f0f0f;
+  font-weight: 400;
+  font-size: 28px;
+}
+.link .bar {
+  width: 100%;
+  display: inline-block;
+  border-bottom: 5px solid #5d99c6;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 300ms;
+}
+.link:hover .bar {
+  opacity: 1;
+  bottom: 5px;
+}
+
+
+
 .about {
   background-color: #5d99c6;
   color: white;
   padding: 64px;
-  margin: 32px;
+  margin: inherit;
+}
+
+.intro {
+  font-family: 'Alata', sans-serif;
+  text-align: left;
+  color: inherit;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 20px;
+}
+
+.intro_divider {
+  width: 10%;
+  margin-left: 0;
+  height: 10px;
+  color: fff;
 }
 
 .projects {
-  margin: 32px;
+  overflow: hidden;
+  margin: inherit;
 }
 
-.cv {
+/* .cv {
   background-color: #5d99c6;
   color: white;
   padding: 32px;
   text-align: center;
   margin: 32px;
+} */
+
+.cv {
+  overflow: hidden;
+  padding: 100px;
+  margin: inherit;
+  background: #00c993;
+  text-align: center;
+  color: inherit;
+
 }
 
 .contact {
   background-color: #ffb300;
-  color: white;
-  padding: 32px;
-  margin: 32px;
+  color: inherit;
+  padding: 50px;
+  margin: inherit;
+  overflow: hidden;
 }
 
 .main {  
-  margin: 48px;
+  overflow: hidden;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #fff;
+  margin-top: 26px;
+  margin-bottom: 26px;
 }
 
 
@@ -305,14 +383,14 @@ sup {
 }
 
 a {
-  color: #f4623a;
+  color: #5d99c6;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #d6370c;
-  text-decoration: underline;
+  color: #5d99c6;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -3314,7 +3392,7 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #f4623a;
+  color: #5d99c6;
   text-decoration: none;
 }
 

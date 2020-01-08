@@ -107,7 +107,11 @@ p {
   /*padding: 26px;*/
 }
 
-.link {
+.link, 
+.link-about,
+.link-projects,
+.link-cv,
+.link-contact {
   display: inline-block;
   padding: 15px 0;
   margin: 15px 25px;
@@ -119,7 +123,11 @@ p {
   font-weight: 400;
   font-size: 28px;
 }
-.link .bar {
+.link .bar,
+.link-about .bar,
+.link-projects .bar,
+.link-cv .bar,
+.link-contact .bar {
   width: 100%;
   display: inline-block;
   border-bottom: 5px solid #5d99c6;
@@ -129,12 +137,37 @@ p {
   opacity: 0;
   transition: all 300ms;
 }
-.link:hover .bar {
+.link:hover .bar,
+.link-about:hover .bar,
+.link-projects:hover .bar,
+.link-cv:hover .bar,
+.link-contact:hover .bar {
   opacity: 1;
   bottom: 5px;
 }
 
+.link-about:hover {
+  color: #5d99c6;
+}
+.link-projects:hover {
+  color: #f4623a;
+}
+.link-cv:hover {
+  color: #00c993;
+}
+.link-contact:hover {
+  color: #ffb300;
+}
 
+.link-projects:hover .bar {
+  border-bottom: 5px solid #f4623a;
+}
+.link-cv:hover .bar {
+  border-bottom: 5px solid #00c993;
+}
+.link-contact:hover .bar {
+  border-bottom: 5px solid #ffb300;
+}
 
 .about {
   background-color: #5d99c6;

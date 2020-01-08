@@ -178,11 +178,11 @@ p {
 
 .intro {
   font-family: 'Alata', sans-serif;
+  font-size: 20px;
   text-align: left;
   color: inherit;
   padding-left: 10%;
   padding-right: 10%;
-  font-size: 20px;
 }
 
 .intro_divider {
@@ -206,16 +206,19 @@ p {
 } */
 
 .cv {
+  font-family: 'Alata', sans-serif;
+  font-size: 20px;
   overflow: hidden;
   padding: 100px;
   margin: inherit;
   background: #00c993;
   text-align: center;
   color: inherit;
-
 }
 
 .contact {
+  font-family: 'Alata', sans-serif;
+  font-size: 20px;
   background-color: #ffb300;
   color: inherit;
   padding: 50px;
@@ -232,7 +235,15 @@ p {
   margin-bottom: 26px;
 }
 
+.battleship-about {
+  overflow: hidden;
+  padding: 100px;
+  margin: inherit;
+  background: #f4623a;
+  text-align: center;
+  color: inherit;
 
+}
 
 /* Wrapper */
 .icon-button {

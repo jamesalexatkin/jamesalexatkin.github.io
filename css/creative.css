@@ -245,6 +245,16 @@ p {
 
 }
 
+.renders {
+  overflow: hidden;
+  /* padding: 100px; */
+  margin: inherit;
+  /* background: #f4623a; */
+  text-align: center;
+  color: inherit;
+
+}
+
 /* Wrapper */
 .icon-button {
 	background-color: white;
@@ -755,6 +765,7 @@ mark,
 .img-fluid {
   max-width: 100%;
   height: auto;
+  padding: 4px;
 }
 
 .img-thumbnail {
@@ -10984,6 +10995,7 @@ header.masthead h1 {
 #portfolio .container-fluid .portfolio-box {
   position: relative;
   display: block;
+  padding: 4px;
 }
 
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption {

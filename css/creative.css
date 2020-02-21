@@ -10,7 +10,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -32,6 +32,16 @@
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
+  /* Custom colors */
+  --dark-pastel-blue: #728DBE;
+  --cadet-blue: #73ADA4;
+  --ucla-blue: #54688C;
+  --asparagus: #71A372;
+  --coral-pink: #FF837D;
+  --taupe-gray: #83868C;
+  --dark-terracotta: #DC505E;
+  --deep-carmine: #B02A3C;
+  --ube: #8C72BD;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -94,6 +104,7 @@ p {
 
 
 .header {
+  font-family: "Poppins";
   width: 80%;
   text-align: right;
   position: relative;
@@ -117,7 +128,7 @@ p {
   margin: 15px 25px;
   position: relative;
   text-decoration: none;
-  font-family: 'Alata', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
   color: #0f0f0f;
   font-weight: 400;
@@ -130,7 +141,7 @@ p {
 .link-contact .bar {
   width: 100%;
   display: inline-block;
-  border-bottom: 5px solid #5d99c6;
+  /* border-bottom: 5px solid #5d99c6; */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -147,26 +158,29 @@ p {
 }
 
 .link-about:hover {
-  color: #5d99c6;
+  color: var(--dark-pastel-blue);
 }
 .link-projects:hover {
-  color: #f4623a;
+  color: var(--coral-pink);
 }
 .link-cv:hover {
-  color: #00c993;
+  color: var(--cadet-blue);
 }
 .link-contact:hover {
-  color: #ffb300;
+  color: var(--ucla-blue);
 }
 
+.link-about:hover .bar {
+  border-bottom: 5px solid var(--dark-pastel-blue);
+}
 .link-projects:hover .bar {
-  border-bottom: 5px solid #f4623a;
+  border-bottom: 5px solid var(--coral-pink);
 }
 .link-cv:hover .bar {
-  border-bottom: 5px solid #00c993;
+  border-bottom: 5px solid var(--cadet-blue);
 }
 .link-contact:hover .bar {
-  border-bottom: 5px solid #ffb300;
+  border-bottom: 5px solid var(--ucla-blue);
 }
 
 .about {
@@ -177,7 +191,7 @@ p {
 }
 
 .intro {
-  font-family: 'Alata', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 20px;
   text-align: left;
   color: inherit;
@@ -206,20 +220,20 @@ p {
 } */
 
 .cv {
-  font-family: 'Alata', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 20px;
   overflow: hidden;
   padding: 100px;
   margin: inherit;
-  background: #00c993;
+  background: var(--cadet-blue);
   text-align: center;
   color: inherit;
 }
 
 .contact {
-  font-family: 'Alata', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 20px;
-  background-color: #ffb300;
+  background-color: var(--ucla-blue);
   color: inherit;
   padding: 50px;
   margin: inherit;
@@ -239,7 +253,7 @@ p {
   overflow: hidden;
   padding: 100px;
   margin: inherit;
-  background: #f4623a;
+  background: var(--dark-terracotta);
   text-align: center;
   color: inherit;
 
@@ -295,26 +309,17 @@ p {
 	border-radius: 3.6rem;
 	margin: -1.8rem;
 }
-.twitter span {
-	background-color: #4099ff;
-}
-.facebook span {
-	background-color: #3B5998;
-}
-.google-plus span {
-	background-color: #db5a3c;
-}
 .phone span {
-	background-color: #00796b;
+	background-color: var(--asparagus);
 }
 .envelope span {
-	background-color: #db5a3c;
+	background-color: var(--dark-terracotta);
 }
 .github span {
-	background-color: #4a0072;
+	background-color: var(--ube);
 }
 .linkedin span {
-  background-color: #0d47a1;
+  background-color: var(--dark-pastel-blue);
 }
 
 /* Icons */
@@ -333,26 +338,18 @@ p {
 	width: 3.6rem;
 	z-index: 10;
 }
-.icon-button .fa-twitter {
-	color: #4099ff;
-}
-.icon-button .fa-facebook {
-	color: #3B5998;
-}
-.icon-button .fa-google-plus {
-	color: #db5a3c;
-}
+
 .icon-button .fa-phone {
-	color: #00796b;
+	color: var(--asparagus);
 }
 .icon-button .fa-envelope {
-	color: #db5a3c;
+	color: var(--dark-terracotta);
 }
 .icon-button .fa-github {
-	color: #4a0072;
+	color: var(--ube);
 }
 .icon-button .fa-linkedin {
-	color: #0d47a1;
+	color: var(--dark-pastel-blue);
 }
 .icon-button:hover .fa-twitter,
 .icon-button:hover .fa-facebook,
@@ -647,8 +644,9 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 500;
+  /* font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  font-family: "Nunito";
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -11019,20 +11017,22 @@ header.masthead h1 {
   text-align: center;
   opacity: 0;
   color: #fff;
-  background: rgba(244, 98, 58, 0.9);
+  background: rgba(255,131,125,0.75);
   -webkit-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
   text-align: center;
 }
 
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category {
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  font-family: "Nunito";
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-name {
+  font-family: "Nunito";
   font-size: 1.2rem;
 }
 

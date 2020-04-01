@@ -377,6 +377,7 @@ p {
 }
 .dark {
   top: 20px;
+  background-color: transparent;
 }
 .dark span {
   background-color: var(--nord0);
@@ -418,7 +419,7 @@ p {
 	color: var(--nord0);
 }
 .icon-button .fa-sun-o {
-  color: var(--nord12);
+  color: #fff;
 }
 .icon-button .fa-phone {
 	color: var(--asparagus);
@@ -10801,7 +10802,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-muted {
-  color: #6c757d !important;
+  color: #6c757d;
 }
 
 .text-black-50 {

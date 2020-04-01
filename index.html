@@ -32,7 +32,7 @@
 <body id="page-top">
 
   <!-- Navbar/header -->
-  <div class="header">
+  <div class="header" id="header">
     <div class="logo">
       <a href="#" class="link">
         <div class="title">James Atkin</div>
@@ -56,9 +56,25 @@
         <div class="title">Contact</div>
         <div class="bar"></div>
       </a>
+      <button class="btn dark-mode" onclick="toggleLightDark()" id="btnToggle" style="font-size: 22pt;"><i class="fa fa-moon-o fa"></i></button>
     </div>
   </div>
 
+  <script>
+    function toggleLightDark() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+
+        // Change sun and moon icon
+        $("#btnToggle i").toggleClass("fa-moon-o fa-sun-o")
+
+        // a elements
+        var a = document.querySelectorAll("a");
+        for (var i = 0; i < a.length; i++) {
+          a[i].classList.toggle("dark-mode");
+        }
+    }
+  </script>
 
   <!-- Main page -->
   <div class="main">

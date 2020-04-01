@@ -42,6 +42,32 @@
   --dark-terracotta: #DC505E;
   --deep-carmine: #B02A3C;
   --ube: #8C72BD;
+  /* Nord colors */
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord2: #434c5e;
+  --nord3: #4c566a;
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord6: #eceff4;
+  --nord7: #8fbcbb;
+  --nord8: #88c0d0;
+  --nord9: #81a1c1;
+  --nord10: #5e81ac;
+  --nord11: #bf616a;
+  --nord12: #d08770;
+  --nord13: #ebcb8b;
+  --nord14: #a3be8c;
+  --nord15: #b48ead;
+  /* Easy way to set page elements */
+  --body-color: var(--nord6);
+  --about-color: var(--nord9);
+  --project-color: var(--nord11);
+  --cv-color: var(--nord7);
+  --contact-color: var(--nord10);
+  --battleship-color: var(--nord12);
+  --border-amount: 8px;
+
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -77,7 +103,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: var(--body-color);
 }
 
 [tabindex="-1"]:focus {
@@ -109,6 +135,7 @@ p {
   text-align: right;
   position: relative;
   margin-left: 12%;
+  /* background: var(--nord5); */
 }
 .header .logo {
   position: absolute;
@@ -158,37 +185,37 @@ p {
 }
 
 .link-about:hover {
-  color: var(--dark-pastel-blue);
+  color: var(--about-color);
 }
 .link-projects:hover {
-  color: var(--coral-pink);
+  color: var(--project-color);
 }
 .link-cv:hover {
-  color: var(--cadet-blue);
+  color: var(--cv-color);
 }
 .link-contact:hover {
-  color: var(--ucla-blue);
+  color: var(--contact-color);
 }
 
 .link-about:hover .bar {
-  border-bottom: 5px solid var(--dark-pastel-blue);
+  border-bottom: 5px solid var(--about-color);
 }
 .link-projects:hover .bar {
-  border-bottom: 5px solid var(--coral-pink);
+  border-bottom: 5px solid var(--project-color);
 }
 .link-cv:hover .bar {
-  border-bottom: 5px solid var(--cadet-blue);
+  border-bottom: 5px solid var(--cv-color);
 }
 .link-contact:hover .bar {
-  border-bottom: 5px solid var(--ucla-blue);
+  border-bottom: 5px solid var(--contact-color);
 }
 
 .about {
-  background-color: #5d99c6;
+  background-color: var(--about-color);
   color: white;
   padding: 64px;
   margin: inherit;
-  border-radius: 25px;
+  border-radius: var(--border-amount);
 }
 
 .intro {
@@ -210,6 +237,7 @@ p {
 .projects {
   overflow: hidden;
   margin: inherit;
+  color: var(--color-project);
 }
 
 /* .cv {
@@ -226,21 +254,21 @@ p {
   overflow: hidden;
   padding: 100px;
   margin: inherit;
-  background: var(--cadet-blue);
+  background: var(--cv-color);
   text-align: center;
   color: inherit;
-  border-radius: 25px;
+  border-radius: var(--border-amount);
 }
 
 .contact {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
-  background-color: var(--ucla-blue);
+  background-color: var(--contact-color);
   color: inherit;
   padding: 50px;
   margin: inherit;
   overflow: hidden;
-  border-radius: 25px;
+  border-radius: var(--border-amount);
 }
 
 .main {  
@@ -248,7 +276,7 @@ p {
   margin-left: 8%;
   margin-right: 8%;
   color: #fff;
-  margin-top: 26px;
+  /* margin-top: 26px; */
   margin-bottom: 26px;
 }
 
@@ -256,10 +284,10 @@ p {
   overflow: hidden;
   padding: 100px;
   margin: inherit;
-  background: var(--dark-terracotta);
+  background: var(--battleship-color);
   text-align: center;
   color: inherit;
-
+  border-radius: var(--border-amount);
 }
 
 .renders {
@@ -767,7 +795,7 @@ mark,
   max-width: 100%;
   height: auto;
   padding: 4px;
-  border-radius: 25px;
+  border-radius: var(--border-amount);
 }
 
 .img-thumbnail {
@@ -7267,9 +7295,9 @@ button.bg-dark:focus {
   background-color: #1d2124 !important;
 }
 
-.bg-white {
+/* .bg-white {
   background-color: #fff !important;
-}
+} */
 
 .bg-transparent {
   background-color: transparent !important;
@@ -11025,7 +11053,7 @@ header.masthead h1 {
   -webkit-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
   text-align: center;
-  border-radius: 25px;
+  border-radius: var(--border-amount);
 }
 
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category {

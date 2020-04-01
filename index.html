@@ -56,7 +56,11 @@
         <div class="title">Contact</div>
         <div class="bar"></div>
       </a>
-      <button class="btn dark-mode" onclick="toggleLightDark()" id="btnToggle" style="font-size: 22pt;"><i class="fa fa-moon-o fa"></i></button>
+      <!-- <button class="btn dark-mode" onclick="toggleLightDark()" id="btnToggle" style="font-size: 22pt;"><i class="fa fa-moon-o fa"></i></button> -->
+      <a onClick="toggleLightDark()" class="icon-button dark" id="btnToggle">
+        <i class="fa fa-moon-o"></i><span></span>
+      </a>
+      
     </div>
   </div>
 
@@ -66,6 +70,8 @@
         element.classList.toggle("dark-mode");
 
         // Change sun and moon icon
+        element = document.getElementById("btnToggle");
+        element.classList.toggle("light");
         $("#btnToggle i").toggleClass("fa-moon-o fa-sun-o")
 
         // a elements
@@ -73,6 +79,10 @@
         for (var i = 0; i < a.length; i++) {
           a[i].classList.toggle("dark-mode");
         }
+
+        // Footer
+        element = document.getElementById("footer-text");
+        element.classList.toggle("dark");
     }
   </script>
 
@@ -206,9 +216,9 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-white py-5">
+  <footer class="bg-white py-5" id="footer">
     <div class="container">
-      <div class="small text-center text-muted">&copy; JAMES ATKIN 2020</div>
+      <div class="small text-center text-muted" id="footer-text">&copy; JAMES ATKIN 2020</div>
     </div>
   </footer>
 

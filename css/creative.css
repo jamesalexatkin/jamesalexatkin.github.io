@@ -361,7 +361,7 @@ p {
 	height: 0;
 	left: 50%;
 	margin: 0;
-	position: absolute;
+	position: relative;
 	top: 50%;
 	-webkit-transition: all 0.3s;
 	   -moz-transition: all 0.3s;
@@ -374,6 +374,15 @@ p {
 	height: 3.6rem;
 	border-radius: 3.6rem;
 	margin: -1.8rem;
+}
+.dark {
+  top: 20px;
+}
+.dark span {
+  background-color: var(--nord0);
+}
+.light span {
+  background-color: var(--nord13);
 }
 .phone span {
 	background-color: var(--asparagus);
@@ -405,6 +414,12 @@ p {
 	z-index: 10;
 }
 
+.icon-button .fa-moon-o {
+	color: var(--nord0);
+}
+.icon-button .fa-sun-o {
+  color: var(--nord12);
+}
 .icon-button .fa-phone {
 	color: var(--asparagus);
 }
@@ -417,6 +432,8 @@ p {
 .icon-button .fa-linkedin {
 	color: var(--dark-pastel-blue);
 }
+.icon-button:hover .fa-moon-o,
+.icon-button:hover .fa-sun-o,
 .icon-button:hover .fa-twitter,
 .icon-button:hover .fa-facebook,
 .icon-button:hover .fa-google-plus,

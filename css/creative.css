@@ -105,10 +105,10 @@ p {
 
 .header {
   font-family: "Poppins";
-  width: 80%;
+  width: 76%;
   text-align: right;
   position: relative;
-  margin-left: 10%;
+  margin-left: 12%;
 }
 .header .logo {
   position: absolute;
@@ -129,10 +129,10 @@ p {
   position: relative;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #0f0f0f;
   font-weight: 400;
-  font-size: 28px;
+  font-size: 22px;
 }
 .link .bar,
 .link-about .bar,
@@ -188,6 +188,7 @@ p {
   color: white;
   padding: 64px;
   margin: inherit;
+  border-radius: 25px;
 }
 
 .intro {
@@ -228,6 +229,7 @@ p {
   background: var(--cadet-blue);
   text-align: center;
   color: inherit;
+  border-radius: 25px;
 }
 
 .contact {
@@ -238,12 +240,13 @@ p {
   padding: 50px;
   margin: inherit;
   overflow: hidden;
+  border-radius: 25px;
 }
 
 .main {  
   overflow: hidden;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 8%;
+  margin-right: 8%;
   color: #fff;
   margin-top: 26px;
   margin-bottom: 26px;
@@ -764,6 +767,7 @@ mark,
   max-width: 100%;
   height: auto;
   padding: 4px;
+  border-radius: 25px;
 }
 
 .img-thumbnail {
@@ -11021,6 +11025,7 @@ header.masthead h1 {
   -webkit-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease;
   text-align: center;
+  border-radius: 25px;
 }
 
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category {

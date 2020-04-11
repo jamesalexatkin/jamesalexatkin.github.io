@@ -319,7 +319,17 @@ p {
   overflow: hidden;
   padding: 100px;
   margin: inherit;
-  background: var(--battleship-color);
+  background: var(--nord12);
+  text-align: center;
+  color: inherit;
+  border-radius: var(--border-amount);
+}
+
+.masters-about {
+  overflow: hidden;
+  padding: 100px;
+  margin: inherit;
+  background: var(--nord11);
   text-align: center;
   color: inherit;
   border-radius: var(--border-amount);

@@ -32,39 +32,14 @@
 <body id="page-top">
 
   <!-- Navbar/header -->
-  <div class="header" id="header">
-    <div class="logo">
-      <a href="#" class="link">
-        <div class="title">James Atkin</div>
-        <div class="bar"></div>
-      </a>
-    </div>
-    <div class="menu">
-      <a href="#about" class="link-about">
-        <div class="title">About</div>
-        <div class="bar"></div>
-      </a>
-      <a href="#portfolio" class="link-projects">
-        <div class="title">Projects</div>
-        <div class="bar"></div>
-      </a>
-      <a href="#cv" class="link-cv">
-        <div class="title">CV</div>
-        <div class="bar"></div>
-      </a>
-      <a href="#contact" class="link-contact">
-        <div class="title">Contact</div>
-        <div class="bar"></div>
-      </a>
-      <!-- <button class="btn dark-mode" onclick="toggleLightDark()" id="btnToggle" style="font-size: 22pt;"><i class="fa fa-moon-o fa"></i></button> -->
-      <a onClick="toggleLightDark()" class="icon-button dark" id="btnToggle">
-        <i class="fa fa-moon-o"></i><span></span>
-      </a>
-      
-    </div>
-  </div>
+  <div id="header-placeholder"></div>
 
-  <script src="toggleDarkMode.js"></script>
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script>
+    $.get("header.html", function(data){
+        $("#header-placeholder").replaceWith(data);
+    });
+  </script>
 
   <!-- Main page -->
   <div class="main">
@@ -84,6 +59,19 @@
     <div class="projects" id="portfolio">
       <div class="container-fluid p-0">
         <div class="row no-gutters">
+          <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box" href="masters.html">
+              <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
+              <div class="portfolio-box-caption">
+                <div class="project-category text-white-50">
+                  Masters Project
+                </div>
+                <div class="project-name">
+                  Using Community Detection to Improve Music Recommendations
+                </div>
+              </div>
+            </a>
+          </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="battleship.html" <!--img/portfolio/fullsize/title_screen.png--> <img
               class="img-fluid" src="img/portfolio/thumbnails/title_screen.png" alt="">

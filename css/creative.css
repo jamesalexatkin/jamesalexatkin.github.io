@@ -162,7 +162,6 @@ p {
 }
 
 
-
 .header {
   font-family: "Poppins";
   width: 70%;
@@ -243,6 +242,27 @@ p {
 }
 .link-contact:hover .bar {
   border-bottom: 5px solid var(--contact-color);
+}
+
+.four-oh-four {
+  background-color: var(--about-color);
+  padding: 64px;
+  margin: inherit;
+  border-radius: var(--border-amount);
+  text-align: center;
+  height: 90%;
+}
+
+.four-oh-four h1 {
+  font-size: 128px;
+  color: white;
+  height: auto;
+}
+
+.four-oh-four h2 {
+  font-size: 64px;
+  color: var(--nord5);
+  margin-bottom: 256px;
 }
 
 .about {

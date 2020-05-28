@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel=icon href=/favicon.png> <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>James Atkin</title>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://use.fontawesome.com/134696755a.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'
+        rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS - Includes Bootstrap -->
+    <link href="css/creative.css" rel="stylesheet">
+
+
+
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+</head>
+
+
+<body id="page-top">
+
+    <!-- Navbar/header -->
+    <div class="header">
+        <div class="logo">
+            <a href="index.html" class="link">
+                <div class="title">James Atkin</div>
+                <div class="bar"></div>
+            </a>
+        </div>
+        <div class="menu">
+            <a href="index.html#about" class="link-about">
+                <div class="title">About</div>
+                <div class="bar"></div>
+            </a>
+            <a href="index.html#portfolio" class="link-projects">
+                <div class="title">Projects</div>
+                <div class="bar"></div>
+            </a>
+            <a href="index.html#cv" class="link-cv">
+                <div class="title">CV</div>
+                <div class="bar"></div>
+            </a>
+            <a href="index.html#contact" class="link-contact">
+                <div class="title">Contact</div>
+                <div class="bar"></div>
+            </a>
+            <a onClick="toggleLightDark()" class="icon-button dark" id="btnToggle">
+                <i class="fa fa-moon-o"></i><span></span>
+              </a>
+        </div>
+    </div>
+
+    <script src="toggleDarkMode.js"></script>
+
+    <!-- Main page -->
+    <div class="main">
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="intro">
+                <h2>Caribou Coffee Stores</h2>
+                <hr class="divider_left light my-4">
+                <p>This project allows for the visualisation of the number of Caribou Coffee stores in the United States by states and counties. The resulting visualisation is in the form of a choropleth, or shaded map. Darker regions represent a higher number of coffee stores.
+                    The maps are produced by folium, a Python library capable of rendering maps in HTML files.</p>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2>By state</h2>
+            <iframe src="caribou_states_map_26-05-20.html" width="100%" height="500px"></iframe>
+        </section>
+
+        <section class="about" id="about">
+            <h2>By county</h2>
+            <iframe src="caribou_counties_map_26-05-20.html" width="100%" height="500px"></iframe>
+        </section>
+        
+
+        <!-- CV Section -->
+        <section class="cv" id="cv">
+            <h2>GitHub</h2>
+            <p>The full project can be viewed on Github below.</p>
+            <a href="https://github.com/jamesalexatkin/caribou-visualiser" target="_blank" class="icon-button github"><i
+                    class="fa fa-github"></i><span></span></a>
+        </section>
+
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-white py-5">
+        <div class="container">
+            <div class="small text-center text-muted">&copy; JAMES ATKIN 2020</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+</body>
+
+</html>

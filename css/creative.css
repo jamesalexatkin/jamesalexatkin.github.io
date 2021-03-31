@@ -109,7 +109,7 @@ body {
 }
 
 .dark-mode {
-  background-color: var(--dark-body-color);
+  background-color: var(--dark-body-color) ;
   color: #fff;
 }
 
@@ -379,6 +379,11 @@ p {
 	        user-select: none;
 	width: 3.6rem;
 }
+
+.icon-button.contact-button.dark-mode {
+  background-color: var(--nord2) !important;
+}
+
 
 /* Circle */
 .icon-button span {

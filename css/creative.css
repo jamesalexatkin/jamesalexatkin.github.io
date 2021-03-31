@@ -267,21 +267,18 @@ p {
 }
 
 .about {
-  background-color: var(--about-color);
-  color: white;
-  padding: 64px;
+  padding-left: 32px;
   margin: inherit;
-  border-radius: var(--border-amount);
 }
 
 .intro {
   /* font-family: 'Nunito', sans-serif; */
   font-family: "PT Mono", monospace;
-  font-size: 20px;
+  font-size: 12px;
   text-align: left;
-  color: inherit;
-  padding-left: 10%;
-  padding-right: 10%;
+  color: var(--nord2);
+  /* padding-left: 10%; */
+  /* padding-right: 10%; */
 }
 
 .intro_divider {

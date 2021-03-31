@@ -161,6 +161,10 @@ p {
   margin-bottom: 1rem;
 }
 
+.white-p {
+  color: white;
+}
+
 
 .header {
   /* font-family: "Poppins"; */
@@ -359,7 +363,7 @@ p {
 
 /* Wrapper */
 .icon-button {
-	background-color: var(--nord4);
+	background-color: var(--nord5);
 	border-radius: 3.6rem;
 	cursor: pointer;
 	display: inline-block;

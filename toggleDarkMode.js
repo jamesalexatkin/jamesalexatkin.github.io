@@ -13,6 +13,10 @@ function toggleLightDark() {
       a[i].classList.toggle("dark-mode");
     }
 
+    // Intro
+    element = document.getElementById("intro");
+    element.classList.toggle("white-p");
+
     // Footer
     element = document.getElementById("footer-text");
     element.classList.toggle("small text-white-50");

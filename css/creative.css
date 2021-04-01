@@ -317,14 +317,15 @@ p {
 .contact {
   font-family: 'PT Mono', monospace;
   font-size: 20px;
-  /* background-color: var(--contact-color); */
+  /* background-color: var(--nord12); */
   color: inherit;
-  padding: 50px;
+  padding-top: 1%;
+  padding-bottom: 1%;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
   border-radius: var(--border-amount);
-  width: 40%;
+  width: 15%;
 
 }
 

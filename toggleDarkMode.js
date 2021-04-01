@@ -13,6 +13,16 @@ function toggleLightDark() {
       a[i].classList.toggle("dark-mode");
     }
 
+    // Intro
+    element = document.getElementById("intro");
+    element.classList.toggle("dark-mode");
+
+    // .icon-button
+    var iconButtons = document.querySelectorAll(".icon-button");
+    for (var i = 0; i < iconButtons.length; i++) {
+      // iconButtons[i].classList.toggle("dark-mode");
+    }
+
     // Footer
     element = document.getElementById("footer-text");
     element.classList.toggle("small text-white-50");

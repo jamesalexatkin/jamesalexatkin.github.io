@@ -19,7 +19,11 @@
     rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet"> 
+
+
 
   <!-- Plugin CSS -->
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -36,31 +40,27 @@
     <div class="logo">
       <a href="#" class="link">
         <div class="title">James Atkin</div>
-        <div class="bar"></div>
       </a>
     </div>
     <div class="menu">
-      <a href="#about" class="link-about">
+      <!-- <a href="#about" class="link-about">
         <div class="title">About</div>
         <div class="bar"></div>
-      </a>
+      </a> -->
       <a href="#portfolio" class="link-projects">
         <div class="title">Projects</div>
-        <div class="bar"></div>
       </a>
-      <a href="#cv" class="link-cv">
+      <!-- <a href="#cv" class="link-cv">
         <div class="title">CV</div>
         <div class="bar"></div>
-      </a>
+      </a> -->
       <a href="#contact" class="link-contact">
         <div class="title">Contact</div>
-        <div class="bar"></div>
       </a>
       <!-- <button class="btn dark-mode" onclick="toggleLightDark()" id="btnToggle" style="font-size: 22pt;"><i class="fa fa-moon-o fa"></i></button> -->
       <a onClick="toggleLightDark()" class="icon-button dark" id="btnToggle">
         <i class="fa fa-moon-o"></i><span></span>
-      </a>
-      
+      </a>      
     </div>
   </div>
 
@@ -69,8 +69,14 @@
   <!-- Main page -->
   <div class="main">
 
-    <!-- About Section -->
     <section class="about" id="about">
+      <div  class="intro">
+        <p id="intro" class ="">SOFTWARE ENGINEER. CS GRADUATE.</p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- <section class="about" id="about">
       <div class="intro">
         <h2>Hi, I'm James!</h2>
         <hr class="divider_left light my-4">
@@ -78,7 +84,7 @@
           software development and programming. This is my personal site so feel free to have a look at some of the
           projects I've done.</p>
       </div>
-    </section>
+    </section> -->
 
     <!-- Projects Section -->
     <div class="projects" id="portfolio">
@@ -141,10 +147,10 @@
               <img class="img-fluid" src="img/portfolio/thumbnails/n64_lowpoly.png" alt="">
               <div class="portfolio-box-caption">
                 <div class="project-category text-white-50">
-                  3D Design
+                  Blender
                 </div>
                 <div class="project-name">
-                  Low-poly Artwork
+                  Low Poly
                 </div>
               </div>
             </a>
@@ -219,27 +225,28 @@
     </div>
 
     <!-- CV Section -->
-    <section class="cv" id="cv">
+    <!-- <section class="cv" id="cv">
       <h2>CV/Resume</h2>
-      <a class="btn btn-light btn-xl" href="https://drive.google.com/file/d/1KdjZGwQJ-NpZGEK-ZCEoBvjcGHafJrhF/view" target="_blank">View Now!</a>
-    </section>
+      <a class="btn btn-light btn-xl" href="https://drive.google.com/file/d/1KdjZGwQJ-NpZGEK-ZCEoBvjcGHafJrhF/view" target="_blank">CV</a>
+    </section> -->
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <h2 class="mt-0">Contact</h2>
-            <hr class="divider_center light my-4">
-            <p class="">Fancy getting in touch? Send me a message and I'll get back to you as soon as possible!</p>
+            <!-- <h2 class="mt-0">Contact</h2> -->
+            <!-- <hr class="divider_center light my-4"> -->
+            <!-- <p class="">Fancy getting in touch? Send me a message and I'll get back to you as soon as possible!</p> -->
           </div>
         </div>
         <div class="row justify-content-center">
-          <a href="mailto:jamesalexatkin@gmail.com" class="icon-button envelope"><i
+          <a href="https://drive.google.com/file/d/1KdjZGwQJ-NpZGEK-ZCEoBvjcGHafJrhF/view" target="_blank" class="icon-button contact-button cv-button"><i class="fa fa-cv-button">CV</i><span></span></a>
+          <a href="mailto:jamesalexatkin@gmail.com" class="icon-button contact-button envelope"><i
               class="fa fa-envelope"></i><span></span></a>
-          <a href="https://github.com/jamesalexatkin" target="_blank" class="icon-button github"><i
+          <a href="https://github.com/jamesalexatkin" target="_blank" class="icon-button contact-button github"><i
               class="fa fa-github"></i><span></span></a>
-          <a href="https://www.linkedin.com/in/james-atkin-12555777/" target="_blank" class="icon-button linkedin"><i
+          <a href="https://www.linkedin.com/in/james-atkin-12555777/" target="_blank" class="icon-button contact-button linkedin"><i
               class="fa fa-linkedin"></i><span></span></a>
         </div>
     </section>

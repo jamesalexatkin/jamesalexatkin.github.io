@@ -280,13 +280,9 @@ p {
 }
 
 .intro {
-  /* font-family: 'Nunito', sans-serif; */
   font-family: "PT Mono", monospace;
   font-size: 12px;
   text-align: left;
-  color: var(--nord2);
-  /* padding-left: 10%; */
-  /* padding-right: 10%; */
 }
 
 .intro_divider {
@@ -312,7 +308,7 @@ p {
 
 .github-section {
   overflow: hidden;
-  padding: 100px;
+  padding: 48px;
   margin: inherit;
   text-align: center;
   border-radius: var(--border-amount);
@@ -543,10 +539,6 @@ blockquote {
 b,
 strong {
   font-weight: bolder;
-}
-
-small {
-  font-size: 80%;
 }
 
 sub,
@@ -842,7 +834,6 @@ hr {
 
 small,
 .small {
-  font-size: 80%;
   font-weight: 400;
   font-family: PT Mono, monospace;
 }

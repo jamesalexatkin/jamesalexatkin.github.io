@@ -371,19 +371,21 @@ p {
 }
 
 .btn {
-  background-color: var(--nord4);
+  color: white;
+  background-color: var(--nord9);
 }
 
 .btn:hover {
   color: var(--nord0);
-  background-color: var(--nord5);
+  background-color: var(--nord10);
   /* border-color: #dae0e5; */
 }
 
-.btn:focus, .btn.focus {
+/* .btn:focus, .btn.focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
-}
+} */
+
 
 /* Circle */
 .icon-button span {
@@ -2978,13 +2980,6 @@ textarea.form-control {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
-.btn dark-mode {
-  font-size: 22pt;
-}
-
-.btn:hover dark-mode {
-  font-size: 25pt;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .btn {
@@ -2995,8 +2990,8 @@ textarea.form-control {
 
 .btn:focus, .btn.focus {
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem var(--nord10);
+  box-shadow: 0 0 0 0.2rem var(--nord10);
 }
 
 .btn.disabled, .btn:disabled {

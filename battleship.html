@@ -17,6 +17,8 @@
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'
     rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet"> 
 
   <!-- Plugin CSS -->
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -28,36 +30,34 @@
 
 <body id="page-top">
 
-  <!-- Navbar/header -->
-  <div class="header">
-    <div class="logo">
-      <a href="index.html" class="link">
-        <div class="title">James Atkin</div>
-        <div class="bar"></div>
-      </a>
+    <!-- Navbar/header -->
+    <div class="header" id="header">
+      <div class="logo">
+        <a href="index.html" class="link">
+          <div class="title">James Atkin</div>
+        </a>
+      </div>
+      <div class="menu">
+        <!-- <a href="#about" class="link-about">
+          <div class="title">About</div>
+          <div class="bar"></div>
+        </a> -->
+        <a href="index.html#portfolio" class="link-projects">
+          <div class="title">Projects</div>
+        </a>
+        <!-- <a href="#cv" class="link-cv">
+          <div class="title">CV</div>
+          <div class="bar"></div>
+        </a> -->
+        <a href="index.html#contact" class="link-contact">
+          <div class="title">Contact</div>
+        </a>
+        <!-- <button class="btn dark-mode" onclick="toggleLightDark()" id="btnToggle" style="font-size: 22pt;"><i class="fa fa-moon-o fa"></i></button> -->
+        <a onClick="toggleLightDark()" class="icon-button dark" id="btnToggle">
+          <i class="fa fa-moon-o"></i><span></span>
+        </a>      
+      </div>
     </div>
-    <div class="menu">
-      <a href="index.html#about" class="link-about">
-        <div class="title">About</div>
-        <div class="bar"></div>
-      </a>
-      <a href="index.html#portfolio" class="link-projects">
-        <div class="title">Projects</div>
-        <div class="bar"></div>
-      </a>
-      <a href="index.html#cv" class="link-cv">
-        <div class="title">CV</div>
-        <div class="bar"></div>
-      </a>
-      <a href="index.html#contact" class="link-contact">
-        <div class="title">Contact</div>
-        <div class="bar"></div>
-      </a>
-      <a onClick="toggleLightDark()" class="icon-button dark" id="btnToggle">
-        <i class="fa fa-moon-o"></i><span></span>
-      </a>
-    </div>
-  </div>
 
   <script src="toggleDarkMode.js"></script>
 
@@ -65,15 +65,14 @@
   <div class="main">
 
     <!-- About Section -->
-    <section class="battleship-about" id="battleship-about">
+    <section class="about" id="about">
       <div class="intro">
-        <h2>Battleship Antarctica</h2>
-        <hr class="divider_left light my-4">
-        <p>Battleship Antarctica is a 2D arcade-style shooter game developed in Java. You
-          control a battleship fighting other ships amongst the icecaps of Antarctica, aiming to be the last one
-          standing. Pickups are available to alter gameplay in various ways.
-          The game was developed as part of a team project in my second year of university. It features a custom
-          built rendering and physics engine, and supports singleplayer and multiplayer modes.</p>
+        <h4>Battleship Antarctica</h4>
+        <p>Battleship Antarctica is a 2D arcade-style shooter game developed in Java. Players
+          control battleships fighting amongst the icecaps of Antarctica, aiming to be the last one
+          standing. Pickups are available to alter gameplay in various ways.</p>
+        <p>The game was developed as part of a team project in my second year of uni. It features a custom
+          built rendering and physics engine, procedural terrain generation using Perlin noise, and supports singleplayer and multiplayer modes.</p>
       </div>
     </section>
 
@@ -127,11 +126,10 @@
     </script>
 
     <!-- CV Section -->
-    <section class="cv" id="cv">
-      <h2>Download</h2>
+    <section class="github-section" id="github-section">
       <p>The game can be downloaded as a JAR file below.</p>
-      <a class="btn btn-light btn-xl" href="downloads/BattleshipAntarctica.jar">Download</a>
-    </section>
+      <a class="btn" href="downloads/BattleshipAntarctica.jar">Download</a>
+       </section>
 
   </div>
 

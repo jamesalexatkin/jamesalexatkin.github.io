@@ -115,6 +115,10 @@ body {
   color: #fff;
 }
 
+.link.dark-mode {
+  background-color: transparent;
+}
+
 .fa-sun-o {
   color: #fff;
 }
@@ -177,6 +181,7 @@ p {
   width: 70%;
   text-align: right;
   position: relative;
+  margin-top: 16px;
   margin-left: 15%;
   color: var(--nord0);
   /* background: var(--nord5); */
@@ -196,7 +201,7 @@ p {
 .link-contact {
   display: inline-block;
   padding: 15px 0;
-  margin: 15px 25px;
+  /* margin: 15px 25px; */
   position: relative;
   text-decoration: none;
   /* text-transform: uppercase; */
@@ -279,7 +284,7 @@ a:hover {
 }
 
 .about {
-  padding-left: 32px;
+  padding-left: 4px;
   margin: inherit;
 }
 
@@ -414,7 +419,7 @@ a:hover {
 	margin: -1.8rem;
 }
 .dark {
-  top: 20px;
+  /* top: 20px; */
   background-color: transparent;
 }
 .dark span {

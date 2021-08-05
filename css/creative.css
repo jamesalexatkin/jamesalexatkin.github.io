@@ -227,6 +227,10 @@ p {
   bottom: 5px;
 }
 
+a:hover {
+  transition: 0.3s;
+}
+
 .link-about:hover {
   color: var(--about-color);
 }
@@ -325,7 +329,7 @@ p {
   margin-right: auto;
   overflow: hidden;
   border-radius: var(--border-amount);
-  width: 15%;
+  width: 50%;
 
 }
 
@@ -11155,4 +11159,5 @@ header.masthead h1 {
 
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
+  transition: all 0.3s;
 }

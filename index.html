@@ -20,10 +20,8 @@
   <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet"> 
-
-
+  <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet"> 
 
   <!-- Plugin CSS -->
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -34,6 +32,8 @@
 
 
 <body id="page-top">
+
+  
 
   <!-- Navbar/header -->
   <div class="header" id="header">
@@ -64,7 +64,9 @@
     </div>
   </div>
 
-  <script src="toggleDarkMode.js"></script>
+  
+
+  
 
   <!-- Main page -->
   <div class="main">
@@ -269,6 +271,15 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
+
+  <!-- Dark mode scripts -->
+  <script src="toggleDarkMode.js"></script>
+  <script>
+    // Set initial state
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      toggleLightDark();
+    }
+  </script>
 
 </body>
 

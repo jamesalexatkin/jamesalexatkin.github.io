@@ -5,6 +5,6 @@ vendor/
 _site/
 dist/
 node_modules
-# compiled css/js (if you want to ignore all compiled CSS)
-css/*.min.css
+# compiled css/js
+css/*.css
 js/*.min.js

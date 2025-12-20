@@ -1,3 +1,10 @@
-    _site/
-node_modules
 Site_Workspace.code-workspace
+
+# build output / generated
+vendor/
+_site/
+dist/
+node_modules
+# compiled css/js (if you want to ignore all compiled CSS)
+css/*.css
+js/*.min.js

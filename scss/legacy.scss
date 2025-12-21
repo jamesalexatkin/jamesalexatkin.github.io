@@ -65,9 +65,19 @@
 
     // New colours
     --deep-black: #0c0c0c;
+    --off-white: #faf8f4;
+    --ecru: #fbf3d3;
+    --burgundian: #5a0f19;
+    --oxbridge-blue: #0c2340;
+    --racing-green: #003d32;
+    
+    --burgundian-75: #5a0f19bf;
+    --burgundian-85: #5a0f19d9;
+    --oxbridge-blue-85: #0c2340d9;
+    --racing-green-85: #003d32d9;
 
     /* Easy way to set page elements */
-    --body-background-color: var(--nord6);
+    --body-background-color: var(--off-white);
     --body-color: var(--deep-black);
     --header-color: var(--deep-black);
     --writing-hover-color: var(--nord11);
@@ -269,7 +279,11 @@ a:active {
     margin-top: 2px;
     padding: 15px 0;
     position: relative;
-    font-size: 22px;
+    font-size: 1.8rem;
+}
+
+.writing-link {
+    margin-right: 18px;
 }
 
 .writing-link:hover {
@@ -309,7 +323,7 @@ a:active {
 .intro {
     margin-left: 6px;
     font-family: "PT Mono", monospace;
-    font-size: 12px;
+    font-size: 16px;
     text-align: left;
 }
 
@@ -925,22 +939,6 @@ mark,
 
 .blockquote-footer::before {
     content: "\2014\00A0";
-}
-
-.img-fluid {
-    max-width: 100%;
-    height: auto;
-    padding: 4px;
-    border-radius: var(--border-amount);
-}
-
-.img-thumbnail {
-    padding: 0.25rem;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    max-width: 100%;
-    height: auto;
 }
 
 .figure {
@@ -11537,69 +11535,148 @@ header.masthead h1 {
     }
 }
 
-#portfolio .container-fluid {
-    max-width: 1920px;
-    font-family: PT Mono, monospace;
-}
+// #portfolio .container-fluid {
+//     max-width: 1920px;
+//     font-family: PT Mono, monospace;
+// }
 
-#portfolio .container-fluid .portfolio-box {
+// #portfolio .container-fluid .portfolio-box {
+//     position: relative;
+//     display: block;
+//     padding: 4px;
+// }
+
+// #portfolio .container-fluid .portfolio-box .portfolio-box-caption {
+//     display: -webkit-box;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -webkit-box-align: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+//     -webkit-box-pack: center;
+//     -ms-flex-pack: center;
+//     justify-content: center;
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     bottom: 0;
+//     text-align: center;
+//     opacity: 0;
+//     color: #fff;
+//     background: rgba(255, 131, 125, 0.75);
+//     -webkit-transition: opacity 0.25s ease;
+//     transition: opacity 0.25s ease;
+//     text-align: center;
+//     border-radius: var(--border-amount);
+// }
+
+// #portfolio
+//     .container-fluid
+//     .portfolio-box
+//     .portfolio-box-caption
+//     .project-category {
+//     font-size: 0.85rem;
+//     font-weight: 600;
+//     text-transform: uppercase;
+//     width: 80%;
+// }
+
+// #portfolio
+//     .container-fluid
+//     .portfolio-box
+//     .portfolio-box-caption
+//     .project-name {
+//     font-size: 1.2rem;
+// }
+
+// #portfolio .project-name {
+//     font-family: var(--font-family-serif);
+// }
+
+// #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption {
+//     opacity: 1;
+//     transition: all 0.3s;
+// }
+
+/* Portfolio card */
+.portfolio-box {
     position: relative;
     display: block;
-    padding: 4px;
-}
-
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    opacity: 0;
-    color: #fff;
-    background: rgba(255, 131, 125, 0.75);
-    -webkit-transition: opacity 0.25s ease;
-    transition: opacity 0.25s ease;
-    text-align: center;
-    border-radius: var(--border-amount);
-}
-
-#portfolio
-    .container-fluid
-    .portfolio-box
-    .portfolio-box-caption
-    .project-category {
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    width: 80%;
     font-size: 0.85rem;
     font-weight: 600;
-    text-transform: uppercase;
-    width: 80%;
+    align-items: center;
+    border-radius: var(--border-amount);
+    border-style: solid;
+    border-color: var(--deep-black);
+    border-width: 2px;
 }
 
-#portfolio
-    .container-fluid
-    .portfolio-box
-    .portfolio-box-caption
-    .project-name {
+/* Overlay */
+.portfolio-box-caption {
+    position: absolute;
+    inset: 0;
+    background: var(--burgundian-85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
+
+.portfolio-box-caption-color-1 {
+    background: var(--burgundian-85);
+
+}
+.portfolio-box-caption-color-2 {
+    background: var(--oxbridge-blue-85);
+
+}
+.portfolio-box-caption-color-3 {
+    background: var(--racing-green-85);
+
+}
+
+.project-name {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-family-serif);
     font-size: 1.2rem;
 }
 
-#portfolio .project-name {
-    font-family: var(--font-family-serif);
+.project-category {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-#portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption {
+.img-fluid {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    max-width: 100%;
+    height: auto;
+}
+
+.img-fluid:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-box:hover .portfolio-box-caption {
     opacity: 1;
-    transition: all 0.3s;
 }

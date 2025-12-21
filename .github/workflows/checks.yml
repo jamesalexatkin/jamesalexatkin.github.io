@@ -1,0 +1,17 @@
+# Static checks (e.g. linting, Lighthouse)
+name: Static checks
+
+on:
+    # Runs on pushes targeting the default branch
+    push:
+        branches: ["master"]
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    accessibility:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Lighthouse CI Action
+              uses: treosh/lighthouse-ci-action@12.6.1

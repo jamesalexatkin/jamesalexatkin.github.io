@@ -14,73 +14,99 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-    --blue: #007bff;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #e83e8c;
-    --red: #dc3545;
-    --orange: #f4623a;
-    --yellow: #ffc107;
-    --green: #28a745;
-    --teal: #20c997;
-    --cyan: #17a2b8;
-    --white: #fff;
-    --gray: #6c757d;
-    --gray-dark: #343a40;
-    --primary: #f4623a;
-    --secondary: #6c757d;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --light: #f8f9fa;
-    --dark: #343a40;
-    /* Custom colors */
-    --dark-pastel-blue: #728dbe;
-    --cadet-blue: #73ada4;
-    --ucla-blue: #54688c;
-    --asparagus: #71a372;
-    --coral-pink: #ff837d;
-    --taupe-gray: #83868c;
-    --dark-terracotta: #dc505e;
-    --deep-carmine: #b02a3c;
-    --ube: #8c72bd;
-    /* Nord colors */
-    --nord0: #2e3440;
-    --nord1: #3b4252;
-    --nord2: #434c5e;
-    --nord3: #4c566a;
-    --nord4: #d8dee9;
-    --nord5: #e5e9f0;
-    --nord6: #eceff4;
-    --nord7: #8fbcbb;
-    --nord8: #88c0d0;
-    --nord9: #81a1c1;
-    --nord10: #5e81ac;
-    --nord11: #bf616a;
-    --nord12: #d08770;
-    --nord13: #ebcb8b;
-    --nord14: #a3be8c;
-    --nord15: #b48ead;
-    /* Easy way to set page elements */
-    --body-color: var(--nord6);
-    --writing-color: var(--nord11);
-    --battleship-color: var(--nord12);
-    --border-amount: 8px;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #f4623a;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #f4623a;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  /* Custom colors */
+  --dark-pastel-blue: #728dbe;
+  --cadet-blue: #73ada4;
+  --ucla-blue: #54688c;
+  --asparagus: #71a372;
+  --coral-pink: #ff837d;
+  --taupe-gray: #83868c;
+  --dark-terracotta: #dc505e;
+  --deep-carmine: #b02a3c;
+  --ube: #8c72bd;
+  /* Nord colors */
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord2: #434c5e;
+  --nord3: #4c566a;
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord6: #eceff4;
+  --nord7: #8fbcbb;
+  --nord8: #88c0d0;
+  --nord9: #81a1c1;
+  --nord10: #5e81ac;
+  --nord11: #bf616a;
+  --nord12: #d08770;
+  --nord13: #ebcb8b;
+  --nord14: #a3be8c;
+  --nord15: #b48ead;
+  /* Other colours  */
+  --off-white: #FAF8F4;
+  --ecru: #FBF3D3;
+  --deep-black: #0C0C0C;
+  --oxbridge-blue: #0C2340;
+  --racing-green: #003D32;
+  --burgundian: #5A0F19;
+  --burgundian-75: #5A0F19BF;
+  /* Easy way to set page elements */
+  --body-color: var(--ecru);
+  --header-text-color: var(--deep-black);
+  --writing-color: var(--nord11);
+  --battleship-color: var(--nord12);
+  --border-amount: 8px;
     --link-underline: var(--nord9);
-    /* Dark mode page elements */
-    --dark-body-color: var(--nord0);
+  // --text-dark: #343a40;
+  --text-dark-focus: #121416;
+  /* Dark mode page elements */
+  --dark-body-color: var(--off-white);
 
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --font-family-sans-serif: "Merriweather Sans", -apple-system,
-        BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-        "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-        "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-monospace: PT Mono, monospace;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Merriweather Sans", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-family-monospace: PT Mono, monospace;
+
+  --font-family-header: "Bell MT", PT Mono, Georgia, serif;
+  --font-family-subtitle: Inter, sans-serif;
+
+}
+
+@font-face {
+  font-family: "Bell MT";
+  src:  local("Bell MT"),
+        url("../font/bell-mt/bell-mt.woff2") format("woff2"),
+        url("../font/bell-mt/bell-mt.woff") format("woff"),
+        url("../font/bell-mt/bell-mt.ttf") format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 *,
@@ -111,13 +137,13 @@ section {
 }
 
 body {
-    margin: 0;
-    font-family: "PT Mono", monospace;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: left;
-    color: var(--nord2);
+  margin: 0;
+  font-family: var(--font-family-monospace);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--deep-black);
 
     text-align: left;
     background-color: var(--body-color);
@@ -191,20 +217,20 @@ p {
 }
 
 .header {
-    /* font-family: "Poppins"; */
-    font-family: "PT Mono", monospace;
-    /* font-family: 'Nunito', sans-serif; */
-    width: 70%;
-    text-align: right;
-    position: relative;
-    margin-top: 16px;
-    margin-left: 15%;
-    color: var(--nord0);
-    display: flex;
-    flex-direction: row;
-    gap: 50%;
-    justify-content: space-between;
-    /* background: var(--nord5); */
+  /* font-family: "Poppins"; */
+  font-family: var(--font-family-header);
+  /* font-family: 'Nunito', sans-serif; */
+  width: 70%;
+  text-align: right;
+  position: relative;
+  margin-top: 16px;
+  margin-left: 15%;
+  color: var(--header-text-color);
+  display: flex;
+  flex-direction: row;
+  gap: 50%;
+  justify-content: space-between;
+  /* background: var(--nord5); */
 }
 .header .logo {
     /* position: absolute; */
@@ -283,10 +309,10 @@ a:active {
 }
 
 .intro {
-    margin-left: 6px;
-    font-family: "PT Mono", monospace;
-    font-size: 12px;
-    text-align: left;
+  margin-left: 6px;
+  font-family: var(--font-family-subtitle);
+  font-size: 12px;
+  text-align: left;
 }
 
 .intro_divider {
@@ -323,17 +349,17 @@ a:active {
 }
 
 .contact {
-    font-family: "PT Mono", monospace;
-    font-size: 20px;
-    /* background-color: var(--nord12); */
-    color: inherit;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    border-radius: var(--border-amount);
-    width: 50%;
+  font-family: var(--font-family-monospace);
+  font-size: 20px;
+  /* background-color: var(--nord12); */
+  color: inherit;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  border-radius: var(--border-amount);
+  width: 50%;
 }
 
 .main {
@@ -469,9 +495,9 @@ a:active {
     color: var(--asparagus);
 }
 .icon-button .fa-cv-button {
-    color: var(--nord7);
-    font-size: 22px;
-    font-family: PT Mono, monospace;
+  color: var(--nord7);
+  font-size: 22px;
+  font-family: var(--font-family-monospace);
 }
 .icon-button .fa-envelope {
     color: var(--dark-terracotta);
@@ -855,8 +881,8 @@ hr {
 
 small,
 .small {
-    font-weight: 400;
-    font-family: PT Mono, monospace;
+  font-weight: 400;
+  font-family: var(--font-family-monospace);
 }
 
 mark,
@@ -11207,13 +11233,22 @@ a.text-light:focus {
     color: #cbd3da !important;
 }
 
+
 .text-dark {
+<<<<<<< HEAD
     color: #343a40 !important;
+=======
+  color: var(--text-dark) !important;
+>>>>>>> 9a70265 (add fonts and some new styles)
 }
 
 a.text-dark:hover,
 a.text-dark:focus {
+<<<<<<< HEAD
     color: #121416 !important;
+=======
+  color: var(--text-dark-focus) !important;
+>>>>>>> 9a70265 (add fonts and some new styles)
 }
 
 .text-body {
@@ -11514,8 +11549,13 @@ header.masthead h1 {
 }
 
 #portfolio .container-fluid {
+<<<<<<< HEAD
     max-width: 1920px;
     font-family: PT Mono, monospace;
+=======
+  max-width: 1920px;
+  font-family: var(--font-family-monospace);
+>>>>>>> 9a70265 (add fonts and some new styles)
 }
 
 #portfolio .container-fluid .portfolio-box {
@@ -11525,6 +11565,7 @@ header.masthead h1 {
 }
 
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption {
+<<<<<<< HEAD
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -11550,6 +11591,33 @@ header.masthead h1 {
     transition: opacity 0.25s ease;
     text-align: center;
     border-radius: var(--border-amount);
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: var(--burgundian-75);
+  -webkit-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+  text-align: center;
+  border-radius: var(--border-amount);
+>>>>>>> 9a70265 (add fonts and some new styles)
 }
 
 #portfolio

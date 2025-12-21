@@ -81,6 +81,21 @@
         "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
         "Segoe UI Symbol", "Noto Color Emoji";
     --font-family-monospace: PT Mono, monospace;
+    --font-family-serif: "Bell MT", PT Mono, Georgia, serif;
+    // --font-family-subtitle: Inter, sans-serif;
+    --font-family-subtitle: var(--font-family-monospace);
+}
+
+@font-face {
+    font-family: "Bell MT";
+    src: local("Bell MT"),
+        url("../asset/font/bell-mt/bell-mt.woff2") format("woff2"),
+        url("../asset/font/bell-mt/bell-mt.woff") format("woff"),
+        url("../asset/font/bell-mt/bell-mt.ttf") format("truetype");
+    font-weight: 100;
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 *,
@@ -191,9 +206,9 @@ p {
 }
 
 .header {
-    /* font-family: "Poppins"; */
-    font-family: "PT Mono", monospace;
-    /* font-family: 'Nunito', sans-serif; */
+    // font-family: var(--font-family-monospace);
+    font-family: var(--font-family-serif);
+    font-weight: 700;
     width: 70%;
     text-align: right;
     position: relative;
@@ -246,7 +261,6 @@ a:active {
     margin-top: 2px;
     padding: 15px 0;
     position: relative;
-    font-weight: 400;
     font-size: 22px;
 }
 
@@ -11571,6 +11585,10 @@ header.masthead h1 {
     .portfolio-box-caption
     .project-name {
     font-size: 1.2rem;
+}
+
+#portfolio .project-name {
+    font-family: var(--font-family-serif);
 }
 
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption {

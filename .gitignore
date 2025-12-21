@@ -8,3 +8,5 @@ node_modules
 # compiled css/js
 css/*.css
 js/*.min.js
+css/*.map
+js/*.map

@@ -67,7 +67,7 @@
     --writing-color: var(--nord11);
     --battleship-color: var(--nord12);
     --border-amount: 8px;
-    --link-underline: var(--nord9);
+    --link-underline: var(--nord10);
     /* Dark mode page elements */
     --dark-body-color: var(--nord0);
 
@@ -198,6 +198,7 @@ p {
     text-align: right;
     position: relative;
     margin-top: 16px;
+    margin-bottom: 48px;
     margin-left: 15%;
     color: var(--nord0);
     display: flex;
@@ -241,19 +242,20 @@ a:active {
     transition: 0.3s;
 }
 
-.link,
-.link-writing {
+.header-link {
     margin-top: 2px;
-    margin-right: 20px;
     padding: 15px 0;
     position: relative;
-    text-decoration: none;
     font-weight: 400;
     font-size: 22px;
 }
 
-.link-writing:hover {
+.writing-link:hover {
     color: var(--writing-color);
+    background-image: linear-gradient(
+        var(--writing-color),
+        var(--writing-color)
+    );
 }
 
 .four-oh-four {

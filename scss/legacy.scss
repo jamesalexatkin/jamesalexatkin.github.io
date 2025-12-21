@@ -275,6 +275,15 @@ a:active {
     transition: 0.3s;
 }
 
+// Needed in order to override the <a> rollover effects
+.icon-button:hover,
+.icon-button:focus,
+.icon-button:active {
+    text-decoration: none;
+    background-image: none;
+    background-size: 0% 0rem;
+}
+
 .header-link {
     margin-top: 2px;
     padding: 15px 0;
@@ -394,7 +403,7 @@ a:active {
 /* Wrapper */
 .icon-button {
     background-color: var(--nord5);
-    border-radius: 3.6rem;
+    // border-radius: 3.6rem;
     cursor: pointer;
     display: inline-block;
     font-size: 28px;
@@ -402,12 +411,17 @@ a:active {
     line-height: 3.6rem;
     margin: 5px 5px;
     position: relative;
+    text-decoration: none;
     text-align: center;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     width: 3.6rem;
+    border-radius: var(--border-amount);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--deep-black);
 }
 
 .icon-button.contact-button.dark-mode {
@@ -423,6 +437,7 @@ a:active {
     color: var(--nord0);
     background-color: var(--nord10);
     /* border-color: #dae0e5; */
+    background-size: 0%;
 }
 
 /* .btn:focus, .btn.focus {
@@ -439,17 +454,13 @@ a:active {
     margin: 0;
     position: relative;
     top: 50%;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
     width: 0;
 }
 .icon-button:hover span {
     width: 3.6rem;
     height: 3.6rem;
-    border-radius: 3.6rem;
     margin: -1.8rem;
+    border-radius: var(--border-amount);
 }
 .dark {
     /* top: 20px; */
@@ -489,10 +500,10 @@ a:active {
     line-height: 3.6rem;
     position: absolute;
     top: 0;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+    transition: all 0.7s ease;
+    -webkit-transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
     width: 3.6rem;
     z-index: 10;
 }
@@ -597,17 +608,6 @@ sub {
 sup {
     top: -0.5em;
 }
-
-// a {
-//     color: var(--nord2);
-//     text-decoration: none;
-//     background-color: transparent;
-// }
-
-// a:hover {
-//     color: #5d99c6;
-//     text-decoration: none;
-// }
 
 a:not([href]):not([tabindex]) {
     color: inherit;

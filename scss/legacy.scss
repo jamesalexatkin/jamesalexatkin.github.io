@@ -62,12 +62,19 @@
     --nord13: #ebcb8b;
     --nord14: #a3be8c;
     --nord15: #b48ead;
+
+    // New colours
+    --deep-black: #0c0c0c;
+
     /* Easy way to set page elements */
-    --body-color: var(--nord6);
-    --writing-color: var(--nord11);
+    --body-background-color: var(--nord6);
+    --body-color: var(--deep-black);
+    --header-color: var(--deep-black);
+    --writing-hover-color: var(--nord11);
     --battleship-color: var(--nord12);
     --border-amount: 8px;
-    --link-underline: var(--nord10);
+    --link-underline-color: var(--deep-black);
+
     /* Dark mode page elements */
     --dark-body-color: var(--nord0);
 
@@ -132,10 +139,10 @@ body {
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
-    color: var(--nord2);
+    color: var(--body-color);
 
     text-align: left;
-    background-color: var(--body-color);
+    background-color: var(--body-background-color);
 }
 
 .dark-mode {
@@ -215,7 +222,7 @@ p {
     margin-top: 16px;
     margin-bottom: 48px;
     margin-left: 15%;
-    color: var(--nord0);
+    color: var(--header-color);
     display: flex;
     flex-direction: row;
     gap: 50%;
@@ -238,11 +245,12 @@ p {
 }
 
 a {
+    color: var(--body-color);
     font-weight: 700;
-    text-decoration: underline;
+    text-decoration: none;
     background-image: linear-gradient(
-        var(--link-underline),
-        var(--link-underline)
+        var(--link-underline-color),
+        var(--link-underline-color)
     );
     background-size: 0% 0.1em;
     background-position-y: 100%;
@@ -265,10 +273,10 @@ a:active {
 }
 
 .writing-link:hover {
-    color: var(--writing-color);
+    color: var(--writing-hover-color);
     background-image: linear-gradient(
-        var(--writing-color),
-        var(--writing-color)
+        var(--writing-hover-color),
+        var(--writing-hover-color)
     );
 }
 
@@ -576,16 +584,16 @@ sup {
     top: -0.5em;
 }
 
-a {
-    color: var(--nord2);
-    text-decoration: none;
-    background-color: transparent;
-}
+// a {
+//     color: var(--nord2);
+//     text-decoration: none;
+//     background-color: transparent;
+// }
 
-a:hover {
-    color: #5d99c6;
-    text-decoration: none;
-}
+// a:hover {
+//     color: #5d99c6;
+//     text-decoration: none;
+// }
 
 a:not([href]):not([tabindex]) {
     color: inherit;

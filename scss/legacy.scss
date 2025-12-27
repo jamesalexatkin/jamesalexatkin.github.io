@@ -70,6 +70,7 @@
     --burgundian: #5a0f19;
     --oxbridge-blue: #0c2340;
     --racing-green: #003d32;
+    --canard: #265ead;
 
     --burgundian-75: #5a0f19bf;
     --burgundian-85: #5a0f19d9;
@@ -84,6 +85,9 @@
     --battleship-color: var(--nord12);
     --border-amount: 8px;
     --link-underline-color: var(--deep-black);
+    --project-name-project-color: var(--cadet-blue);
+    --project-name-writing-color: var(--coral-pink);
+    --project-name-photography-color: var(--asparagus);
 
     /* Dark mode page elements */
     --dark-body-color: var(--nord0);
@@ -235,7 +239,6 @@ p {
     color: var(--header-color);
     display: flex;
     flex-direction: row;
-    gap: 50%;
     justify-content: space-between;
     /* background: var(--nord5); */
 }
@@ -289,6 +292,7 @@ a:active {
     padding: 15px 0;
     position: relative;
     font-size: 1.8rem;
+    text-wrap: nowrap;
 }
 
 .writing-link {
@@ -325,7 +329,6 @@ a:active {
 }
 
 .about {
-    padding-left: 4px;
     margin: inherit;
 }
 
@@ -343,10 +346,27 @@ a:active {
     color: fff;
 }
 
+h1 {
+    font-family: var(--font-family-serif);
+    color: var(--deep-black);
+    font-size: 2rem;
+}
+
 .projects {
     overflow: hidden;
     margin: inherit;
     color: var(--color-project);
+    border-bottom-style: solid;
+    border-bottom-color: var(--deep-black);
+    border-bottom-width: 1px;
+}
+
+.nav-divider {
+    width: 1px;
+    height: 1.5rem;
+    background-color: var(--deep-black);
+    margin-top: 1.8rem;
+    margin-right: 18px;
 }
 
 .screenshots {
@@ -490,6 +510,22 @@ a:active {
 .linkedin span {
     background-color: var(--dark-pastel-blue);
 }
+
+.project-name2 {
+    padding: 4px;
+}
+
+// .project-name-project:hover {
+//     background-color: var(--project-name-project-color);
+// }
+
+// .project-name-writing:hover {
+//     background-color: var(--project-name-writing-color);
+// }
+
+// .project-name-photography:hover {
+//     background-color: var(--project-name-photography-color);
+// }
 
 /* Icons */
 .icon-button i {
@@ -825,10 +861,10 @@ h6,
     line-height: 1.2;
 }
 
-h1,
-.h1 {
-    font-size: 2.5rem;
-}
+// h1,
+// .h1 {
+//     font-size: 2.5rem;
+// }
 
 h2,
 .h2 {

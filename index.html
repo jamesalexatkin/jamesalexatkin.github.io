@@ -64,12 +64,28 @@
             </a>
             <div class="right-hand-nav" role="navigation">
                 <a
-                    href="https://jamesatk.in/writing"
+                    href="#portfolio"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                >
+                    <div class="title">Projects</div>
+                </a>
+                <div class="nav-divider"></div>
+                <a
+                    href="#writing"
                     class="header-link writing-link"
                     rel="noopener noreferrer"
                 >
                     <div class="title">Writing</div>
                 </a>
+                <!-- <div class="nav-divider"></div>
+                <a
+                    href="#photography"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                >
+                    <div class="title">Photography</div>
+                </a> -->
                 <!-- <a
                     onClick="toggleLightDark()"
                     class="icon-button dark"
@@ -99,7 +115,7 @@
 
             <!-- Projects Section -->
             <div class="projects" id="portfolio">
-                <!-- <h1>Projects</h1> -->
+                <h1 class="title">Projects</h1>
                 <div class="container-fluid p-0">
                     <div class="row no-gutters">
                         <div class="col-lg-4 col-sm-6">
@@ -114,15 +130,15 @@
                                     alt="Navidrome project thumbnail"
                                 />
                                 <!--Credit: Harrison Broadbent (https://unsplash.com/photos/c3YpscwJb04)-->
-                                <div
-                                    class="portfolio-box-caption portfolio-box-caption-color-1"
-                                >
-                                    <div class="project-name">
+                                <div class="">
+                                    <div
+                                        class="project-name2 project-name-project"
+                                    >
                                         Self-hosted music streaming
                                     </div>
-                                    <div class="project-category text-white-50">
+                                    <!-- <div class="project-category text-white-50">
                                         Raspberry Pi
-                                    </div>
+                                    </div> -->
                                 </div>
                             </a>
                         </div>
@@ -137,14 +153,11 @@
                                     src="asset/img/portfolio/thumbnails/which_zelda.png"
                                     alt="which-zelda thumbnail"
                                 />
-                                <div
-                                    class="portfolio-box-caption portfolio-box-caption-color-2"
-                                >
-                                    <div class="project-name">
+                                <div class="">
+                                    <div
+                                        class="project-name2 project-name-project"
+                                    >
                                         Which Zelda games can I play?
-                                    </div>
-                                    <div class="project-category text-white-50">
-                                        React Web App
                                     </div>
                                 </div>
                             </a>
@@ -160,14 +173,11 @@
                                     src="asset/img/portfolio/thumbnails/los_santos.png"
                                     alt="Ridge map to height map thumbnail"
                                 />
-                                <div
-                                    class="portfolio-box-caption portfolio-box-caption-color-3"
-                                >
-                                    <div class="project-name">
+                                <div class="">
+                                    <div
+                                        class="project-name2 project-name-project"
+                                    >
                                         Ridge Maps from Height Maps
-                                    </div>
-                                    <div class="project-category text-white-50">
-                                        Python Data Visualisation
                                     </div>
                                 </div>
                             </a>
@@ -183,14 +193,11 @@
                                     src="asset/img/portfolio/thumbnails/caribou_states_map_26-05-20.png"
                                     alt="Choropleth thumbnail"
                                 />
-                                <div
-                                    class="portfolio-box-caption portfolio-box-caption-color-1"
-                                >
-                                    <div class="project-name">
-                                        Caribou Coffee
-                                    </div>
-                                    <div class="project-category text-white-50">
-                                        Python Data Visualisation
+                                <div class="">
+                                    <div
+                                        class="project-name2 project-name-project"
+                                    >
+                                        Caribou Coffee choropleth map
                                     </div>
                                 </div>
                             </a>
@@ -206,13 +213,11 @@
                                     src="asset/img/portfolio/thumbnails/tauntaun.png"
                                     alt="Tauntaun thumbnail"
                                 />
-                                <div
-                                    class="portfolio-box-caption portfolio-box-caption-color-2"
-                                >
-                                    <div class="project-name"> Tauntaun </div>
-                                    <div class="project-category text-white-50">
-                                        Custom map manager for Star Wars:
-                                        Battlefront II
+                                <div class="">
+                                    <div
+                                        class="project-name2 project-name-project"
+                                    >
+                                        Map manager for Star Wars Battlefront II
                                     </div>
                                 </div>
                             </a>
@@ -228,15 +233,12 @@
                                     src="asset/img/portfolio/thumbnails/masters.png"
                                     alt="Masters project thumbnail"
                                 />
-                                <div
-                                    class="portfolio-box-caption portfolio-box-caption-color-3"
-                                >
-                                    <div class="project-name">
+                                <div class="">
+                                    <div
+                                        class="project-name2 project-name-project"
+                                    >
                                         Using Community Detection to Improve
                                         Music Recommendations
-                                    </div>
-                                    <div class="project-category text-white-50">
-                                        Masters project
                                     </div>
                                 </div>
                             </a>
@@ -244,6 +246,68 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Writing Section -->
+            <div class="projects" id="portfolio">
+                <h1 class="title">Writing</h1>
+                <div class="container-fluid p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-4 col-sm-6">
+                            <a
+                                class="portfolio-box"
+                                href="https://jamesatk.in/writing/posts/mocking_dependency_injection_go/"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    class="img-fluid"
+                                    src="asset/img/portfolio/thumbnails/dependency_injection_go.png"
+                                    alt="Dependency injection in Go thumbnail"
+                                />
+                                <div class="">
+                                    <div
+                                        class="project-name2 project-name-writing"
+                                    >
+                                        Mocking with dependency injection in Go
+                                    </div>
+                                    <div class="project-category text-white-50">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photography Section -->
+            <!-- <div class="projects" id="photography">
+                <h1 class="title">Photography</h1>
+                <div class="container-fluid p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-4 col-sm-6">
+                            <a
+                                class="portfolio-box"
+                                href="/photography/rome-2024/"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    class="img-fluid"
+                                    src="asset/img/portfolio/thumbnails/rome-2024.png"
+                                    alt="Rome 2024 thumbnail"
+                                />
+                                <div class="">
+                                    <div
+                                        class="project-name2 project-name-photography"
+                                    >
+                                        Rome - 2024
+                                    </div>
+                                    <div class="project-category text-white-50">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
 
             <!-- Contact Section -->
             <section class="contact" id="contact">

@@ -97,10 +97,11 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: "Merriweather Sans", -apple-system,
-        BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-        "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-        "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-sans-serif:
+        "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
     --font-family-monospace: PT Mono, monospace;
     --font-family-serif: "Bell MT", PT Mono, Georgia, serif;
     // --font-family-subtitle: Inter, sans-serif;
@@ -109,7 +110,8 @@
 
 @font-face {
     font-family: "Bell MT";
-    src: local("Bell MT"),
+    src:
+        local("Bell MT"),
         url("../asset/font/bell-mt/bell-mt.woff2") format("woff2"),
         url("../asset/font/bell-mt/bell-mt.woff") format("woff"),
         url("../asset/font/bell-mt/bell-mt.ttf") format("truetype");
@@ -527,6 +529,59 @@ h1 {
 //     background-color: var(--project-name-photography-color);
 // }
 
+/* Writing list */
+ul.writing-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.writing-list li {
+    margin-bottom: 1.5em;
+    // border-style: solid;
+    border-width: 2px;
+    // border-color: var(--deep-black);
+    // border-bottom-style: solid;
+    border-bottom-color: var(--deep-black);
+    overflow: hidden;
+    transition:
+        background-color 0.35s ease,
+        border-radius 0.35s ease;
+}
+
+ul.writing-list li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    // border-radius: var(--border-amount);
+}
+
+.writing-link-title {
+    display: block;
+    padding: 0.6em 0.75em;
+    text-decoration: none;
+    background-size: 0% 2px;
+    font-family: var(--font-family-serif);
+}
+
+.writing-link-title:hover,
+.writing-link-title:focus,
+.writing-link-title:active {
+    background-size: 100% 2px;
+}
+
+.writing-title {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.15em;
+    color: var(--body-color);
+}
+
+.writing-subtitle {
+    font-family: var(--font-family-subtitle);
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
 /* Icons */
 .icon-button i {
     background: none;
@@ -556,7 +611,9 @@ h1 {
 .icon-button .fa-cv-button {
     color: var(--nord7);
     font-size: 22px;
-    font-family: PT Mono, monospace;
+    font-family:
+        PT Mono,
+        monospace;
 }
 .icon-button .fa-envelope {
     color: var(--dark-terracotta);
@@ -664,7 +721,8 @@ pre,
 code,
 kbd,
 samp {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    font-family:
+        SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
         "Courier New", monospace;
     font-size: 1em;
 }
@@ -930,7 +988,9 @@ hr {
 small,
 .small {
     font-weight: 400;
-    font-family: PT Mono, monospace;
+    font-family:
+        PT Mono,
+        monospace;
 }
 
 mark,
@@ -1211,7 +1271,7 @@ pre code {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 33.33333%;
     flex: 0 0 33.33333%;
-    max-width: 33.33333%;
+    max-width: 25%;
 }
 
 .col-5 {
@@ -1442,7 +1502,7 @@ pre code {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 33.33333%;
         flex: 0 0 33.33333%;
-        max-width: 33.33333%;
+        max-width: 25%;
     }
     .col-sm-5 {
         -webkit-box-flex: 0;
@@ -1643,7 +1703,7 @@ pre code {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 33.33333%;
         flex: 0 0 33.33333%;
-        max-width: 33.33333%;
+        max-width: 25%;
     }
     .col-md-5 {
         -webkit-box-flex: 0;
@@ -1844,7 +1904,7 @@ pre code {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 33.33333%;
         flex: 0 0 33.33333%;
-        max-width: 33.33333%;
+        max-width: 25%;
     }
     .col-lg-5 {
         -webkit-box-flex: 0;
@@ -2045,7 +2105,7 @@ pre code {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 33.33333%;
         flex: 0 0 33.33333%;
-        max-width: 33.33333%;
+        max-width: 25%;
     }
     .col-xl-5 {
         -webkit-box-flex: 0;
@@ -2564,12 +2624,18 @@ pre code {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
-    -webkit-transition: border-color 0.15s ease-in-out,
+    -webkit-transition:
+        border-color 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
-    transition: border-color 0.15s ease-in-out,
+    transition:
+        border-color 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    transition:
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
 }
 
@@ -2818,7 +2884,8 @@ textarea.form-control.is-valid {
 .custom-select.is-valid {
     border-color: #28a745;
     padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
-    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
+    background:
+        url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
             no-repeat right 0.75rem center/8px 10px,
         url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e")
             #fff no-repeat center right 1.75rem / calc(0.75em + 0.375rem)
@@ -2976,7 +3043,8 @@ textarea.form-control.is-invalid {
 .custom-select.is-invalid {
     border-color: #dc3545;
     padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
-    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
+    background:
+        url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
             no-repeat right 0.75rem center/8px 10px,
         url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E")
             #fff no-repeat center right 1.75rem / calc(0.75em + 0.375rem)
@@ -3183,15 +3251,26 @@ textarea.form-control.is-invalid {
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0.25rem;
-    -webkit-transition: color 0.15s ease-in-out,
-        background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    -webkit-transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
 }
 
@@ -4679,16 +4758,26 @@ input[type="button"].btn-block {
     height: calc(1rem - 4px);
     background-color: #adb5bd;
     border-radius: 0.5rem;
-    -webkit-transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out,
+    -webkit-transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-transform 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out,
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-transform 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
-    transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    transition:
+        transform 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        transform 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
         -webkit-transform 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
 }
@@ -4859,16 +4948,24 @@ input[type="button"].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-    -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
-    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
+    -webkit-box-shadow:
+        0 0 0 1px #fff,
+        0 0 0 0.2rem rgba(244, 98, 58, 0.25);
+    box-shadow:
+        0 0 0 1px #fff,
+        0 0 0 0.2rem rgba(244, 98, 58, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
+    box-shadow:
+        0 0 0 1px #fff,
+        0 0 0 0.2rem rgba(244, 98, 58, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
+    box-shadow:
+        0 0 0 1px #fff,
+        0 0 0 0.2rem rgba(244, 98, 58, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4882,14 +4979,22 @@ input[type="button"].btn-block {
     background-color: #f4623a;
     border: 0;
     border-radius: 1rem;
-    -webkit-transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
     -webkit-appearance: none;
     appearance: none;
@@ -4922,14 +5027,22 @@ input[type="button"].btn-block {
     background-color: #f4623a;
     border: 0;
     border-radius: 1rem;
-    -webkit-transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
     -moz-appearance: none;
     appearance: none;
@@ -4965,14 +5078,22 @@ input[type="button"].btn-block {
     background-color: #f4623a;
     border: 0;
     border-radius: 1rem;
-    -webkit-transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
     appearance: none;
 }
@@ -5032,14 +5153,22 @@ input[type="button"].btn-block {
 .custom-control-label::before,
 .custom-file-label,
 .custom-select {
-    -webkit-transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
 }
 
@@ -6011,15 +6140,26 @@ input[type="button"].btn-block {
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.25rem;
-    -webkit-transition: color 0.15s ease-in-out,
-        background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    -webkit-transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
         -webkit-box-shadow 0.15s ease-in-out;
 }
 
@@ -6905,7 +7045,9 @@ a.close.disabled {
     -webkit-transition: -webkit-transform 0.3s ease-out;
     transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
-    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    transition:
+        transform 0.3s ease-out,
+        -webkit-transform 0.3s ease-out;
     -webkit-transform: translate(0, -50px);
     transform: translate(0, -50px);
 }
@@ -7121,9 +7263,19 @@ a.close.disabled {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    font-family:
+        "Merriweather",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        "Noto Sans",
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
         "Noto Color Emoji";
     font-style: normal;
     font-weight: 400;
@@ -7249,9 +7401,19 @@ a.close.disabled {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    font-family:
+        "Merriweather",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        "Noto Sans",
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
         "Noto Color Emoji";
     font-style: normal;
     font-weight: 400;
@@ -7456,7 +7618,9 @@ a.close.disabled {
     -webkit-transition: -webkit-transform 0.6s ease-in-out;
     transition: -webkit-transform 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+    transition:
+        transform 0.6s ease-in-out,
+        -webkit-transform 0.6s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -11080,7 +11244,8 @@ button.bg-dark:focus {
 }
 
 .text-monospace {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    font-family:
+        SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
         "Courier New", monospace !important;
 }
 
@@ -11454,9 +11619,19 @@ hr.light {
 }
 
 #mainNav .navbar-brand {
-    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    font-family:
+        "Merriweather Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        "Noto Sans",
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
         "Noto Color Emoji";
     font-weight: 700;
     color: #212529;
@@ -11464,9 +11639,19 @@ hr.light {
 
 #mainNav .navbar-nav .nav-item .nav-link {
     color: #6c757d;
-    font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    font-family:
+        "Merriweather Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        "Noto Sans",
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
         "Noto Color Emoji";
     font-weight: 700;
     font-size: 0.9rem;
@@ -11526,7 +11711,8 @@ hr.light {
 header.masthead {
     padding-top: 10rem;
     padding-bottom: calc(10rem - 72px);
-    background: -webkit-gradient(
+    background:
+        -webkit-gradient(
             linear,
             left top,
             left bottom,
@@ -11534,7 +11720,8 @@ header.masthead {
             to(rgba(92, 77, 66, 0.8))
         ),
         url("../img/bg-masthead.jpg");
-    background: linear-gradient(
+    background:
+        linear-gradient(
             to bottom,
             rgba(92, 77, 66, 0.8) 0%,
             rgba(92, 77, 66, 0.8) 100%
@@ -11573,7 +11760,9 @@ header.masthead h1 {
 
 #portfolio .container-fluid {
     max-width: 1920px;
-    font-family: PT Mono, monospace;
+    font-family:
+        PT Mono,
+        monospace;
 }
 
 // #portfolio .container-fluid .portfolio-box {

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel=icon href=/favicon.png>
+  <title>Creating "Mot du Jour" — James Atkin</title>
+  <meta name="description" content="Building a desk companion to learn French, one word at a time.">
+  <meta property="og:title" content="Creating "Mot du Jour"">
+  <meta property="og:description" content="Building a desk companion to learn French, one word at a time.">
+
+  <!-- Main site stylesheet — single source of truth for design tokens -->
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link rel="stylesheet" href="/css/creative.css"  />
+  <!-- Blog-specific styles (post__* classes, code highlighting, etc.) -->
+  <link rel="stylesheet" href="/writing/static/writing.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       NAV — copy from your main site and keep in sync
+       ===================================================================== -->
+  <!-- NAV — matches main site markup, anchor links point back to / -->
+  <div class="header" id="header" role="banner">
+    <a href="/" class="header-link">
+      <span>James Atkin</span>
+    </a>
+    <div class="right-hand-nav" role="navigation">
+      <a href="/#portfolio" class="header-link writing-link" rel="noopener noreferrer">
+        <div class="title">Projects</div>
+      </a>
+      <div class="nav-divider"></div>
+      <a href="/writing/" class="header-link writing-link" rel="noopener noreferrer">
+        <div class="title">Writing</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       PAGE CONTENT
+       ===================================================================== -->
+  <main class="site-main">
+    
+    <article class="post">
+      <header class="post__header">
+        <h1 class="post__title">Creating "Mot du Jour"</h1>
+        <div class="post-meta">
+          <time class="post-meta__date" datetime="2025-07-29">2025-07-29</time>
+          <ul class="post-meta__tags"><li class="post-meta__tag">arduino</li><li class="post-meta__tag">esp32</li><li class="post-meta__tag">go</li></ul>
+        </div>
+        <p class='post__description'>Building a desk companion to learn French, one word at a time.</p>
+      </header>
+
+      <div class="post__body">
+        <p class="post__p">At the start of 2025, I resolved to do something I'd been meaning to do for years: pick up language learning again. I hadn't touched French since finishing GCSEs over a decade ago, but a trip to Italy sparked my interest again.</p>
+<p class="post__p">I find languages fascinating since they exist at such a unique juncture of culture, history, and how people think.
+Of course there's rules and grammar, but so much of &quot;why we say things&quot; (in any language) is so much more wishy-washy, and often steeped in clues about the pasts of the peoples that speak them today.</p>
+<p class="post__p">Around the same time, I rediscovered a box of electronics components I'd bought ages back with vague ambitions of building &quot;something.&quot; (Of course life marched relentlessly on and I promptly forgot all about them.)
+Among them was a tiny 2.13&quot; e-ink display, perfect for something minimal that I could sit on my desk.</p>
+<p class="post__p">That's when I decided to build something: a <strong class="post__strong">French &quot;word of the day&quot;</strong> (<em class="post__em">un mot du jour</em>) display.</p>
+<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/mot-du-jour.png&quot; alt=&quot;Mot du jour finished&quot; align=center caption=&quot;Chouette indeed&quot; &gt;}}</p>
+<hr class="post__hr">
+<h1 class="post__h1" id="🤔-the-gist"><a class="post__heading-anchor" href="#🤔-the-gist">🤔 The gist</a></h1>
+<p class="post__p">ESP32 chips are really nice since they have Wi-Fi onboard out-of-the-box. I could set this up to synchronise with some web service to get a new definition each day.</p>
+<p class="post__p">I looked for an API initially, but a foreign word of the day (particularly with definitions in a language other than the target!) is rather niche.
+There are however quite a few websites offering online dictionaries. I've used web scraping before in a couple of previous projects <a href="https://github.com/jamesalexatkin/caribou-visualiser" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">ex. 1</a> <a href="https://github.com/jamesalexatkin/tauntaun" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">ex. 2</a> so figured something similar could come in handy.</p>
+<p class="post__p">After considering <a href="https://www.wordreference.com/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">WordReference</a>, I settled on <a href="https://en.wiktionary.org/wiki/Wiktionary:Main_Page" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Wiktionary</a> as I prefer the style of definitions.</p>
+<p class="post__p">With the lack of on onboard clock, I'd also need to synchronise time with an NTP server to ensure the word was fetched on time.</p>
+<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/mot-du-jour-architecture.png&quot; alt=&quot;Project architecture overview&quot; align=center caption=&quot;Architecture overview&quot; &gt;}}</p>
+<h1 class="post__h1" id="⚙️-hardware"><a class="post__heading-anchor" href="#⚙️-hardware">⚙️ Hardware</a></h1>
+<p class="post__p">I used the following components:</p>
+<ul class="post__ul"><li class="post__li"><a href="https://www.aliexpress.com/item/1005004644515880.html" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">WeActStudio 2.13&quot; Epaper module white-black-red</a> (250 x 122 pixel resolution)</li>
+<li class="post__li"><a href="https://www.aliexpress.com/item/1005005645111663.html" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">WeAct Studio ESP32-DOWD-V3</a></li>
+<li class="post__li">A USB-C cable</li>
+</ul>
+<p class="post__p">The pins for the ESP32 were connected like so:</p>
+<div class="post__table-wrapper"><table class="post__table"><thead class="post__thead"><tr class="post__tr"><td class="post__td">Label</td>
+<td class="post__td">Colour</td>
+<td class="post__td">Purpose</td>
+<td class="post__td">Pin</td>
+</tr></thead>
+<tbody class="post__tbody"><tr class="post__tr"><td class="post__td">BUSY</td>
+<td class="post__td">🟪</td>
+<td class="post__td">Allows chip to know that the display is currently busy doing something</td>
+<td class="post__td">15</td>
+</tr>
+<tr class="post__tr"><td class="post__td">RES</td>
+<td class="post__td">🟧</td>
+<td class="post__td">Reset</td>
+<td class="post__td">2</td>
+</tr>
+<tr class="post__tr"><td class="post__td">D/C</td>
+<td class="post__td">⬜</td>
+<td class="post__td">Data/Command - used by the chip to toggle between sending data or commands to the display</td>
+<td class="post__td">0</td>
+</tr>
+<tr class="post__tr"><td class="post__td">CS</td>
+<td class="post__td">🟦</td>
+<td class="post__td">Chip Select - identifies specific peripheral this display is</td>
+<td class="post__td">5</td>
+</tr>
+<tr class="post__tr"><td class="post__td">SCL</td>
+<td class="post__td">🟩</td>
+<td class="post__td">Serial Clock - used to synchronise data transmission</td>
+<td class="post__td">18</td>
+</tr>
+<tr class="post__tr"><td class="post__td">SDA</td>
+<td class="post__td">🟨</td>
+<td class="post__td">Serial Data - used to send data to the display</td>
+<td class="post__td">23</td>
+</tr>
+<tr class="post__tr"><td class="post__td">GND</td>
+<td class="post__td">⬛</td>
+<td class="post__td">Ground</td>
+<td class="post__td">Any GND</td>
+</tr>
+<tr class="post__tr"><td class="post__td">VCC</td>
+<td class="post__td">🟥</td>
+<td class="post__td">Power</td>
+<td class="post__td">Any 3V3</td>
+</tr>
+</tbody>
+</table></div>
+<p class="post__p"><em class="post__em">(These were somewhat fiddly and I had to crimp some of the Dupont cable heads with pliers.)</em></p>
+<h1 class="post__h1" id="💽-esp-software"><a class="post__heading-anchor" href="#💽-esp-software">💽 ESP Software</a></h1>
+<blockquote class="post__blockquote"><p class="post__p">Repository: <a href="https://github.com/jamesalexatkin/mot-du-jour-esp32" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">https://github.com/jamesalexatkin/mot-du-jour-esp32</a></p>
+</blockquote>
+<p class="post__p">These were useful libraries that I installed with Arduino IDE's Library Manager:</p>
+<ul class="post__ul"><li class="post__li"><a href="https://github.com/espressif/arduino-esp32" class="post__link post__link--external" rel="noopener noreferrer" target="_blank"><strong class="post__strong">esp32</strong> by Espressif Systems</a> - necessary to flash my particular board. I used the option <code class="post__codespan">ESP32 Dev Module</code>.</li>
+<li class="post__li"><a href="https://github.com/ZinggJM/GxEPD2" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">GxEPD2</a> - for drawing to the display.</li>
+<li class="post__li"><a href="https://github.com/olikraus/U8g2_for_Adafruit_GFX" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">U8g2_for_Adafruit_GFX</a> - since accented characters are integral to French (and indeed many non-English languages), this library was super handy for adding other fonts to the display.</li>
+<li class="post__li"><a href="https://github.com/bblanchon/ArduinoJson" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">ArduinoJSON</a></li>
+<li class="post__li"><a href="https://github.com/bblanchon/ArduinoStreamUtils" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">StreamUtils</a></li>
+</ul>
+<p class="post__p"><a href="https://randomnerdtutorials.com/esp32-esp8266-run-daily-task/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">This article</a> was particularly useful in shaping the structuring of a daily operation on the chip.</p>
+<p class="post__p">For the first C++ code I'd written since uni, I don't think this turned out too badly.</p>
+<h1 class="post__h1" id="☁️-proxy-api"><a class="post__heading-anchor" href="#☁️-proxy-api">☁️ Proxy API</a></h1>
+<blockquote class="post__blockquote"><p class="post__p">Repository: <a href="https://github.com/jamesalexatkin/mot-du-jour-api" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">https://github.com/jamesalexatkin/mot-du-jour-api</a></p>
+</blockquote>
+<p class="post__p">This was a simple Go API I deployed up with a couple of endpoints. After searching for some free hosting, I came across <a href="https://render.com/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Render</a> which offers a <a href="https://render.com/pricing" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">free tier</a> for hobby projects.
+(The service is simple enough that I'd consider self-hosting in future though.)</p>
+<p class="post__p">As well as the main <code class="post__codespan">GET /mot_du_jour</code> route for returning a daily word, I also included <code class="post__codespan">GET /mot_spontane</code> (<em class="post__em">mot spontané</em>) for returning a different, spontaneous word on each call.</p>
+<p class="post__p">The main challenge here was scraping the information from Wiktionary. Thankfully, there is a <a href="https://en.wiktionary.org/wiki/Wiktionary:Random_page" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">random page</a> link. I was hoping it would be more structured, however it seems the HTML is in a flat structure rather than hierarchical.
+HTML scraping can be fiddly at the best of times, let alone when most of the titles and definitions are rendered as sibling page elements, rather than neatly organised into their own <code class="post__codespan">div</code>s.</p>
+<p class="post__p">The <a href="https://github.com/PuerkitoBio/goquery" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">goquery</a> library came in useful here.</p>
+<h1 class="post__h1" id="🏫-what-did-i-learn?"><a class="post__heading-anchor" href="#🏫-what-did-i-learn?">🏫 What did I learn?</a></h1>
+<ul class="post__ul"><li class="post__li">Hardware is tricky and very fiddly, but very satisfying having something in front of you when it works.</li>
+<li class="post__li">How to contact NTP and set time on Arduino board.</li>
+<li class="post__li">How to do HTML parsing of Wiktionary.</li>
+</ul>
+<h1 class="post__h1" id="➡️-future-steps"><a class="post__heading-anchor" href="#➡️-future-steps">➡️ Future steps</a></h1>
+<p class="post__p">I'd love to develop some case/shell to house the electronics of this. I've seen a couple of interesting ideas <a href="https://old.reddit.com/r/esp32/comments/1kgrwxk/minimal_github_commit_tracker_using_an_esp32_and/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">(ex. 1)</a> <a href="https://www.hackster.io/Gokux/esticky-a-tiny-paperless-way-to-keep-your-thoughts-organize-d0cd05" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">(ex. 2)</a> for small 3D printed e-ink display cases so may do something like this.</p>
+<h1 class="post__h1" id="📚-references"><a class="post__heading-anchor" href="#📚-references">📚 References</a></h1>
+<ul class="post__ul"><li class="post__li"><a href="https://github.com/WeActStudio/WeActStudio.epapermodule" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">WeAct Studio Epaper Module reference</a></li>
+<li class="post__li"><a href="https://github.com/WeActStudio/WeActStudio.ESP32CoreBoard" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">WeActStudio.ESP32CoreBoard reference</a></li>
+<li class="post__li"><a href="https://forum.arduino.cc/t/weact-studio-esp32-d0wd-v3-pinout-partial/1297935" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Weact Studio ESP32 D0WD V3 Pinout(Partial)</a></li>
+<li class="post__li"><a href="https://en.wiktionary.org/wiki/Wiktionary:Random_page" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Wiktionary random page</a></li>
+<li class="post__li"><a href="https://randomnerdtutorials.com/esp32-esp8266-run-daily-task/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">ESP32/ESP8266: Run Daily Task at Specific Time (Arduino IDE)</a></li>
+</ul>
+
+      </div>
+
+      <footer class="post__footer">
+        <a class="post__back-link" href="/writing/">← All posts</a>
+      </footer>
+    </article>
+    
+  </main>
+
+  <!-- =====================================================================
+       FOOTER — copy from your main site and keep in sync
+       ===================================================================== -->
+  <!-- Footer -->
+  <footer class="py-5" id="footer">
+      <div class="container">
+          <div class="small text-center" id="footer-text"
+              >&copy; JAMES ATKIN <span id="year"></span
+          ></div>
+      </div>
+  </footer>
+  <script src="insertCurrentYear.js"></script>
+
+</body>
+</html>

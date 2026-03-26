@@ -34,7 +34,7 @@ draft: true # set to omit from build
 
 ```bash
 pip install -r requirements.txt
-python build.py
+python .\writing\bede\build.py
 # Open writing/index.html in a browser
 ```
 

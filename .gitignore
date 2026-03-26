@@ -8,3 +8,7 @@ css/*.css
 js/*.min.js
 css/*.map
 js/*.map
+# python
+.venv
+__pycache__/
+*.pyc

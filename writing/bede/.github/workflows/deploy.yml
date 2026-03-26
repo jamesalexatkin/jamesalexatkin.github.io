@@ -1,0 +1,34 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r writing-builder/requirements.txt
+
+      - name: Build blog
+        run: python writing-builder/build.py
+
+      # The dist/ output sits inside writing-builder/ — copy it to the root
+      # so GH Pages can pick it up alongside your main site files.
+      - name: Merge into site root
+        run: cp -r writing-builder/dist/writing ./writing
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .   # deploy the whole repo root
+          # If your main site already deploys from a specific folder, adjust above

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel=icon href=/favicon.png>
+  <title>Mocking with dependency injection in Go — James Atkin</title>
+  <meta name="description" content="A common pattern with an interface to allow for passing mocks in unit tests.">
+  <meta property="og:title" content="Mocking with dependency injection in Go">
+  <meta property="og:description" content="A common pattern with an interface to allow for passing mocks in unit tests.">
+
+  <!-- Main site stylesheet — single source of truth for design tokens -->
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link rel="stylesheet" href="/css/creative.css"  />
+  <!-- Blog-specific styles (post__* classes, code highlighting, etc.) -->
+  <link rel="stylesheet" href="/writing/static/writing.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       NAV — copy from your main site and keep in sync
+       ===================================================================== -->
+  <!-- NAV — matches main site markup, anchor links point back to / -->
+  <div class="header" id="header" role="banner">
+    <a href="/" class="header-link">
+      <span>James Atkin</span>
+    </a>
+    <div class="right-hand-nav" role="navigation">
+      <a href="/#portfolio" class="header-link writing-link" rel="noopener noreferrer">
+        <div class="title">Projects</div>
+      </a>
+      <div class="nav-divider"></div>
+      <a href="/writing/" class="header-link writing-link" rel="noopener noreferrer">
+        <div class="title">Writing</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       PAGE CONTENT
+       ===================================================================== -->
+  <main class="site-main">
+    
+    <article class="post">
+      <header class="post__header">
+        <h1 class="post__title">Mocking with dependency injection in Go</h1>
+        <div class="post-meta">
+          <time class="post-meta__date" datetime="2024-09-12">2024-09-12</time>
+          <ul class="post-meta__tags"><li class="post-meta__tag">go</li><li class="post-meta__tag">unit-testing</li><li class="post-meta__tag">mocking</li></ul>
+        </div>
+        <p class='post__description'>A common pattern with an interface to allow for passing mocks in unit tests.</p>
+      </header>
+
+      <div class="post__body">
+        <p class="post__p">This is a pattern I've used quite a bit at work and is pretty useful for unit testing.</p>
+<h1 class="post__h1" id="a-scenario"><a class="post__heading-anchor" href="#a-scenario">A scenario</a></h1>
+<p class="post__p">Let's suppose we have a service <code class="post__codespan">Service</code> which provides various bits of functionality.
+One such function is registering users.
+This interfaces with Amazon's <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Cognito</a> service for identity management, as well as doing other things, like maybe saving them to a database:</p>
+<pre class="post__pre language-go" data-lang="go"><code class="post__code language-go">type Service struct{
+	CognitoClient *cognitoidentityprovider.Client
+	// ...Other fields
+}
+
+func New() *Service {
+	return &amp;Service{
+		CognitoClient: cognitoidentityprovider.New(),
+	}
+}
+
+func (s *Service) RegisterUser(ctx context.Context, params RegisterParams) error {
+	slog.Info(&quot;registering user&quot;)
+
+	// Confirm user on Cognito
+	_, err := s.CognitoClient.ConfirmSignUp(
+		ctx,
+		&quot;eu-west-2&quot;,
+		&amp;cognitoidentityprovider.ConfirmSignUpInput{
+		    ClientId:         &amp;params.ClientID,
+		    ConfirmationCode: &amp;params.Code,
+		    Username:         &amp;params.Username,
+		},
+	)
+	if err != nil {
+		slog.Error(&quot;failed to confirm user sign-up&quot;)
+		return err
+	}
+
+	// ...Do other stuff with database here
+
+	return nil
+}
+</code></pre>
+<p class="post__p">Let's write a simple test for this now.</p>
+<pre class="post__pre language-go" data-lang="go"><code class="post__code language-go">package service_test
+
+func Test_RegisterUserSuccess(t *testing.T) {
+	s := service.New()
+
+	testParams := RegisterParams{
+		// ...Fill with correct values
+	}
+
+	err := s.RegisterUser(context.Background(), testParams)
+	require.NoError(t, err)
+}
+</code></pre>
+<h1 class="post__h1" id="the-problem"><a class="post__heading-anchor" href="#the-problem">The problem</a></h1>
+<p class="post__p">What happens now?
+The test will attempt to reach a real version of AWS Cognito. This is undesirable for a couple of reasons.</p>
+<p class="post__p">Firstly, it relies on an actual instance of Cognito being live and hosted. Behemoth that it is, AWS is so widely used that we can consider it reliable, but a smaller service may not be. Network connections, latency and service uptime can all make tests non-hermetic, not to mention AWS' notorious pricing structure being an unnecessary overhead.</p>
+<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/chatgpt_aws_joke.png&quot; align=center caption=&quot;<em class="post__em">(I think ChatGPT's humour needs some work but it gets the point across.)</em>&quot; &gt;}}</p>
+<p class="post__p">Secondly, it violates the principle of unit tests since the bounds of the test exceed the unit of code under test (the <code class="post__codespan">RegisterUser</code> function).</p>
+<h1 class="post__h1" id="the-solution?"><a class="post__heading-anchor" href="#the-solution?">The solution?</a></h1>
+<p class="post__p"><strong class="post__strong">Dependency injection.</strong></p>
+<p class="post__p">At the time of writing, Wikipedia defines <a href="https://en.wikipedia.org/wiki/Dependency_injection" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">dependency injection</a> as</p>
+<blockquote class="post__blockquote"><p class="post__p">a programming technique in which an object or function receives other objects or functions that it requires, as opposed to creating them internally</p>
+</blockquote>
+<p class="post__p">Using this principle we can <em class="post__em">inject</em> the <em class="post__em">dependency</em> of the Cognito client into the service of the constructor:</p>
+<pre class="post__pre language-go" data-lang="go"><code class="post__code language-go">func New(cognitoClient *cognitoidentityprovider.Client) *Service {
+	return &amp;Service{
+		CognitoClient: cognitoClient,
+	}
+}
+</code></pre>
+<p class="post__p">Now we can configure our client however we like and pass it through. This allows for differently configured clients in the real code and the test, however we still have the problem that it's hitting the <em class="post__em">genuine</em> Cognito service.</p>
+<p class="post__p">Rather than using a concrete Cognito client (which is rigidly inflexible for our purposes), we can inject something that <em class="post__em">looks like a Cognito client</em> instead. We can accomplish this by writing an interface to mimic the desired functionality. This provides a contract that can accommodate any passed dependency - provided it fulfils the interface.</p>
+<pre class="post__pre language-go" data-lang="go"><code class="post__code language-go">type IdentityProvider interface {
+    ConfirmSignUp(ctx context.Context, params *cognitoidentityprovider.ConfirmSignUpInput, optFns ...func(*cognitoidentityprovider.Options)) (*cognitoidentityprovider.ConfirmSignUpOutput, error)
+}
+</code></pre>
+<p class="post__p">And then updating the <code class="post__codespan">Service</code> and constructor:</p>
+<pre class="post__pre language-go" data-lang="go"><code class="post__code language-go">type Service struct{
+	CognitoClient IdentityProvider
+	// ...Other fields
+}
+
+func New(cognitoClient IdentityProvider) *Service {
+	return &amp;Service{
+		CognitoClient: cognitoClient,
+	}
+}
+</code></pre>
+<p class="post__p">We can then revisit the tests, setting up our mocks for Cognito. Since these also fulfil the <code class="post__codespan">IdentityProvider</code> contract, they can be passed to <code class="post__codespan">Service.New()</code>.</p>
+<p class="post__p">(You can substitute whatever mocks you like here, I like the <a href="https://github.com/uber-go/mock" class="post__link post__link--external" rel="noopener noreferrer" target="_blank"><code class="post__codespan">gomock</code> </a> library as it generates them all for you.)</p>
+<pre class="post__pre language-go" data-lang="go"><code class="post__code language-go">package service_test
+
+func Test_RegisterUserSuccess(t *testing.T) {
+	testParams := RegisterParams{
+		// ...Fill with correct values
+	}
+
+	// Start gomock Controller
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	// Initialise mock
+	mockIdentityProvider := mocks.NewMockIdentityProvider(ctrl)
+	mockIdentityProvider.EXPECT().ConfirmSignUp(gomock.Any(), &quot;eu-west-2&quot;, &amp;cognitoidentityprovider.ConfirmSignUpInput{
+	    ClientId:         &amp;testParams.ClientID,
+	    ConfirmationCode: &amp;testParams.Code,
+	    Username:         &amp;testParams.Username,
+	}).Return(nil, nil)
+
+	// Pass the mock
+	s := service.New(mockIdentityProvider)
+
+	err := s.RegisterUser(context.Background(), testParams)
+	require.NoError(t, err)
+}
+</code></pre>
+<p class="post__p">A handy side-effect of using the <code class="post__codespan">IdentityProvider</code> interface is that it opens the door for us to add functionality around the Cognito calls in future if we wished. We could write our own <a href="https://en.wikipedia.org/wiki/Shim_(computing)" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">shim</a> struct around this to provide extra logging or metric exporting, for instance.</p>
+
+      </div>
+
+      <footer class="post__footer">
+        <a class="post__back-link" href="/writing/">← All posts</a>
+      </footer>
+    </article>
+    
+  </main>
+
+  <!-- =====================================================================
+       FOOTER — copy from your main site and keep in sync
+       ===================================================================== -->
+  <!-- Footer -->
+  <footer class="py-5" id="footer">
+      <div class="container">
+          <div class="small text-center" id="footer-text"
+              >&copy; JAMES ATKIN <span id="year"></span
+          ></div>
+      </div>
+  </footer>
+  <script src="insertCurrentYear.js"></script>
+
+</body>
+</html>

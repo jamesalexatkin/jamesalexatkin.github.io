@@ -1,0 +1,415 @@
+/*
+ * writing.css — Blog-specific styles
+ *
+ * Scoped entirely to post__* and writing-index__* classes.
+ * Uses CSS variables defined in the main site SCSS:
+ *   --font-family-serif, --font-family-monospace, --font-family-subtitle
+ *   --deep-black, --off-white, --ecru
+ *   --writing-hover-color (--nord11), --nord11, --nord5
+ *   --body-background-color, --body-color
+ *   --border-amount
+ */
+
+/* ============================================================
+   POST LAYOUT
+   ============================================================ */
+
+.post {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.post__header {
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--deep-black, #0c0c0c);
+    padding-bottom: 1.5rem;
+}
+
+.post__title {
+    font-family: var(--font-family-serif);
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin: 0 0 0.75rem;
+    font-weight: 700;
+}
+
+.post__description {
+    font-family: var(--font-family-subtitle);
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin: 0.5rem 0 0;
+}
+
+.post__body {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+}
+
+.post__footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--deep-black, #0c0c0c);
+    opacity: 0.6;
+}
+
+.post__back-link {
+    font-family: var(--font-family-monospace);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    /* Match main site animated underline */
+    color: var(--body-color, var(--deep-black));
+    background-image: linear-gradient(var(--deep-black), var(--deep-black));
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+}
+
+.post__back-link:hover,
+.post__back-link:focus {
+    background-size: 100% 0.1em;
+    transition: 0.3s;
+    opacity: 1;
+}
+
+/* ============================================================
+   POST META (date, tags)
+   ============================================================ */
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.post-meta__date {
+    font-family: var(--font-family-subtitle);
+    font-size: 0.8rem;
+    opacity: 0.6;
+    letter-spacing: 0.03em;
+}
+
+.post-meta__tags {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-meta__tag {
+    font-family: var(--font-family-monospace);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border: 1px solid var(--deep-black);
+    opacity: 0.5;
+}
+
+/* ============================================================
+   BODY ELEMENTS  (post__* BEM classes from renderer.py)
+   ============================================================ */
+
+.post__h2,
+.post__h3,
+.post__h4 {
+    font-family: var(--font-family-serif);
+    margin: 2.5rem 0 0.75rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.post__h2 {
+    font-size: 1.625rem;
+}
+.post__h3 {
+    font-size: 1.25rem;
+}
+.post__h4 {
+    font-size: 1.0625rem;
+}
+
+.post__heading-anchor {
+    color: inherit;
+    /* No underline on heading anchors — cleaner */
+    background-image: none !important;
+}
+
+.post__heading-anchor:hover::after {
+    content: " #";
+    opacity: 0.3;
+    font-family: var(--font-family-monospace);
+    font-size: 0.75em;
+}
+
+.post__p {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-family-serif);
+}
+
+.post__strong {
+    font-weight: 700;
+}
+
+.post__em {
+    font-style: italic;
+}
+
+.post__del {
+    opacity: 0.5;
+}
+
+/* ============================================================
+   LINKS — match main site animated underline
+   ============================================================ */
+
+.post__link {
+    color: var(--body-color, var(--deep-black));
+    font-weight: 700;
+    background-image: linear-gradient(var(--deep-black), var(--deep-black));
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+}
+
+.post__link:hover,
+.post__link:focus,
+.post__link:active {
+    background-size: 100% 0.1em;
+    transition: 0.3s;
+}
+
+.post__link--external::after {
+    content: " ↗";
+    font-size: 0.75em;
+    opacity: 0.5;
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+
+.post__figure {
+    margin: 2rem 0;
+}
+
+.post__img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post__figcaption {
+    font-size: 0.8125rem;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+
+.post__ul,
+.post__ol {
+    margin: 0 0 1.5rem 1.5rem;
+    padding: 0;
+}
+
+.post__li {
+    margin-bottom: 0.4rem;
+    line-height: var(--line-height-body, 1.75);
+}
+
+/* ============================================================
+   BLOCKQUOTE
+   ============================================================ */
+
+.post__blockquote {
+    border-left: 3px solid var(--deep-black, #0c0c0c);
+    margin: 2rem 0;
+    padding: 0.25rem 0 0.25rem 1.5rem;
+    opacity: 0.75;
+    font-style: italic;
+    font-family: var(--font-family-serif);
+}
+
+/* ============================================================
+   CODE — ecru background matches your warm parchment palette
+   ============================================================ */
+
+.post__pre {
+    background: var(--ecru, #fbf3d3);
+    border-radius: var(--border-amount, 8px);
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 2rem 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.post__pre[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    font-family: var(--font-family-monospace);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.35;
+}
+
+.post__code {
+    font-family: var(--font-family-monospace);
+    background: none;
+    padding: 0;
+}
+
+.post__codespan {
+    font-family: var(--font-family-monospace);
+    font-size: 0.875em;
+    background: var(--ecru, #fbf3d3);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+.post__table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
+}
+
+.post__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.post__th,
+.post__td {
+    padding: 0.6rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.85;
+}
+
+.post__th {
+    font-weight: 700;
+    opacity: 1;
+}
+
+.post__hr {
+    border: none;
+    border-top: 1px solid currentColor;
+    opacity: 0.2;
+    margin: 3rem 0;
+}
+
+/* ============================================================
+   WRITING INDEX PAGE — mirrors .writing-list styles from main site
+   ============================================================ */
+
+.writing-index {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.writing-index__heading {
+    font-family: var(--font-family-serif);
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--deep-black, #0c0c0c);
+}
+
+.writing-index__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.writing-index__item {
+    /* Matches ul.writing-list li from main site */
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid var(--deep-black, #0c0c0c);
+    overflow: hidden;
+    transition: background-color 0.35s ease;
+}
+
+.writing-index__item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.writing-index__item:last-child {
+    border-bottom: none;
+}
+
+.writing-index__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.6em 0.75em;
+    /* Match .writing-link-title animated underline */
+    color: var(--body-color, var(--deep-black));
+    font-family: var(--font-family-serif);
+    background-image: linear-gradient(var(--deep-black), var(--deep-black));
+    background-size: 0% 2px;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+}
+
+.writing-index__link:hover,
+.writing-index__link:focus {
+    background-size: 100% 2px;
+    transition: 0.3s;
+}
+
+.writing-index__title {
+    /* Matches .writing-title */
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--body-color, var(--deep-black));
+}
+
+.writing-index__date {
+    /* Matches .writing-subtitle */
+    font-family: var(--font-family-subtitle);
+    font-size: 0.8rem;
+    color: #666;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+}
+
+.writing-index__description {
+    /* Matches .writing-subtitle */
+    font-family: var(--font-family-subtitle);
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0 0 0.6em 0.75em;
+    line-height: 1.5;
+}
+
+.writing-index__empty {
+    opacity: 0.5;
+    font-style: italic;
+    font-family: var(--font-family-monospace);
+}

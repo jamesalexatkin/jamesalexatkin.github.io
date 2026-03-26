@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel=icon href=/favicon.png>
+  <title>Writing — James Atkin</title>
+  <meta name="description" content="Articles and notes by James Atkin.">
+  <meta property="og:title" content="Writing">
+  <meta property="og:description" content="Articles and notes by James Atkin.">
+
+  <!-- Main site stylesheet — single source of truth for design tokens -->
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link rel="stylesheet" href="/css/creative.css"  />
+  <!-- Blog-specific styles (post__* classes, code highlighting, etc.) -->
+  <link rel="stylesheet" href="/writing/static/writing.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       NAV — copy from your main site and keep in sync
+       ===================================================================== -->
+  <!-- NAV — matches main site markup, anchor links point back to / -->
+  <div class="header" id="header" role="banner">
+    <a href="/" class="header-link">
+      <span>James Atkin</span>
+    </a>
+    <div class="right-hand-nav" role="navigation">
+      <a href="/#portfolio" class="header-link writing-link" rel="noopener noreferrer">
+        <div class="title">Projects</div>
+      </a>
+      <div class="nav-divider"></div>
+      <a href="/writing/" class="header-link writing-link" rel="noopener noreferrer">
+        <div class="title">Writing</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       PAGE CONTENT
+       ===================================================================== -->
+  <main class="site-main">
+    
+    <section class="writing-index">
+      <h1 class="writing-index__heading">Writing</h1>
+      <ul class="writing-index__list">
+        <li class="writing-index__item">
+          <a class="writing-index__link" href="/writing/posts/mocking_dependency_injection_go/">
+            <span class="writing-index__title">Mocking with dependency injection in Go</span>
+            <time class="writing-index__date" datetime="2024-09-12">2024-09-12</time>
+          </a>
+          <p class="writing-index__description">A common pattern with an interface to allow for passing mocks in unit tests.</p>
+        </li></ul>
+    </section>
+    
+  </main>
+
+  <!-- =====================================================================
+       FOOTER — copy from your main site and keep in sync
+       ===================================================================== -->
+  <!-- Footer -->
+  <footer class="py-5" id="footer">
+      <div class="container">
+          <div class="small text-center" id="footer-text"
+              >&copy; JAMES ATKIN <span id="year"></span
+          ></div>
+      </div>
+  </footer>
+  <script src="insertCurrentYear.js"></script>
+
+</body>
+</html>

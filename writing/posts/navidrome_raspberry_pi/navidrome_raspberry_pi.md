@@ -53,11 +53,11 @@ I also installed ngrok at this point to double check that Navidrome works and th
 
 Navidrome by default runs on port `4533` so running `ngrok http 4533` exposes this and gives an address:
 
-{{< figure src="https://jamesatk.in/writing/images/navidrome-ngrok.png" align=center caption="ngrok now exposes Navidrome on https://6201-209-93-249-244.eu.ngrok.io" >}}
+![ngrok now exposes Navidrome on https://6201-209-93-249-244.eu.ngrok.io](img/navidrome-ngrok.png)
 
 It was easy to set up an admin user and configure Navidrome from there:
 
-{{< figure src="https://jamesatk.in/writing/images/navidrome-base.png" align=center caption="Navidrome web UI with sample song installed" >}}
+![Navidrome web UI with sample song installed](img/navidrome-base.png)
 
 ## 🌐 Setting up a persistent domain
 
@@ -87,7 +87,7 @@ As with Navidrome, running this tunnel as a Linux service is really useful as it
 
 Because the SD card I had was rather small for storage, I bought a [cheap 500GB external USB hard drive](https://www.amazon.co.uk/UnionSine-Portable-External-Compatible-external/dp/B08VHYZ9F2) online. This was quite nice as it had a similar footprint to the Pi.
 
-{{< figure src="https://jamesatk.in/writing/images/navidrome-pi.png" align=center caption="Pi on top of hard drive, nearly the same size" >}}
+![Pi on top of hard drive, nearly the same size](img/navidrome-pi.png)
 
 I loaded a couple of audiobooks onto it from my Windows library, then plugged it into Pi.
 
@@ -107,7 +107,7 @@ The command `sudo mount -t <filesystem_type> /dev/sda1 /media/UnionSineExternal/
 
 I then modified `/var/lib/navidrome/navidrome.toml`'s `MusicFolder` variable to point to the mounted drive to set the new Navidrome music location, and ran `sudo systemctl restart navidrome.service` to restart Navidrome.
 
-{{< figure src="https://jamesatk.in/writing/images/navidrome-library.png" align=center >}}
+![Library](img/navidrome-library.png)
 
 ### Auto-mount drive on boot
 

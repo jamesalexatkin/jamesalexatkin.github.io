@@ -21,7 +21,7 @@ Among them was a tiny 2.13" e-ink display, perfect for something minimal that I 
 
 That's when I decided to build something: a **French "word of the day"** (_un mot du jour_) display.
 
-{{< figure src="https://jamesatk.in/writing/images/mot-du-jour.png" alt="Mot du jour finished" align=center caption="Chouette indeed" >}}
+![Chouette indeed](img/mot-du-jour.png)
 
 ---
 
@@ -36,7 +36,7 @@ After considering [WordReference](https://www.wordreference.com/), I settled on 
 
 With the lack of on onboard clock, I'd also need to synchronise time with an NTP server to ensure the word was fetched on time.
 
-{{< figure src="https://jamesatk.in/writing/images/mot-du-jour-architecture.png" alt="Project architecture overview" align=center caption="Architecture overview" >}}
+![Architecture overview](img/mot-du-jour-architecture.png)
 
 # ⚙️ Hardware
 

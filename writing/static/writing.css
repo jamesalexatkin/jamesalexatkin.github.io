@@ -108,7 +108,8 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 0.2em 0.6em;
-    border: 1px solid var(--deep-black);
+    border: 1px solid var(--racing-green);
+    color: var(--racing-green);
     opacity: 0.5;
 }
 
@@ -172,12 +173,14 @@
 .post__link {
     color: var(--body-color, var(--deep-black));
     font-weight: 700;
-    background-image: linear-gradient(var(--deep-black), var(--deep-black));
+    background-image: linear-gradient(var(--burgundian), var(--burgundian));
     background-size: 0% 0.1em;
     background-position-y: 100%;
     background-position-x: 0%;
     background-repeat: no-repeat;
     transition: background-size 0.2s ease-in-out;
+    color: var(--burgundian);
+    opacity: 50%;
 }
 
 .post__link:hover,
@@ -227,6 +230,7 @@
 .post__li {
     margin-bottom: 0.4rem;
     line-height: var(--line-height-body, 1.75);
+    font-family: var(--font-family-serif);
 }
 
 /* ============================================================
@@ -236,7 +240,7 @@
 .post__blockquote {
     border-left: 3px solid var(--deep-black, #0c0c0c);
     margin: 2rem 0;
-    padding: 0.25rem 0 0.25rem 1.5rem;
+    padding: 0.25rem 0 0 1.5rem;
     opacity: 0.75;
     font-style: italic;
     font-family: var(--font-family-serif);

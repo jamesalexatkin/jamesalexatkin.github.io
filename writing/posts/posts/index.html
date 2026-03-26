@@ -75,11 +75,9 @@
 <h3 class="post__h3" id="ngrok"><a class="post__heading-anchor" href="#ngrok">ngrok</a></h3>
 <p class="post__p">I also installed ngrok at this point to double check that Navidrome works and that I could play from my phone/laptop. ngrok is a popular tunneling tool which can expose applications running on a computer’s local port with a globally accessible web address.</p>
 <p class="post__p">Navidrome by default runs on port <code class="post__codespan">4533</code> so running <code class="post__codespan">ngrok http 4533</code> exposes this and gives an address:</p>
-<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/navidrome-ngrok.png" alt="ngrok now exposes Navidrome on https://6201-209-93-249-244.eu.ngrok.io" loading="lazy"><figcaption class="post__figcaption">ngrok now exposes Navidrome on https://6201-209-93-249-244.eu.ngrok.io</figcaption></figure>
-</p>
+<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/navidrome-ngrok.png&quot; align=center caption=&quot;ngrok now exposes Navidrome on https://6201-209-93-249-244.eu.ngrok.io&quot; &gt;}}</p>
 <p class="post__p">It was easy to set up an admin user and configure Navidrome from there:</p>
-<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/navidrome-base.png" alt="Navidrome web UI with sample song installed" loading="lazy"><figcaption class="post__figcaption">Navidrome web UI with sample song installed</figcaption></figure>
-</p>
+<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/navidrome-base.png&quot; align=center caption=&quot;Navidrome web UI with sample song installed&quot; &gt;}}</p>
 <h2 class="post__h2" id="🌐-setting-up-a-persistent-domain"><a class="post__heading-anchor" href="#🌐-setting-up-a-persistent-domain">🌐 Setting up a persistent domain</a></h2>
 <p class="post__p">ngrok is a great tool for testing and developing, but the domain above is long and unmemorable. It also changes each time ngrok runs. ngrok does support custom persistent domains, but unfortunately not on the free tier and I wasn’t willing to spend $20/month on the Pro tier.</p>
 <p class="post__p">Fortunately, there are some very cheap domain names out there. I used <a href="https://www.namecheap.com/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Namecheap</a> and searched with their <a href="https://www.namecheap.com/domains/registration/results/?domain=&type=beast" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">“Beast Mode”</a> tool to get a load of domains roughly similar to what I wanted, filtering for those under £10/year. In the end I went with a <code class="post__codespan">.click TLD</code> for the truly gargantuan sum of £1.07 for the first year 💸</p>
@@ -94,8 +92,7 @@
 <p class="post__p">As with Navidrome, running this tunnel as a Linux service is really useful as it’ll autostart whenever the Pi is powered on.</p>
 <h2 class="post__h2" id="🗄️-mounting-an-external-hard-drive"><a class="post__heading-anchor" href="#🗄️-mounting-an-external-hard-drive">🗄️ Mounting an external hard drive</a></h2>
 <p class="post__p">Because the SD card I had was rather small for storage, I bought a <a href="https://www.amazon.co.uk/UnionSine-Portable-External-Compatible-external/dp/B08VHYZ9F2" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">cheap 500GB external USB hard drive</a> online. This was quite nice as it had a similar footprint to the Pi.</p>
-<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/navidrome-pi.png" alt="Pi on top of hard drive, nearly the same size" loading="lazy"><figcaption class="post__figcaption">Pi on top of hard drive, nearly the same size</figcaption></figure>
-</p>
+<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/navidrome-pi.png&quot; align=center caption=&quot;Pi on top of hard drive, nearly the same size&quot; &gt;}}</p>
 <p class="post__p">I loaded a couple of audiobooks onto it from my Windows library, then plugged it into Pi.</p>
 <p class="post__p">Linux is slightly different to Windows in that it doesn’t automatically load other attached filesystems. Rather, these have to be “mounted” onto a path on the main filesystem so that they can be read. Additionally, there are different types of filesystems (e.g. NTFS, FAT32, EXT4) so I had to figure out what kind the drive was in order to mount it.</p>
 <p class="post__p"><code class="post__codespan">sudo fdisk -l</code> is used to list devices and will probably output a large list depending on what is detected. An easy way to find out which device the hard drive was was to compare the output of the command before and after plugging in the drive. In my case, it was <code class="post__codespan">/dev/sda1</code>:</p>
@@ -105,8 +102,7 @@
 <p class="post__p">I created a new folder in <code class="post__codespan">/media</code> to be the mount point for the drive with <code class="post__codespan">sudo mkdir /media/UnionSineExternal</code>.</p>
 <p class="post__p">The command <code class="post__codespan">sudo mount -t &lt;filesystem_type&gt; /dev/sda1 /media/UnionSineExternal/</code> was used to mount the drive. I wasn't sure which type to use given the above output so I tried them all. <code class="post__codespan">hpfs</code> wasn't found by <code class="post__codespan">mount</code> and <code class="post__codespan">ntfs</code> was throwing errors. Luckily, <code class="post__codespan">exfat</code> worked.</p>
 <p class="post__p">I then modified <code class="post__codespan">/var/lib/navidrome/navidrome.toml</code>'s <code class="post__codespan">MusicFolder</code> variable to point to the mounted drive to set the new Navidrome music location, and ran <code class="post__codespan">sudo systemctl restart navidrome.service</code> to restart Navidrome.</p>
-<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/navidrome-library.png" alt="Library" loading="lazy"><figcaption class="post__figcaption">Library</figcaption></figure>
-</p>
+<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/navidrome-library.png&quot; align=center &gt;}}</p>
 <h3 class="post__h3" id="auto-mount-drive-on-boot"><a class="post__heading-anchor" href="#auto-mount-drive-on-boot">Auto-mount drive on boot</a></h3>
 <p class="post__p">The last thing to do was make sure the drive automatically mounted on boot.</p>
 <p class="post__p">Linux stores a list of persistent filesystems in the file found in <code class="post__codespan">/etc/</code>. I used <code class="post__codespan">lsblk -f</code> to list the drive and find its UUID:</p>

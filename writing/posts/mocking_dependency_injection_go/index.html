@@ -109,7 +109,8 @@ func Test_RegisterUserSuccess(t *testing.T) {
 <p class="post__p">What happens now?
 The test will attempt to reach a real version of AWS Cognito. This is undesirable for a couple of reasons.</p>
 <p class="post__p">Firstly, it relies on an actual instance of Cognito being live and hosted. Behemoth that it is, AWS is so widely used that we can consider it reliable, but a smaller service may not be. Network connections, latency and service uptime can all make tests non-hermetic, not to mention AWS' notorious pricing structure being an unnecessary overhead.</p>
-<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/chatgpt_aws_joke.png&quot; align=center caption=&quot;<em class="post__em">(I think ChatGPT's humour needs some work but it gets the point across.)</em>&quot; &gt;}}</p>
+<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/chatgpt_aws_joke.png" alt="(I think ChatGPT's humour needs some work but it gets the point across.)" loading="lazy"><figcaption class="post__figcaption">(I think ChatGPT's humour needs some work but it gets the point across.)</figcaption></figure>
+</p>
 <p class="post__p">Secondly, it violates the principle of unit tests since the bounds of the test exceed the unit of code under test (the <code class="post__codespan">RegisterUser</code> function).</p>
 <h1 class="post__h1" id="the-solution?"><a class="post__heading-anchor" href="#the-solution?">The solution?</a></h1>
 <p class="post__p"><strong class="post__strong">Dependency injection.</strong></p>

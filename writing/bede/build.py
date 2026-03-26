@@ -55,12 +55,15 @@ def parse_post(path: Path) -> dict:
 
 def build():
     print(f"♝  Starting Bede build\n")
+    
     # Parse all non-draft posts
-    md_files = sorted(POSTS_DIR.glob("*.md"), reverse=True)
+    md_files = sorted(POSTS_DIR.glob("*/*.md"), reverse=True)
     print(f"Found {len(md_files)} Markdown files in {POSTS_DIR}:")
+        
     posts = []
     for md_file in md_files:
         post = parse_post(md_file)
+        post["slug"] = md_file.parent.name  # e.g. "mot_du_jour"
         if post["draft"]:
             print(f"  [skip] {md_file.name} (draft)")
             continue

@@ -58,7 +58,8 @@ Of course there's rules and grammar, but so much of &quot;why we say things&quot
 <p class="post__p">Around the same time, I rediscovered a box of electronics components I'd bought ages back with vague ambitions of building &quot;something.&quot; (Of course life marched relentlessly on and I promptly forgot all about them.)
 Among them was a tiny 2.13&quot; e-ink display, perfect for something minimal that I could sit on my desk.</p>
 <p class="post__p">That's when I decided to build something: a <strong class="post__strong">French &quot;word of the day&quot;</strong> (<em class="post__em">un mot du jour</em>) display.</p>
-<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/mot-du-jour.png&quot; alt=&quot;Mot du jour finished&quot; align=center caption=&quot;Chouette indeed&quot; &gt;}}</p>
+<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/mot-du-jour.png" alt="Chouette indeed" loading="lazy"><figcaption class="post__figcaption">Chouette indeed</figcaption></figure>
+</p>
 <hr class="post__hr">
 <h1 class="post__h1" id="🤔-the-gist"><a class="post__heading-anchor" href="#🤔-the-gist">🤔 The gist</a></h1>
 <p class="post__p">ESP32 chips are really nice since they have Wi-Fi onboard out-of-the-box. I could set this up to synchronise with some web service to get a new definition each day.</p>
@@ -66,7 +67,8 @@ Among them was a tiny 2.13&quot; e-ink display, perfect for something minimal th
 There are however quite a few websites offering online dictionaries. I've used web scraping before in a couple of previous projects <a href="https://github.com/jamesalexatkin/caribou-visualiser" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">ex. 1</a> <a href="https://github.com/jamesalexatkin/tauntaun" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">ex. 2</a> so figured something similar could come in handy.</p>
 <p class="post__p">After considering <a href="https://www.wordreference.com/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">WordReference</a>, I settled on <a href="https://en.wiktionary.org/wiki/Wiktionary:Main_Page" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Wiktionary</a> as I prefer the style of definitions.</p>
 <p class="post__p">With the lack of on onboard clock, I'd also need to synchronise time with an NTP server to ensure the word was fetched on time.</p>
-<p class="post__p">{{&lt; figure src=&quot;https://jamesatk.in/writing/images/mot-du-jour-architecture.png&quot; alt=&quot;Project architecture overview&quot; align=center caption=&quot;Architecture overview&quot; &gt;}}</p>
+<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/mot-du-jour-architecture.png" alt="Architecture overview" loading="lazy"><figcaption class="post__figcaption">Architecture overview</figcaption></figure>
+</p>
 <h1 class="post__h1" id="⚙️-hardware"><a class="post__heading-anchor" href="#⚙️-hardware">⚙️ Hardware</a></h1>
 <p class="post__p">I used the following components:</p>
 <ul class="post__ul"><li class="post__li"><a href="https://www.aliexpress.com/item/1005004644515880.html" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">WeActStudio 2.13&quot; Epaper module white-black-red</a> (250 x 122 pixel resolution)</li>

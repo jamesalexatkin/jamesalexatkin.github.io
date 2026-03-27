@@ -417,3 +417,25 @@
     font-style: italic;
     font-family: var(--font-family-monospace);
 }
+
+/* ============================================================
+   FOOTNOTES
+   ============================================================ */
+
+.footnotes {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--deep-black);
+    font-family: var(--font-family-monospace);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.footnotes-list {
+    padding-left: 1.25rem;
+}
+
+.footnotes-item {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}

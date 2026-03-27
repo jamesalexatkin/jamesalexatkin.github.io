@@ -39,7 +39,7 @@ def _layout(title: str, description: str, body: str) -> str:
   <!-- Theme CSS - Includes Bootstrap -->
   <link rel="stylesheet" href="/css/creative.css"  />
   <!-- Blog-specific styles (post__* classes, code highlighting, etc.) -->
-  <link rel="stylesheet" href="/writing/static/writing.css">
+  <link rel="stylesheet" href="/test_writing/static/writing.css">
 </head>
 <body>
 

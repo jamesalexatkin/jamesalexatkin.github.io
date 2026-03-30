@@ -1,4 +1,5 @@
 # build output / generated
+.DS_Store
 vendor/
 _site/
 dist/

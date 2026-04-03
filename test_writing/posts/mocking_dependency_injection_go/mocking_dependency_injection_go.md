@@ -31,7 +31,10 @@ func New() *Service {
 	}
 }
 
-func (s *Service) RegisterUser(ctx context.Context, params RegisterParams) error {
+func (s *Service) RegisterUser(
+	ctx context.Context,
+	params RegisterParams,
+) error {
 	slog.Info("registering user")
 
 	// Confirm user on Cognito

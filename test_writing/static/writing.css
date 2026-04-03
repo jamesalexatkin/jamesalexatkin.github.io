@@ -180,7 +180,7 @@
     background-repeat: no-repeat;
     transition: background-size 0.2s ease-in-out;
     color: var(--burgundian);
-    opacity: 50%;
+    opacity: 80%;
 }
 
 .post__link:hover,
@@ -252,6 +252,7 @@
 
 .post__pre {
     background: var(--ecru, #fbf3d3);
+    border: 1px solid rgba(12, 12, 12, 0.2);
     border-radius: var(--border-amount, 8px);
     padding: 1.25rem 1.5rem;
     overflow-x: auto;
@@ -259,6 +260,12 @@
     font-size: 0.875rem;
     line-height: 1.6;
     position: relative;
+}
+
+/* Prevent hljs from overriding our ecru background and spacing */
+.post__pre .hljs {
+    background: transparent;
+    padding: 0;
 }
 
 .post__pre[data-lang]::before {

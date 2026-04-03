@@ -40,6 +40,8 @@ def _layout(title: str, description: str, body: str) -> str:
   <link rel="stylesheet" href="/css/creative.css"  />
   <!-- Blog-specific styles (post__* classes, code highlighting, etc.) -->
   <link rel="stylesheet" href="/test_writing/static/writing.css">
+  <!-- Syntax highlighting — Kimbie Light theme, background overridden in writing.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/kimbie-light.min.css">
 </head>
 <body>
 
@@ -81,6 +83,9 @@ def _layout(title: str, description: str, body: str) -> str:
       </div>
   </footer>
   <script src="insertCurrentYear.js"></script>
+  <!-- Syntax highlighting init -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
 
 </body>
 </html>"""

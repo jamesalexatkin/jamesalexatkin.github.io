@@ -5,7 +5,7 @@ tags: ["ai", "learning"]
 date: "2026-03-27"
 ---
 
-!["Manchester from Kersal Moor, with rustic figures and goats" - William Wyld](https://upload.wikimedia.org/wikipedia/commons/b/b7/Wyld%2C_William_-_Manchester_from_Kersal_Moor%2C_with_rustic_figures_and_goats_-_Google_Art_Project.jpg)
+!["Manchester from Kersal Moor, with rustic figures and goats" - William Wyld](./img/manchester_from_kersal_moor.png)
 
 ## Intro
 

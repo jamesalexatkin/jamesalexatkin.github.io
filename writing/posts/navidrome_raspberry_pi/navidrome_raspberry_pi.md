@@ -5,10 +5,10 @@ tags: ["navidrome", "raspberry-pi"]
 date: "2022-10-26"
 
 cover:
-    image: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*QES5qTKIRY8TeGmv.png"
-    alt: "Example album in Sonixd client connected to Navidrome instance"
-    caption: "Example album in Sonixd client connected to Navidrome instance"
-    relative: false
+  image: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*QES5qTKIRY8TeGmv.png"
+  alt: "Example album in Sonixd client connected to Navidrome instance"
+  caption: "Example album in Sonixd client connected to Navidrome instance"
+  relative: false
 ---
 
 I got a Raspberry Pi years ago after finishing GCSE Computing at school and could never quite figure out what to do with it.

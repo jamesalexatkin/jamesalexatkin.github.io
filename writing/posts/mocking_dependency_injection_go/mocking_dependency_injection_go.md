@@ -5,10 +5,10 @@ tags: ["go", "unit-testing", "mocking"]
 date: "2024-09-12"
 
 cover:
-    image: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*QES5qTKIRY8TeGmv.png"
-    alt: "Example album in Sonixd client connected to Navidrome instance"
-    caption: "Example album in Sonixd client connected to Navidrome instance"
-    relative: false
+  image: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*QES5qTKIRY8TeGmv.png"
+  alt: "Example album in Sonixd client connected to Navidrome instance"
+  caption: "Example album in Sonixd client connected to Navidrome instance"
+  relative: false
 ---
 
 This is a pattern I've used quite a bit at work and is pretty useful for unit testing.

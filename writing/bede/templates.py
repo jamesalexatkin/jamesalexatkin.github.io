@@ -35,6 +35,9 @@ def _layout(title: str, description: str, body: str) -> str:
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{description}">
 
+  <!-- Font Awesome Icons -->
+  <script src="https://use.fontawesome.com/134696755a.js"></script>
+
   <!-- Main site stylesheet — single source of truth for design tokens -->
   <!-- Theme CSS - Includes Bootstrap -->
   <link rel="stylesheet" href="/css/creative.css"  />
@@ -53,7 +56,10 @@ def _layout(title: str, description: str, body: str) -> str:
     <a href="/" class="header-link">
       <span>James Atkin</span>
     </a>
-    <div class="right-hand-nav" role="navigation">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="rightHandNav">
+      <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </button>
+    <div class="right-hand-nav" id="rightHandNav" role="navigation">
       <a href="/#portfolio" class="header-link writing-link" rel="noopener noreferrer">
         <div class="title">Projects</div>
       </a>
@@ -83,6 +89,24 @@ def _layout(title: str, description: str, body: str) -> str:
       </div>
   </footer>
   <script src="insertCurrentYear.js"></script>
+  <script>
+    (function () {{
+      var btn = document.getElementById('navHamburger');
+      var nav = document.getElementById('rightHandNav');
+      btn.addEventListener('click', function () {{
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      }});
+      nav.querySelectorAll('a').forEach(function (link) {{
+        link.addEventListener('click', function () {{
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open navigation menu');
+        }});
+      }});
+    }})();
+  </script>
   <!-- Syntax highlighting init -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>

@@ -1,5 +1,8 @@
 set windows-shell := ["cmd", "/c"]
 
+install:
+    npm install
+
 dev:
     npm run start
 

@@ -270,6 +270,74 @@ h1 {
     margin-right: 18px;
 }
 
+// Hamburger button (hidden on desktop)
+.nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 14px;
+    font-size: 1.8rem;
+    color: var(--deep-black);
+    line-height: 1;
+
+    .fa {
+        display: block;
+        transition: transform 0.25s ease;
+    }
+
+    &[aria-expanded="true"] .fa {
+        transform: rotate(180deg);
+    }
+}
+
+// Responsive navbar
+@media (max-width: 767.98px) {
+    .header {
+        width: 92%;
+        margin-left: 4%;
+        margin-top: 12px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .nav-hamburger {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .right-hand-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-bottom: 12px;
+
+        &.is-open {
+            display: flex;
+        }
+    }
+
+    .header-link {
+        font-size: 1.4rem;
+        padding: 8px 0;
+    }
+
+    .writing-link {
+        margin-right: 0;
+        margin-bottom: 4px;
+    }
+
+    .nav-divider {
+        display: none;
+    }
+}
+
 .contact {
     font-family: "PT Mono", monospace;
     font-size: 20px;

@@ -62,7 +62,10 @@
             <a href="#" class="header-link">
                 <span>James Atkin</span>
             </a>
-            <div class="right-hand-nav" role="navigation">
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="rightHandNav">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </button>
+            <div class="right-hand-nav" id="rightHandNav" role="navigation">
                 <a
                     href="#portfolio"
                     class="header-link writing-link"
@@ -95,8 +98,6 @@
                 </a> -->
             </div>
         </div>
-
-        <!-- Main page -->
         <div class="main" role="main">
             <section class="about" id="about">
                 <div class="intro">
@@ -367,5 +368,24 @@
         </script> -->
 
         <script src="insertCurrentYear.js"></script>
+        <script>
+            (function () {
+                var btn = document.getElementById('navHamburger');
+                var nav = document.getElementById('rightHandNav');
+                btn.addEventListener('click', function () {
+                    var open = nav.classList.toggle('is-open');
+                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+                });
+                // Close menu when a nav link is clicked
+                nav.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        nav.classList.remove('is-open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.setAttribute('aria-label', 'Open navigation menu');
+                    });
+                });
+            })();
+        </script>
     </body>
 </html>

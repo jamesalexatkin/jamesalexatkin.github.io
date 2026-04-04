@@ -1,5 +1,7 @@
 # Bede ♝
 
+![](https://upload.wikimedia.org/wikipedia/commons/7/78/The_Venerable_Bede_translates_John_1902.jpg) [^1]
+
 Minimal static blog writer for jamesatk.in/writing.
 
 Converts Markdown → HTML using a shared layout and CSS-classed components.
@@ -52,3 +54,7 @@ If your main stylesheet doesn't define these yet, hardcode values in
 To customise how any Markdown element renders, add or override a method
 in `renderer.py`. Each method returns a plain HTML string. The naming
 convention is `post__<element>` for the CSS class.
+
+---
+
+[^1] [Image source](https://commons.wikimedia.org/wiki/File:The_Venerable_Bede_translates_John_1902.jpg)

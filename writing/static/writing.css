@@ -359,11 +359,21 @@
     margin-bottom: 1.5em;
     border-bottom: 1px solid var(--deep-black, #0c0c0c);
     overflow: hidden;
-    transition: background-color 0.35s ease;
+    /* Animated underline on the full block, matching .writing-link-title in legacy.scss */
+    background-image: linear-gradient(var(--deep-black), var(--deep-black));
+    background-size: 0% 2px;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition:
+        background-color 0.35s ease,
+        background-size 0.2s ease-in-out;
 }
 
 .writing-index__item:hover {
     background-color: rgba(0, 0, 0, 0.05);
+    background-size: 100% 2px;
+    transition: 0.3s;
 }
 
 .writing-index__item:last-child {
@@ -376,21 +386,16 @@
     align-items: baseline;
     gap: 1rem;
     padding: 0.6em 0.75em;
-    /* Match .writing-link-title animated underline */
     color: var(--body-color, var(--deep-black));
     font-family: var(--font-family-serif);
-    background-image: linear-gradient(var(--deep-black), var(--deep-black));
-    background-size: 0% 2px;
-    background-position-y: 100%;
-    background-position-x: 0%;
-    background-repeat: no-repeat;
-    transition: background-size 0.2s ease-in-out;
+    /* Suppress default <a> underline animation — handled by __item instead */
+    background-image: none;
 }
 
 .writing-index__link:hover,
 .writing-index__link:focus {
-    background-size: 100% 2px;
-    transition: 0.3s;
+    background-image: none;
+    background-size: 0% 0em;
 }
 
 .writing-index__title {

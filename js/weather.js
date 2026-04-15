@@ -1,37 +1,46 @@
-// ── WMO weather code → emoji + description ───────────────────────────────────
+// ── WMO weather code → FA icon name + description ───────────────────────────
+// nightIcon: used in place of icon when is_day === false (codes 0-3 only).
 const WMO = {
-  0: { icon: "☀️", desc: "Clear sky" },
-  1: { icon: "🌤", desc: "Mainly clear" },
-  2: { icon: "⛅", desc: "Partly cloudy" },
-  3: { icon: "☁️", desc: "Overcast" },
-  45: { icon: "🌫", desc: "Fog" },
-  48: { icon: "🌫", desc: "Rime fog" },
-  51: { icon: "🌦", desc: "Light drizzle" },
-  53: { icon: "🌦", desc: "Drizzle" },
-  55: { icon: "🌦", desc: "Dense drizzle" },
-  56: { icon: "🌧", desc: "Freezing drizzle" },
-  57: { icon: "🌧", desc: "Heavy freezing drizzle" },
-  61: { icon: "🌧", desc: "Slight rain" },
-  63: { icon: "🌧", desc: "Rain" },
-  65: { icon: "🌧", desc: "Heavy rain" },
-  66: { icon: "🌧", desc: "Freezing rain" },
-  67: { icon: "🌧", desc: "Heavy freezing rain" },
-  71: { icon: "🌨", desc: "Slight snow" },
-  73: { icon: "🌨", desc: "Snow" },
-  75: { icon: "❄️", desc: "Heavy snow" },
-  77: { icon: "🌨", desc: "Snow grains" },
-  80: { icon: "🌦", desc: "Slight showers" },
-  81: { icon: "🌧", desc: "Showers" },
-  82: { icon: "⛈", desc: "Violent showers" },
-  85: { icon: "🌨", desc: "Snow showers" },
-  86: { icon: "🌨", desc: "Heavy snow showers" },
-  95: { icon: "⛈", desc: "Thunderstorm" },
-  96: { icon: "⛈", desc: "Thunderstorm with hail" },
-  99: { icon: "⛈", desc: "Thunderstorm with heavy hail" },
+  0: { icon: "sun", nightIcon: "moon", desc: "Clear sky" },
+  1: { icon: "sun", nightIcon: "moon", desc: "Mainly clear" },
+  2: { icon: "cloud-sun", nightIcon: "cloud-moon", desc: "Partly cloudy" },
+  3: { icon: "cloud", desc: "Overcast" },
+  45: { icon: "smog", desc: "Fog" },
+  48: { icon: "smog", desc: "Rime fog" },
+  51: { icon: "cloud-rain", desc: "Light drizzle" },
+  53: { icon: "cloud-rain", desc: "Drizzle" },
+  55: { icon: "cloud-rain", desc: "Dense drizzle" },
+  56: { icon: "cloud-rain", desc: "Freezing drizzle" },
+  57: { icon: "cloud-rain", desc: "Heavy freezing drizzle" },
+  61: { icon: "cloud-rain", desc: "Slight rain" },
+  63: { icon: "cloud-rain", desc: "Rain" },
+  65: { icon: "cloud-showers-heavy", desc: "Heavy rain" },
+  66: { icon: "cloud-rain", desc: "Freezing rain" },
+  67: { icon: "cloud-showers-heavy", desc: "Heavy freezing rain" },
+  71: { icon: "snowflake", desc: "Slight snow" },
+  73: { icon: "snowflake", desc: "Snow" },
+  75: { icon: "snowflake", desc: "Heavy snow" },
+  77: { icon: "snowflake", desc: "Snow grains" },
+  80: { icon: "cloud-showers-heavy", desc: "Slight showers" },
+  81: { icon: "cloud-showers-heavy", desc: "Showers" },
+  82: { icon: "cloud-showers-heavy", desc: "Violent showers" },
+  85: { icon: "snowflake", desc: "Snow showers" },
+  86: { icon: "snowflake", desc: "Heavy snow showers" },
+  95: { icon: "bolt", desc: "Thunderstorm" },
+  96: { icon: "bolt", desc: "Thunderstorm with hail" },
+  99: { icon: "bolt", desc: "Thunderstorm with heavy hail" },
 };
 
-function wmo(code) {
-  return WMO[code] || { icon: "🌡", desc: "Unknown" };
+function wmo(code, isDay) {
+  const entry = WMO[code] || { icon: "thermometer-half", desc: "Unknown" };
+  const icon =
+    isDay === false && entry.nightIcon ? entry.nightIcon : entry.icon;
+  return { icon, desc: entry.desc };
+}
+
+// Returns an <i> element HTML string for a given FA 6 solid icon name.
+function faIcon(name) {
+  return `<i class="fas fa-${name}" aria-hidden="true"></i>`;
 }
 
 // ── DOM refs ──────────────────────────────────────────────────────────────────
@@ -127,8 +136,8 @@ function render(data, locationName) {
 
   // Current conditions
   const cur = data.current;
-  const curWmo = wmo(cur.weather_code);
-  currentIcon.textContent = curWmo.icon;
+  const curWmo = wmo(cur.weather_code, cur.is_day === 1);
+  currentIcon.innerHTML = faIcon(curWmo.icon);
   currentTemp.textContent = Math.round(cur.temperature_2m) + "°";
   currentDesc.textContent = curWmo.desc;
   currentDetails.innerHTML =
@@ -150,7 +159,7 @@ function render(data, locationName) {
   nowCard.setAttribute("aria-current", "true");
   nowCard.innerHTML =
     `<span class="hour-time">Now</span>` +
-    `<span class="hour-icon" aria-hidden="true">${curWmo.icon}</span>` +
+    `<span class="hour-icon">${faIcon(curWmo.icon)}</span>` +
     `<span class="hour-temp">${Math.round(cur.temperature_2m)}°</span>` +
     `<span class="hour-precip${cur.precipitation <= 0 ? " is-zero" : ""}">${Math.round(cur.precipitation_probability ?? 0)}%</span>`;
   hourlyStrip.appendChild(nowCard);
@@ -162,7 +171,7 @@ function render(data, locationName) {
 
     const isDay = data.hourly.is_day[i] === 1;
     const code = data.hourly.weather_code[i];
-    const w = wmo(code);
+    const w = wmo(code, isDay);
     const precip = data.hourly.precipitation_probability[i] ?? 0;
 
     const card = document.createElement("div");
@@ -170,7 +179,7 @@ function render(data, locationName) {
     card.setAttribute("role", "listitem");
     card.innerHTML =
       `<span class="hour-time">${hour.toString().padStart(2, "0")}:00</span>` +
-      `<span class="hour-icon" aria-hidden="true">${w.icon}</span>` +
+      `<span class="hour-icon">${faIcon(w.icon)}</span>` +
       `<span class="hour-temp">${Math.round(data.hourly.temperature_2m[i])}°</span>` +
       `<span class="hour-precip${precip === 0 ? " is-zero" : ""}">${precip}%</span>`;
     hourlyStrip.appendChild(card);
@@ -181,7 +190,7 @@ function render(data, locationName) {
   const todayDate = todayStr;
   data.daily.time.forEach(function (dateStr, i) {
     const isToday = dateStr === todayDate;
-    const w = wmo(data.daily.weather_code[i]);
+    const w = wmo(data.daily.weather_code[i], true);
     const precip = data.daily.precipitation_probability_max[i] ?? 0;
 
     const card = document.createElement("div");
@@ -190,7 +199,7 @@ function render(data, locationName) {
     card.innerHTML =
       `<span class="day-name">${formatDayName(dateStr)}</span>` +
       `<span class="day-date">${formatDayDate(dateStr)}</span>` +
-      `<span class="day-icon" aria-hidden="true">${w.icon}</span>` +
+      `<span class="day-icon">${faIcon(w.icon)}</span>` +
       `<div class="day-temps">` +
       `<span class="day-high">${Math.round(data.daily.temperature_2m_max[i])}°</span>` +
       `<span class="day-low">${Math.round(data.daily.temperature_2m_min[i])}°</span>` +

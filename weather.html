@@ -12,8 +12,11 @@
 
         <title>Weather — James Atkin</title>
 
-        <!-- Font Awesome Icons -->
-        <script src="https://use.fontawesome.com/134696755a.js"></script>
+        <!-- Font Awesome 6 (local) -->
+        <link
+            href="vendor/fontawesome-free/fontawesome-free/css/all.min.css"
+            rel="stylesheet"
+        />
 
         <!-- Theme CSS - Includes Bootstrap -->
         <link href="css/creative.css" rel="stylesheet" />
@@ -32,7 +35,7 @@
                 aria-expanded="false"
                 aria-controls="rightHandNav"
             >
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
             </button>
             <div class="right-hand-nav" id="rightHandNav" role="navigation">
                 <a
@@ -75,7 +78,7 @@
                         type="submit"
                         aria-label="Search"
                     >
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <i class="fas fa-search" aria-hidden="true"></i>
                     </button>
                     <button
                         class="weather-search-btn"
@@ -83,7 +86,7 @@
                         id="weatherGeoBtn"
                         aria-label="Use my location"
                     >
-                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        <i class="fas fa-location-arrow" aria-hidden="true"></i>
                     </button>
                     <!-- Suggestions drop-down lives inside the form for correct relative positioning -->
                     <ul

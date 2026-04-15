@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="/favicon.png" />
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="Pomodoro timer" />
+        <meta name="author" content="" />
+
+        <title>Pomodoro — James Atkin</title>
+
+        <!-- Font Awesome Icons -->
+        <script src="https://use.fontawesome.com/134696755a.js"></script>
+
+        <!-- Theme CSS - Includes Bootstrap -->
+        <link href="css/creative.css" rel="stylesheet" />
+    </head>
+
+    <body id="page-top">
+        <!-- Navbar/header -->
+        <div class="header" id="header" role="banner">
+            <a href="/" class="header-link">
+                <span>James Atkin</span>
+            </a>
+            <button
+                class="nav-hamburger"
+                id="navHamburger"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="rightHandNav"
+            >
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </button>
+            <div class="right-hand-nav" id="rightHandNav" role="navigation">
+                <a
+                    href="/#portfolio"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                >
+                    <div class="title">Projects</div>
+                </a>
+                <div class="nav-divider"></div>
+                <a
+                    href="/writing"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                >
+                    <div class="title">Writing</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="main" role="main">
+            <div class="pomodoro-container">
+                <h1>Pomodoro</h1>
+                <div
+                    class="pomodoro-status"
+                    id="pomodoroStatus"
+                    aria-live="polite"
+                >
+                    Work
+                </div>
+
+                <div
+                    class="pomodoro-clock"
+                    id="pomodoroClock"
+                    aria-label="Time remaining"
+                    aria-live="off"
+                >
+                    25:00
+                </div>
+
+                <div class="pomodoro-actions">
+                    <button
+                        class="pomodoro-btn primary"
+                        id="playPauseBtn"
+                        aria-label="Start timer"
+                    >
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        <span id="playPauseLabel">Start</span>
+                    </button>
+                    <button
+                        class="pomodoro-btn"
+                        id="resetBtn"
+                        aria-label="Reset timer"
+                    >
+                        Reset
+                    </button>
+                </div>
+
+                <div class="pomodoro-settings">
+                    <h2>Settings</h2>
+                    <div class="setting-row">
+                        <label class="setting-label" for="workDurationInput"
+                            >Work</label
+                        >
+                        <input
+                            class="setting-input"
+                            type="number"
+                            id="workDurationInput"
+                            min="1"
+                            max="120"
+                            value="25"
+                            aria-label="Work duration in minutes"
+                        />
+                        <span class="setting-unit">min</span>
+                    </div>
+                    <div class="setting-row">
+                        <label class="setting-label" for="breakDurationInput"
+                            >Break</label
+                        >
+                        <input
+                            class="setting-input"
+                            type="number"
+                            id="breakDurationInput"
+                            min="1"
+                            max="60"
+                            value="5"
+                            aria-label="Break duration in minutes"
+                        />
+                        <span class="setting-unit">min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-5" id="footer">
+            <div class="container">
+                <div class="small text-center" id="footer-text"
+                    >&copy; JAMES ATKIN <span id="year"></span
+                ></div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <script src="insertCurrentYear.js"></script>
+        <script src="js/pomodoro.js"></script>
+    </body>
+</html>

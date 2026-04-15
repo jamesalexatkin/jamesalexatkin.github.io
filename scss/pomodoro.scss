@@ -1,0 +1,140 @@
+// Pomodoro page styles
+
+.pomodoro-container {
+    margin-left: inherit;
+    margin-right: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.pomodoro-status {
+    font-family: "PT Mono", monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--taupe-gray);
+}
+
+.pomodoro-status.is-break {
+    color: var(--cadet-blue);
+}
+
+.pomodoro-clock {
+    font-family: var(--font-family-serif);
+    font-size: clamp(4rem, 12vw, 8rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--deep-black);
+}
+
+.pomodoro-clock.is-break {
+    color: var(--cadet-blue);
+}
+
+.pomodoro-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.pomodoro-btn {
+    font-family: "PT Mono", monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border: 1.5px solid var(--deep-black);
+    background: transparent;
+    color: var(--deep-black);
+    padding: 0.5rem 1.25rem;
+    border-radius: 0;
+    transition:
+        background 0.15s,
+        color 0.15s;
+}
+
+.pomodoro-btn:hover,
+.pomodoro-btn:focus {
+    background: var(--deep-black);
+    color: var(--off-white);
+    outline: none;
+}
+
+.pomodoro-btn.primary {
+    background: var(--deep-black);
+    color: var(--off-white);
+}
+
+.pomodoro-btn.primary:hover,
+.pomodoro-btn.primary:focus {
+    background: var(--cadet-blue);
+    border-color: var(--cadet-blue);
+    color: #fff;
+}
+
+.pomodoro-settings {
+    border-top: 1px solid var(--deep-black);
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.pomodoro-settings h2 {
+    font-family: "PT Mono", monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+    color: var(--taupe-gray);
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.setting-label {
+    font-family: "PT Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--deep-black);
+    width: 8rem;
+    flex-shrink: 0;
+}
+
+.setting-input {
+    font-family: "PT Mono", monospace;
+    font-size: 0.85rem;
+    width: 4.5rem;
+    padding: 0.3rem 0.5rem;
+    border: 1.5px solid var(--deep-black);
+    background: transparent;
+    color: var(--deep-black);
+    border-radius: 0;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+
+.setting-input::-webkit-outer-spin-button,
+.setting-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.setting-input:focus {
+    outline: 2px solid var(--cadet-blue);
+    outline-offset: 1px;
+}
+
+.setting-unit {
+    font-family: "PT Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--taupe-gray);
+}

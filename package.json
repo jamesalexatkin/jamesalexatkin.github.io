@@ -5,7 +5,7 @@
     "scripts": {
         "start": "concurrently \"npm run watch:scss\" \"npm run watch:bs\"",
         "watch:scss": "nodemon --watch scss --ext scss --exec \"npm run build:css\"",
-        "watch:bs": "browser-sync start --server --files \"css/**/*.css, js/**/*.js, *.html\"",
+        "watch:bs": "browser-sync start --server --extensions html --files \"css/**/*.css, js/**/*.js, *.html\"",
         "build": "npm run build:clean && npm run build:vendor && npm run build:css && npm run build:js",
         "build:vendor": "node scripts/copy-vendor.js",
         "build:css": "sass --load-path=node_modules scss/creative.scss:css/creative.css --style=expanded && node scripts/minify-css.js",

@@ -1,77 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel=icon href=/favicon.png>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <head>
+        <link rel=icon href=/favicon.png>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
 
-    <title>James Atkin</title>
+        <title>404 — James Atkin</title>
 
-    <!-- Font Awesome Icons -->
-    <script src="https://use.fontawesome.com/134696755a.js"></script>
+        <!-- Font Awesome Icons -->
+        <script src="https://use.fontawesome.com/134696755a.js"></script>
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Alata&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+        <!-- Plugin CSS -->
+        <link
+            href="vendor/magnific-popup/magnific-popup.css"
+            rel="stylesheet"
+        />
 
-    <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" />
+        <!-- Theme CSS - Includes Bootstrap -->
+        <link href="css/creative.css" rel="stylesheet" />
+    </head>
 
-    <!-- Theme CSS - Includes Bootstrap -->
-    <link href="css/creative.css" rel="stylesheet" />
-  </head>
-
-  <body class="four-oh-four" id="page-top">
-    <!-- 404 -->
-    <!-- <section class="four-oh-four" id="four-oh-four"> -->
-    <h1 class="four-oh-four">404</h1>
-    <h2>Page not found.</h2>
-    <!-- </section> -->
-
-    <!-- Footer -->
-    <footer class="py-5" id="footer">
-      <div class="container">
-        <div class="small text-white-50" id="footer-text">
-          &copy; JAMES ATKIN <span id="year"></span>
+    <body id="page-top">
+        <!-- Navbar/header -->
+        <div class="header" id="header" role="banner">
+            <a href="/" class="header-link">
+                <span>James Atkin</span>
+            </a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="rightHandNav">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </button>
+            <div class="right-hand-nav" id="rightHandNav" role="navigation">
+                <a
+                    href="/#portfolio"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                >
+                    <div class="title">Projects</div>
+                </a>
+                <div class="nav-divider"></div>
+                <a
+                    href="/writing"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                >
+                    <div class="title">Writing</div>
+                </a>
+            </div>
         </div>
-      </div>
-    </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <div class="main" role="main">
+            <section class="page-section" id="four-oh-four">
+                <div class="container text-center">
+                    <h1 class="not-found-header">404</h1>
+                    <p>Page not found.</p>
+                </div>
+            </section>
+        </div>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <!-- Footer -->
+        <footer class="py-5" id="footer">
+            <div class="container">
+                <div class="small text-center" id="footer-text"
+                    >&copy; JAMES ATKIN <span id="year"></span
+                ></div>
+            </div>
+        </footer>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="insertCurrentYear.js"></script>
-  </body>
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="js/creative.min.js"></script>
+
+        <script src="insertCurrentYear.js"></script>
+        <script>
+            (function () {
+                var btn = document.getElementById('navHamburger');
+                var nav = document.getElementById('rightHandNav');
+                btn.addEventListener('click', function () {
+                    var open = nav.classList.toggle('is-open');
+                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+                });
+                nav.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        nav.classList.remove('is-open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.setAttribute('aria-label', 'Open navigation menu');
+                    });
+                });
+            })();
+        </script>
+    </body>
 </html>

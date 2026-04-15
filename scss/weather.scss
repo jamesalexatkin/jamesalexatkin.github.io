@@ -9,6 +9,107 @@
     gap: 2.5rem;
 }
 
+// ── Search bar ────────────────────────────────────────────────────────────────
+
+.weather-search {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.weather-search-input {
+    font-family: "PT Mono", monospace;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.75rem;
+    border: 1.5px solid var(--deep-black);
+    background: transparent;
+    color: var(--deep-black);
+    border-radius: 0;
+    flex: 1;
+    min-width: 0;
+
+    &::placeholder {
+        color: var(--taupe-gray);
+        opacity: 1;
+    }
+
+    &:focus {
+        outline: 2px solid var(--canard);
+        outline-offset: 1px;
+    }
+}
+
+.weather-search-btn {
+    font-family: "PT Mono", monospace;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.75rem;
+    border: 1.5px solid var(--deep-black);
+    background: transparent;
+    color: var(--deep-black);
+    cursor: pointer;
+    border-radius: 0;
+    flex-shrink: 0;
+    transition:
+        background 0.15s,
+        color 0.15s;
+
+    &:hover,
+    &:focus {
+        background: var(--deep-black);
+        color: var(--off-white);
+        outline: none;
+    }
+}
+
+// ── Autocomplete suggestions ──────────────────────────────────────────────────
+
+.weather-suggestions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1.5px solid var(--deep-black);
+    border-top: none;
+    background: var(--body-background-color);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.weather-suggestion-item {
+    font-family: "PT Mono", monospace;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(12, 12, 12, 0.1);
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:hover,
+    &:focus {
+        background: rgba(12, 12, 12, 0.06);
+        outline: none;
+    }
+}
+
+// ── Status message ────────────────────────────────────────────────────────────
+
+.weather-status {
+    font-family: "PT Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--taupe-gray);
+    margin: 0;
+
+    &:empty {
+        display: none;
+    }
+}
+
 // ── Location / date header ────────────────────────────────────────────────────
 
 .weather-date {

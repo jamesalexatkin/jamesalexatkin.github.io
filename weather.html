@@ -55,295 +55,105 @@
 
         <div class="main" role="main">
             <div class="weather-container">
+                <!-- ── Location search ──────────────────────────────────── -->
+                <form
+                    class="weather-search"
+                    id="weatherSearch"
+                    role="search"
+                    aria-label="Search for a location"
+                >
+                    <input
+                        class="weather-search-input"
+                        type="search"
+                        id="weatherSearchInput"
+                        placeholder="Search location…"
+                        autocomplete="off"
+                        aria-label="Location"
+                    />
+                    <button
+                        class="weather-search-btn"
+                        type="submit"
+                        aria-label="Search"
+                    >
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                    <button
+                        class="weather-search-btn"
+                        type="button"
+                        id="weatherGeoBtn"
+                        aria-label="Use my location"
+                    >
+                        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                    </button>
+                    <!-- Suggestions drop-down lives inside the form for correct relative positioning -->
+                    <ul
+                        class="weather-suggestions"
+                        id="weatherSuggestions"
+                        role="listbox"
+                        aria-label="Location suggestions"
+                        hidden
+                    ></ul>
+                </form>
+
+                <!-- ── Status message (loading / error) ─────────────────── -->
+                <p
+                    class="weather-status"
+                    id="weatherStatus"
+                    aria-live="polite"
+                ></p>
+
                 <!-- ── Location & date ───────────────────────────────────── -->
-                <div>
-                    <h1>London</h1>
-                    <p class="weather-date">Wednesday 15 April 2026</p>
+                <div id="weatherHeading" hidden>
+                    <h1 id="weatherLocationName"></h1>
+                    <p class="weather-date" id="weatherDateLine"></p>
                 </div>
 
                 <!-- ── Current conditions ────────────────────────────────── -->
-                <div class="weather-current" aria-label="Current conditions">
-                    <span class="weather-current-icon" aria-hidden="true"
-                        >⛅</span
-                    >
-                    <span class="weather-current-temp">14°</span>
-                    <span class="weather-current-desc">Partly Cloudy</span>
-                    <div class="weather-current-details">
-                        <span>Feels like 12°</span>
-                        <span>Wind 18 km/h SW</span>
-                        <span>Humidity 72%</span>
-                        <span>↑ Sunrise 06:06</span>
-                        <span>↓ Sunset 19:57</span>
-                    </div>
+                <div
+                    class="weather-current"
+                    id="weatherCurrent"
+                    aria-label="Current conditions"
+                    hidden
+                >
+                    <span
+                        class="weather-current-icon"
+                        id="weatherCurrentIcon"
+                        aria-hidden="true"
+                    ></span>
+                    <span
+                        class="weather-current-temp"
+                        id="weatherCurrentTemp"
+                    ></span>
+                    <span
+                        class="weather-current-desc"
+                        id="weatherCurrentDesc"
+                    ></span>
+                    <div
+                        class="weather-current-details"
+                        id="weatherCurrentDetails"
+                    ></div>
                 </div>
 
                 <!-- ── Today — hour by hour ──────────────────────────────── -->
-                <section class="weather-section">
+                <section class="weather-section" id="hourlySection" hidden>
                     <h2 class="weather-section-title">Today</h2>
                     <div
                         class="hourly-strip"
+                        id="hourlyStrip"
                         role="list"
                         aria-label="Hourly forecast"
-                    >
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">00:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌙</span>
-                            <span class="hour-temp">10°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">01:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌙</span>
-                            <span class="hour-temp">9°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">02:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌙</span>
-                            <span class="hour-temp">9°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">03:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌑</span>
-                            <span class="hour-temp">8°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">04:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌑</span>
-                            <span class="hour-temp">8°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">05:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌑</span>
-                            <span class="hour-temp">8°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">06:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌅</span>
-                            <span class="hour-temp">9°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">07:00</span>
-                            <span class="hour-icon" aria-hidden="true">☀️</span>
-                            <span class="hour-temp">10°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">08:00</span>
-                            <span class="hour-icon" aria-hidden="true">☀️</span>
-                            <span class="hour-temp">11°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">09:00</span>
-                            <span class="hour-icon" aria-hidden="true">☀️</span>
-                            <span class="hour-temp">12°</span>
-                            <span class="hour-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">10:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌤</span>
-                            <span class="hour-temp">13°</span>
-                            <span class="hour-precip">5%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">11:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌤</span>
-                            <span class="hour-temp">14°</span>
-                            <span class="hour-precip">5%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">12:00</span>
-                            <span class="hour-icon" aria-hidden="true">⛅</span>
-                            <span class="hour-temp">15°</span>
-                            <span class="hour-precip">10%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">13:00</span>
-                            <span class="hour-icon" aria-hidden="true">⛅</span>
-                            <span class="hour-temp">16°</span>
-                            <span class="hour-precip">15%</span>
-                        </div>
-
-                        <div
-                            class="hour-card is-current"
-                            role="listitem"
-                            aria-current="true"
-                        >
-                            <span class="hour-time">Now</span>
-                            <span class="hour-icon" aria-hidden="true">⛅</span>
-                            <span class="hour-temp">14°</span>
-                            <span class="hour-precip">10%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">15:00</span>
-                            <span class="hour-icon" aria-hidden="true">⛅</span>
-                            <span class="hour-temp">15°</span>
-                            <span class="hour-precip">20%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">16:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌦</span>
-                            <span class="hour-temp">14°</span>
-                            <span class="hour-precip">45%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">17:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌧</span>
-                            <span class="hour-temp">13°</span>
-                            <span class="hour-precip">65%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">18:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌧</span>
-                            <span class="hour-temp">12°</span>
-                            <span class="hour-precip">55%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">19:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌦</span>
-                            <span class="hour-temp">12°</span>
-                            <span class="hour-precip">35%</span>
-                        </div>
-
-                        <div class="hour-card" role="listitem">
-                            <span class="hour-time">20:00</span>
-                            <span class="hour-icon" aria-hidden="true">⛅</span>
-                            <span class="hour-temp">11°</span>
-                            <span class="hour-precip">15%</span>
-                        </div>
-
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">21:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌙</span>
-                            <span class="hour-temp">11°</span>
-                            <span class="hour-precip">10%</span>
-                        </div>
-
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">22:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌙</span>
-                            <span class="hour-temp">10°</span>
-                            <span class="hour-precip is-zero">5%</span>
-                        </div>
-
-                        <div class="hour-card is-night" role="listitem">
-                            <span class="hour-time">23:00</span>
-                            <span class="hour-icon" aria-hidden="true">🌙</span>
-                            <span class="hour-temp">10°</span>
-                            <span class="hour-precip is-zero">5%</span>
-                        </div>
-                    </div>
+                    ></div>
                 </section>
 
                 <!-- ── This week — day by day ────────────────────────────── -->
-                <section class="weather-section">
+                <section class="weather-section" id="weeklySection" hidden>
                     <h2 class="weather-section-title">This week</h2>
                     <div
                         class="day-grid"
+                        id="dayGrid"
                         role="list"
                         aria-label="7-day forecast"
-                    >
-                        <div class="day-card is-today" role="listitem">
-                            <span class="day-name">Wed</span>
-                            <span class="day-date">15 Apr</span>
-                            <span class="day-icon" aria-hidden="true">⛅</span>
-                            <div class="day-temps">
-                                <span class="day-high">17°</span>
-                                <span class="day-low">8°</span>
-                            </div>
-                            <span class="day-precip">10%</span>
-                        </div>
-
-                        <div class="day-card" role="listitem">
-                            <span class="day-name">Thu</span>
-                            <span class="day-date">16 Apr</span>
-                            <span class="day-icon" aria-hidden="true">🌧</span>
-                            <div class="day-temps">
-                                <span class="day-high">16°</span>
-                                <span class="day-low">9°</span>
-                            </div>
-                            <span class="day-precip">65%</span>
-                        </div>
-
-                        <div class="day-card" role="listitem">
-                            <span class="day-name">Fri</span>
-                            <span class="day-date">17 Apr</span>
-                            <span class="day-icon" aria-hidden="true">☀️</span>
-                            <div class="day-temps">
-                                <span class="day-high">18°</span>
-                                <span class="day-low">10°</span>
-                            </div>
-                            <span class="day-precip is-zero">0%</span>
-                        </div>
-
-                        <div class="day-card" role="listitem">
-                            <span class="day-name">Sat</span>
-                            <span class="day-date">18 Apr</span>
-                            <span class="day-icon" aria-hidden="true">🌤</span>
-                            <div class="day-temps">
-                                <span class="day-high">17°</span>
-                                <span class="day-low">5°</span>
-                            </div>
-                            <span class="day-precip is-zero">5%</span>
-                        </div>
-
-                        <div class="day-card" role="listitem">
-                            <span class="day-name">Sun</span>
-                            <span class="day-date">19 Apr</span>
-                            <span class="day-icon" aria-hidden="true">🌤</span>
-                            <div class="day-temps">
-                                <span class="day-high">16°</span>
-                                <span class="day-low">4°</span>
-                            </div>
-                            <span class="day-precip is-zero">5%</span>
-                        </div>
-
-                        <div class="day-card" role="listitem">
-                            <span class="day-name">Mon</span>
-                            <span class="day-date">20 Apr</span>
-                            <span class="day-icon" aria-hidden="true">🌤</span>
-                            <div class="day-temps">
-                                <span class="day-high">15°</span>
-                                <span class="day-low">5°</span>
-                            </div>
-                            <span class="day-precip is-zero">5%</span>
-                        </div>
-
-                        <div class="day-card" role="listitem">
-                            <span class="day-name">Tue</span>
-                            <span class="day-date">21 Apr</span>
-                            <span class="day-icon" aria-hidden="true">🌧</span>
-                            <div class="day-temps">
-                                <span class="day-high">15°</span>
-                                <span class="day-low">4°</span>
-                            </div>
-                            <span class="day-precip">55%</span>
-                        </div>
-                    </div>
+                    ></div>
                 </section>
             </div>
         </div>

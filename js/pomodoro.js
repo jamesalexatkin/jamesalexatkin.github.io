@@ -9,7 +9,7 @@ document.getElementById("navHamburger").addEventListener("click", function () {
 // Pomodoro logic
 (function () {
     // Set to true to use 5-second sessions for local development
-    const DEBUG_SHORT_TIMERS = true;
+    const DEBUG_SHORT_TIMERS = false;
 
     const clockEl = document.getElementById("pomodoroClock");
     const statusEl = document.getElementById("pomodoroStatus");

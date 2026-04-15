@@ -238,14 +238,27 @@ function useGeolocation() {
         async function (pos) {
             const lat = pos.coords.latitude.toFixed(4);
             const lon = pos.coords.longitude.toFixed(4);
-            // Reverse-geocode via Open-Meteo geocoding to get a place name
+            // Reverse-geocode via Nominatim (OpenStreetMap) — free, no key required.
+            // User-Agent header is set as required by Nominatim's usage policy.
             let name = `${lat}°, ${lon}°`;
             try {
                 const r = await fetch(
-                    `https://geocoding-api.open-meteo.com/v1/search?name=&latitude=${lat}&longitude=${lon}&count=1&language=en&format=json`,
+                    `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=jsonv2`,
+                    { headers: { "Accept-Language": "en" } },
                 );
-                // Open-Meteo geocoding doesn't support reverse lookup directly,
-                // so we use the coordinates as the name and let the forecast load.
+                if (r.ok) {
+                    const geo = await r.json();
+                    // Prefer town/city > village > county > country as the display name
+                    const addr = geo.address || {};
+                    name =
+                        addr.city ||
+                        addr.town ||
+                        addr.village ||
+                        addr.municipality ||
+                        addr.county ||
+                        geo.name ||
+                        name;
+                }
             } catch (_) {}
             loadWeather(lat, lon, name);
         },

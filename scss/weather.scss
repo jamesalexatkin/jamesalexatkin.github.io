@@ -1,0 +1,280 @@
+// Weather page styles
+
+.weather-container {
+    margin-left: inherit;
+    margin-right: inherit;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+// ── Location / date header ────────────────────────────────────────────────────
+
+.weather-date {
+    font-family: "PT Mono", monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--taupe-gray);
+    margin: 0;
+}
+
+// ── Current conditions summary ────────────────────────────────────────────────
+
+.weather-current {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--deep-black);
+}
+
+.weather-current-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    align-self: center;
+}
+
+.weather-current-temp {
+    font-family: var(--font-family-serif);
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--deep-black);
+}
+
+.weather-current-desc {
+    font-family: "PT Mono", monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--taupe-gray);
+    align-self: flex-end;
+    padding-bottom: 0.35rem;
+}
+
+.weather-current-details {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 2rem;
+    font-family: "PT Mono", monospace;
+    font-size: 0.8rem;
+    color: var(--taupe-gray);
+    margin-top: 0.15rem;
+}
+
+// ── Section wrapper ───────────────────────────────────────────────────────────
+
+.weather-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.weather-section-title {
+    font-family: "PT Mono", monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin: 0;
+    color: var(--taupe-gray);
+}
+
+// ── Hourly strip ──────────────────────────────────────────────────────────────
+
+.hourly-strip {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    border-top: 1.5px solid var(--deep-black);
+    border-bottom: 1.5px solid var(--deep-black);
+    scrollbar-width: thin;
+    scrollbar-color: var(--deep-black) transparent;
+
+    &::-webkit-scrollbar {
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--deep-black);
+    }
+}
+
+.hour-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.75rem 0.9rem;
+    min-width: 72px;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(12, 12, 12, 0.15);
+
+    &:last-child {
+        border-right: none;
+    }
+
+    &.is-current {
+        background-color: rgba(244, 98, 58, 0.07);
+
+        .hour-time {
+            color: #f4623a;
+            font-weight: 700;
+        }
+
+        .hour-temp {
+            color: #f4623a;
+        }
+    }
+
+    &.is-night {
+        background-color: rgba(12, 12, 12, 0.03);
+    }
+}
+
+.hour-time {
+    font-family: "PT Mono", monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--taupe-gray);
+}
+
+.hour-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    margin: 0.1rem 0;
+}
+
+.hour-temp {
+    font-family: var(--font-family-serif);
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    color: var(--deep-black);
+}
+
+.hour-precip {
+    font-family: "PT Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--canard);
+
+    &.is-zero {
+        color: var(--taupe-gray);
+        opacity: 0.5;
+    }
+}
+
+// ── 7-day grid ────────────────────────────────────────────────────────────────
+
+.day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1.5px solid var(--deep-black);
+}
+
+.day-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 1rem 0.5rem;
+    border-right: 1px solid rgba(12, 12, 12, 0.15);
+
+    &:last-child {
+        border-right: none;
+    }
+
+    &.is-today {
+        background-color: rgba(244, 98, 58, 0.06);
+
+        .day-name {
+            color: #f4623a;
+        }
+    }
+}
+
+.day-name {
+    font-family: "PT Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--deep-black);
+}
+
+.day-date {
+    font-family: "PT Mono", monospace;
+    font-size: 0.65rem;
+    color: var(--taupe-gray);
+}
+
+.day-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+    margin: 0.2rem 0;
+}
+
+.day-temps {
+    display: flex;
+    gap: 0.35rem;
+    align-items: baseline;
+}
+
+.day-high {
+    font-family: var(--font-family-serif);
+    font-size: 1rem;
+    color: var(--deep-black);
+}
+
+.day-low {
+    font-family: "PT Mono", monospace;
+    font-size: 0.75rem;
+    color: var(--taupe-gray);
+}
+
+.day-precip {
+    font-family: "PT Mono", monospace;
+    font-size: 0.65rem;
+    color: var(--canard);
+
+    &.is-zero {
+        color: var(--taupe-gray);
+        opacity: 0.4;
+    }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+
+@media (max-width: 767.98px) {
+    .day-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .day-card {
+        flex-direction: row;
+        justify-content: space-between;
+        border-right: none;
+        border-bottom: 1px solid rgba(12, 12, 12, 0.15);
+        padding: 0.7rem 1rem;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .day-icon {
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    .day-temps {
+        min-width: 5rem;
+        justify-content: flex-end;
+    }
+}

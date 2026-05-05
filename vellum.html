@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="/favicon.png" />
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta
+            name="description"
+            content="Vellum — minimal design system for jamesalexatkin.github.io"
+        />
+
+        <title>Vellum — James Atkin</title>
+
+        <!-- Vellum design tokens (machine-readable) -->
+        <script type="application/json" id="vellum-tokens">
+            {
+                "meta": {
+                    "name": "Vellum",
+                    "description": "Warm, typographic, sparse. Bell MT for content, PT Mono for metadata and UI.",
+                    "version": "1.0.0"
+                },
+                "colors": {
+                    "neutrals": {
+                        "deep-black": {
+                            "value": "#0c0c0c",
+                            "css": "--deep-black",
+                            "role": "Body text, borders, structural elements, headings"
+                        },
+                        "off-white": {
+                            "value": "#faf8f4",
+                            "css": "--off-white",
+                            "role": "Page background"
+                        }
+                    },
+                    "surfaces": {
+                        "ecru": {
+                            "value": "#fbf3d3",
+                            "css": "--ecru",
+                            "role": "Code blocks, inline code, inset surfaces. Never use as page background."
+                        }
+                    },
+                    "accents": {
+                        "burgundian": {
+                            "value": "#5a0f19",
+                            "css": "--burgundian",
+                            "role": "Primary interactive accent — body links, active states. Use sparingly."
+                        },
+                        "racing-green": {
+                            "value": "#003d32",
+                            "css": "--racing-green",
+                            "role": "Tags, secondary labels"
+                        },
+                        "oxbridge-blue": {
+                            "value": "#0c2340",
+                            "css": "--oxbridge-blue",
+                            "role": "Reserved — available for dark surfaces or a third accent if genuinely needed"
+                        }
+                    }
+                },
+                "fonts": {
+                    "serif": {
+                        "name": "Bell MT",
+                        "css": "--font-family-serif",
+                        "value": "\"Bell MT\", Georgia, serif",
+                        "role": "Headings (h1–h6), body text, long-form reading"
+                    },
+                    "monospace": {
+                        "name": "PT Mono",
+                        "css": "--font-family-monospace",
+                        "value": "\"PT Mono\", monospace",
+                        "role": "Subtitles, metadata, tags, UI labels, code"
+                    }
+                },
+                "scale": {
+                    "h1": "2rem",
+                    "h2": "1.5rem",
+                    "h3": "1.25rem",
+                    "h4": "1rem",
+                    "h5": "0.875rem",
+                    "h6": "0.75rem",
+                    "body": "1.0625rem",
+                    "small": "0.875rem",
+                    "caption": "0.8125rem"
+                },
+                "spacing": {
+                    "border-radius": {
+                        "value": "8px",
+                        "css": "--border-amount",
+                        "role": "Cards, buttons, code blocks"
+                    },
+                    "page-margin": {
+                        "value": "8%",
+                        "role": "Left/right margin of .main"
+                    },
+                    "post-max-width": {
+                        "value": "680px",
+                        "role": "Max width for reading content"
+                    }
+                },
+                "syntax-highlighting": {
+                    "theme": "Kimbie Light",
+                    "source": "highlight.js 11",
+                    "cdn": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/kimbie-light.min.css",
+                    "background-override": "var(--ecru)",
+                    "note": "Background is overridden to ecru so the code surface matches the Vellum palette."
+                }
+            }
+        </script>
+
+        <!-- Font Awesome Icons -->
+        <script src="https://use.fontawesome.com/134696755a.js"></script>
+
+        <!-- Syntax highlighting (Kimbie Light) -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/kimbie-light.min.css"
+        />
+
+        <!-- Theme CSS -->
+        <link href="css/creative.css" rel="stylesheet" />
+
+        <!-- Writing CSS (post__* components) -->
+        <link href="writing/static/writing.css" rel="stylesheet" />
+
+        <!-- TODO: move all these to regular CSS files -->
+        <style>
+            /* ── Vellum page chrome ── */
+            .vellum {
+                max-width: 680px;
+                margin: 0 auto;
+                padding: 2rem 1.5rem 6rem;
+            }
+
+            .vellum__intro {
+                margin-bottom: 3rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 2px solid var(--deep-black);
+            }
+
+            .vellum__intro-title {
+                font-size: 2.5rem;
+                margin: 0 0 0.5rem;
+            }
+
+            .vellum__intro-tagline {
+                font-family: var(--font-family-monospace);
+                font-size: 0.85rem;
+                opacity: 0.6;
+                margin: 0;
+            }
+
+            /* TOC */
+            .vellum-toc {
+                margin: 2rem 0 3rem;
+                padding: 1.25rem 1.5rem;
+                background: var(--ecru);
+                border-radius: var(--border-amount);
+                border: 1px solid rgba(12, 12, 12, 0.15);
+            }
+
+            .vellum-toc__title {
+                font-family: var(--font-family-monospace);
+                font-size: 0.7rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                opacity: 0.5;
+                margin: 0 0 0.75rem;
+            }
+
+            .vellum-toc__list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                columns: 2;
+            }
+
+            .vellum-toc__item {
+                margin-bottom: 0.3rem;
+                font-family: var(--font-family-monospace);
+                font-size: 0.85rem;
+                break-inside: avoid;
+            }
+
+            /* Section */
+            .vellum-section {
+                margin-bottom: 4rem;
+            }
+
+            .vellum-section__heading {
+                font-size: 1.5rem;
+                margin: 0 0 0.25rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid var(--deep-black);
+            }
+
+            .vellum-section__description {
+                font-family: var(--font-family-monospace);
+                font-size: 0.8rem;
+                opacity: 0.55;
+                margin: 0.5rem 0 1.5rem;
+            }
+
+            /* Palette swatches */
+            .vellum-palette-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .vellum-palette-group__label {
+                font-family: var(--font-family-monospace);
+                font-size: 0.7rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                opacity: 0.45;
+                margin: 0 0 0.5rem;
+            }
+
+            .vellum-swatch {
+                display: grid;
+                grid-template-columns: 3rem 9rem 1fr auto;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(12, 12, 12, 0.08);
+            }
+
+            .vellum-swatch:last-child {
+                border-bottom: none;
+            }
+
+            .vellum-swatch__block {
+                width: 3rem;
+                height: 2rem;
+                border-radius: 4px;
+                border: 1px solid rgba(12, 12, 12, 0.15);
+                flex-shrink: 0;
+            }
+
+            .vellum-swatch__name {
+                font-family: var(--font-family-serif);
+                font-size: 0.9rem;
+                font-weight: 700;
+            }
+
+            .vellum-swatch__hex {
+                font-family: var(--font-family-monospace);
+                font-size: 0.8rem;
+                opacity: 0.7;
+            }
+
+            .vellum-swatch__role {
+                font-family: var(--font-family-monospace);
+                font-size: 0.72rem;
+                opacity: 0.5;
+                text-align: right;
+            }
+
+            /* Typography specimens */
+            .vellum-type-specimen {
+                margin-bottom: 2rem;
+            }
+
+            .vellum-type-label {
+                font-family: var(--font-family-monospace);
+                font-size: 0.7rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                opacity: 0.4;
+                margin: 0 0 0.25rem;
+            }
+
+            .vellum-type-row {
+                display: flex;
+                align-items: baseline;
+                gap: 1.5rem;
+                padding: 0.4rem 0;
+                border-bottom: 1px solid rgba(12, 12, 12, 0.07);
+            }
+
+            .vellum-type-row__size {
+                font-family: var(--font-family-monospace);
+                font-size: 0.7rem;
+                opacity: 0.4;
+                width: 7rem;
+                flex-shrink: 0;
+            }
+
+            /* Spacing specimens */
+            .vellum-spacing-row {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(12, 12, 12, 0.07);
+            }
+
+            .vellum-spacing-row__demo {
+                flex-shrink: 0;
+            }
+
+            .vellum-spacing-row__label {
+                font-family: var(--font-family-monospace);
+                font-size: 0.8rem;
+            }
+
+            .vellum-spacing-row__value {
+                font-family: var(--font-family-monospace);
+                font-size: 0.75rem;
+                opacity: 0.5;
+                margin-left: auto;
+            }
+
+            /* Component blocks */
+            .vellum-component {
+                margin-bottom: 2.5rem;
+            }
+
+            .vellum-component__label {
+                font-family: var(--font-family-monospace);
+                font-size: 0.7rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                opacity: 0.4;
+                margin: 0 0 0.5rem;
+            }
+
+            .vellum-component__render {
+                padding: 1.25rem 1.5rem;
+                border: 1px solid rgba(12, 12, 12, 0.12);
+                border-radius: var(--border-amount);
+                margin-bottom: 0.5rem;
+            }
+
+            .vellum-component__class {
+                font-family: var(--font-family-monospace);
+                font-size: 0.75rem;
+                opacity: 0.45;
+                background: var(--ecru);
+                padding: 0.15em 0.4em;
+                border-radius: 3px;
+            }
+
+            /* Override margins inside render blocks */
+            .vellum-component__render .post__pre,
+            .vellum-component__render .post__blockquote {
+                margin: 0;
+            }
+
+            /* Usage rules */
+            .vellum-rules {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .vellum-rules li {
+                padding: 0.6rem 0 0.6rem 1.25rem;
+                border-bottom: 1px solid rgba(12, 12, 12, 0.07);
+                font-family: var(--font-family-monospace);
+                font-size: 0.875rem;
+                line-height: 1.6;
+                position: relative;
+            }
+
+            .vellum-rules li::before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                opacity: 0.35;
+            }
+        </style>
+    </head>
+
+    <body id="page-top">
+        <!-- Navbar -->
+        <div class="header" id="header" role="banner">
+            <a href="/" class="header-link"><span>James Atkin</span></a>
+            <button
+                class="nav-hamburger"
+                id="navHamburger"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="rightHandNav"
+            >
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </button>
+            <div class="right-hand-nav" id="rightHandNav" role="navigation">
+                <a
+                    href="/#portfolio"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                    ><div class="title">Projects</div></a
+                >
+                <div class="nav-divider"></div>
+                <a
+                    href="/writing"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                    ><div class="title">Writing</div></a
+                >
+            </div>
+        </div>
+
+        <div class="main" role="main">
+            <div class="vellum">
+                <!-- Intro -->
+                <header class="vellum__intro" id="intro">
+                    <h1 class="vellum__intro-title">Vellum</h1>
+                    <p class="vellum__intro-tagline"
+                        >Minimal design system for jamesalexatkin.github.io —
+                        Warm, typographic, sparse.</p
+                    >
+                </header>
+
+                <!-- TOC -->
+                <nav class="vellum-toc" aria-label="Page contents">
+                    <p class="vellum-toc__title">Contents</p>
+                    <ol class="vellum-toc__list">
+                        <li class="vellum-toc__item"
+                            ><a href="#palette">Palette</a></li
+                        >
+                        <li class="vellum-toc__item"
+                            ><a href="#typography">Typography</a></li
+                        >
+                        <li class="vellum-toc__item"
+                            ><a href="#spacing">Spacing &amp; Shape</a></li
+                        >
+                        <li class="vellum-toc__item"
+                            ><a href="#components">Components</a></li
+                        >
+                        <li class="vellum-toc__item"
+                            ><a href="#syntax">Syntax Highlighting</a></li
+                        >
+                        <li class="vellum-toc__item"
+                            ><a href="#usage">Usage Rules</a></li
+                        >
+                    </ol>
+                </nav>
+
+                <!-- § Palette -->
+                <section class="vellum-section" id="palette">
+                    <h2 class="vellum-section__heading">Palette</h2>
+                    <p class="vellum-section__description"
+                        >Five named colours. Use CSS tokens, not raw hex
+                        values.</p
+                    >
+                    <div id="vellum-palette-render"></div>
+                </section>
+
+                <!-- § Typography -->
+                <section class="vellum-section" id="typography">
+                    <h2 class="vellum-section__heading">Typography</h2>
+                    <p class="vellum-section__description"
+                        >Bell MT for content. PT Mono for metadata, UI, and
+                        code. Never swap them.</p
+                    >
+
+                    <div class="vellum-type-specimen">
+                        <p class="vellum-type-label"
+                            >Bell MT — headings &amp; body</p
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size">h1 · 2rem</span
+                            ><h1 style="margin: 0; font-size: 2rem"
+                                >The quick brown fox</h1
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >h2 · 1.5rem</span
+                            ><h2 style="margin: 0; font-size: 1.5rem"
+                                >The quick brown fox</h2
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >h3 · 1.25rem</span
+                            ><h3 style="margin: 0; font-size: 1.25rem"
+                                >The quick brown fox</h3
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size">h4 · 1rem</span
+                            ><h4 style="margin: 0; font-size: 1rem"
+                                >The quick brown fox</h4
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >h5 · 0.875rem</span
+                            ><h5 style="margin: 0; font-size: 0.875rem"
+                                >The quick brown fox</h5
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >h6 · 0.75rem</span
+                            ><h6 style="margin: 0; font-size: 0.75rem"
+                                >The quick brown fox</h6
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >body · 1.0625rem</span
+                            ><p class="post__p" style="margin: 0"
+                                >Language is the dress of thought, and a clear
+                                sentence is a well-fitted garment.</p
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >caption · 0.8125rem</span
+                            ><span
+                                style="
+                                    font-family: var(--font-family-serif);
+                                    font-size: 0.8125rem;
+                                    opacity: 0.6;
+                                "
+                                >"Manchester from Kersal Moor" — William
+                                Wyld</span
+                            ></div
+                        >
+                    </div>
+
+                    <div class="vellum-type-specimen">
+                        <p class="vellum-type-label"
+                            >PT Mono — metadata, UI &amp; code</p
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >subtitle · 0.95rem</span
+                            ><span
+                                style="
+                                    font-family: var(--font-family-monospace);
+                                    font-size: 0.95rem;
+                                    opacity: 0.7;
+                                "
+                                >How to persist learning in the age of AI.</span
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >date · 0.8rem</span
+                            ><span
+                                style="
+                                    font-family: var(--font-family-monospace);
+                                    font-size: 0.8rem;
+                                    opacity: 0.6;
+                                "
+                                >2026-03-27</span
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >tag · 0.7rem</span
+                            ><span class="post-meta__tag">learning</span></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >ui label · 0.7rem</span
+                            ><span
+                                style="
+                                    font-family: var(--font-family-monospace);
+                                    font-size: 0.7rem;
+                                    letter-spacing: 0.1em;
+                                    text-transform: uppercase;
+                                    opacity: 0.45;
+                                "
+                                >Section title</span
+                            ></div
+                        >
+                        <div class="vellum-type-row"
+                            ><span class="vellum-type-row__size"
+                                >inline code</span
+                            ><code class="post__codespan"
+                                >npm install</code
+                            ></div
+                        >
+                    </div>
+                </section>
+
+                <!-- § Spacing & Shape -->
+                <section class="vellum-section" id="spacing">
+                    <h2 class="vellum-section__heading">Spacing &amp; Shape</h2>
+                    <p class="vellum-section__description"
+                        >Consistent radii and structural dividers.</p
+                    >
+
+                    <div class="vellum-spacing-row">
+                        <div
+                            class="vellum-spacing-row__demo"
+                            style="
+                                width: 3rem;
+                                height: 2rem;
+                                border: 2px solid var(--deep-black);
+                                border-radius: var(--border-amount);
+                            "
+                        ></div>
+                        <span class="vellum-spacing-row__label"
+                            >Border radius — cards, code blocks, buttons</span
+                        >
+                        <span class="vellum-spacing-row__value"
+                            ><code class="post__codespan"
+                                >--border-amount: 8px</code
+                            ></span
+                        >
+                    </div>
+                    <div class="vellum-spacing-row">
+                        <div
+                            class="vellum-spacing-row__demo"
+                            style="
+                                width: 1px;
+                                height: 2rem;
+                                background: var(--deep-black);
+                            "
+                        ></div>
+                        <span class="vellum-spacing-row__label"
+                            >Nav divider</span
+                        >
+                        <span class="vellum-spacing-row__value"
+                            ><code class="post__codespan"
+                                >.nav-divider</code
+                            ></span
+                        >
+                    </div>
+                    <div class="vellum-spacing-row">
+                        <div
+                            class="vellum-spacing-row__demo"
+                            style="
+                                width: 3rem;
+                                height: 0;
+                                border-top: 2px solid var(--deep-black);
+                            "
+                        ></div>
+                        <span class="vellum-spacing-row__label"
+                            >Heavy rule — post header, section heading</span
+                        >
+                        <span class="vellum-spacing-row__value"
+                            ><code class="post__codespan">2px solid</code></span
+                        >
+                    </div>
+                    <div class="vellum-spacing-row">
+                        <div
+                            class="vellum-spacing-row__demo"
+                            style="
+                                width: 3rem;
+                                height: 0;
+                                border-top: 1px solid rgba(12, 12, 12, 0.2);
+                            "
+                        ></div>
+                        <span class="vellum-spacing-row__label"
+                            >Light rule — post hr, table rows</span
+                        >
+                        <span class="vellum-spacing-row__value"
+                            ><code class="post__codespan"
+                                >1px solid / 0.2 opacity</code
+                            ></span
+                        >
+                    </div>
+                    <div class="vellum-spacing-row">
+                        <div
+                            class="vellum-spacing-row__demo"
+                            style="
+                                width: 3rem;
+                                height: 1rem;
+                                border: 1px solid rgba(12, 12, 12, 0.12);
+                                border-radius: 4px;
+                            "
+                        ></div>
+                        <span class="vellum-spacing-row__label"
+                            >Post / index max-width</span
+                        >
+                        <span class="vellum-spacing-row__value"
+                            ><code class="post__codespan">680px</code></span
+                        >
+                    </div>
+                </section>
+
+                <!-- § Components -->
+                <section class="vellum-section" id="components">
+                    <h2 class="vellum-section__heading">Components</h2>
+                    <p class="vellum-section__description"
+                        >Live rendered. Hover to see interactive states.</p
+                    >
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label"
+                            >Link — default (animated underline)</p
+                        >
+                        <div class="vellum-component__render">
+                            <a href="#">An example link</a>
+                        </div>
+                        <code class="vellum-component__class"
+                            >a (global) · underline via background-size
+                            trick</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label"
+                            >Link — body / post (burgundian)</p
+                        >
+                        <div class="vellum-component__render">
+                            <a href="#" class="post__link"
+                                >A link inside body text</a
+                            >
+                        </div>
+                        <code class="vellum-component__class">.post__link</code>
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label"
+                            >Link — external (with arrow)</p
+                        >
+                        <div class="vellum-component__render">
+                            <a href="#" class="post__link post__link--external"
+                                >External reference</a
+                            >
+                        </div>
+                        <code class="vellum-component__class"
+                            >.post__link.post__link--external</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label">Tags</p>
+                        <div
+                            class="vellum-component__render"
+                            style="display: flex; gap: 0.5rem; flex-wrap: wrap"
+                        >
+                            <span class="post-meta__tag">learning</span>
+                            <span class="post-meta__tag">go</span>
+                            <span class="post-meta__tag">raspberry-pi</span>
+                        </div>
+                        <code class="vellum-component__class"
+                            >.post-meta__tag · racing-green border &amp;
+                            colour</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label">Inline code</p>
+                        <div class="vellum-component__render">
+                            <p
+                                style="
+                                    margin: 0;
+                                    font-family: var(--font-family-serif);
+                                "
+                                >Install with
+                                <code class="post__codespan">npm install</code>
+                                or run
+                                <code class="post__codespan">make build</code
+                                >.</p
+                            >
+                        </div>
+                        <code class="vellum-component__class"
+                            >.post__codespan · ecru background</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label">Code block</p>
+                        <div class="vellum-component__render">
+                            <pre
+                                class="post__pre"
+                                data-lang="go"
+                            ><code class="post__code hljs language-go">func greet(name string) string {
+    return fmt.Sprintf("Hello, %s", name)
+}</code></pre>
+                        </div>
+                        <code class="vellum-component__class"
+                            >.post__pre[data-lang] / .post__code · ecru
+                            background, lang label top-right</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label">Blockquote</p>
+                        <div class="vellum-component__render">
+                            <blockquote class="post__blockquote">
+                                <p class="post__p" style="margin: 0"
+                                    >The hand, the head, and the heart of a
+                                    craftsman must go together.</p
+                                >
+                            </blockquote>
+                        </div>
+                        <code class="vellum-component__class"
+                            >.post__blockquote · 3px deep-black left border,
+                            italic</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label">Horizontal rule</p>
+                        <div class="vellum-component__render">
+                            <hr class="post__hr" />
+                        </div>
+                        <code class="vellum-component__class"
+                            >.post__hr · 1px, 0.2 opacity</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label">Writing list item</p>
+                        <div
+                            class="vellum-component__render"
+                            style="padding: 0"
+                        >
+                            <ul class="writing-list" style="margin: 0">
+                                <li>
+                                    <a class="writing-link-title" href="#">
+                                        <span class="writing-title"
+                                            >Intentional Curiosity with AI</span
+                                        >
+                                        <div class="writing-subtitle"
+                                            >How to persist learning and
+                                            development in the age of AI.</div
+                                        >
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <code class="vellum-component__class"
+                            >.writing-list / .writing-link-title /
+                            .writing-title / .writing-subtitle</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label">Portfolio card</p>
+                        <div class="vellum-component__render">
+                            <a
+                                class="portfolio-box"
+                                href="#"
+                                style="max-width: 240px; display: block"
+                            >
+                                <div
+                                    style="
+                                        background: var(--ecru);
+                                        height: 80px;
+                                    "
+                                ></div>
+                                <div class="project-name2"
+                                    >Example project title</div
+                                >
+                            </a>
+                        </div>
+                        <code class="vellum-component__class"
+                            >.portfolio-box / .project-name2 · 2px deep-black
+                            border, border-radius</code
+                        >
+                    </div>
+
+                    <div class="vellum-component">
+                        <p class="vellum-component__label">Icon buttons</p>
+                        <div
+                            class="vellum-component__render"
+                            style="display: flex; gap: 0.5rem"
+                        >
+                            <a
+                                href="#"
+                                class="icon-button github"
+                                aria-label="GitHub"
+                                ><i class="fa fa-github"></i><span></span
+                            ></a>
+                            <a
+                                href="#"
+                                class="icon-button linkedin"
+                                aria-label="LinkedIn"
+                                ><i class="fa fa-linkedin"></i><span></span
+                            ></a>
+                        </div>
+                        <code class="vellum-component__class"
+                            >.icon-button · 1px deep-black border, hover reveals
+                            coloured fill</code
+                        >
+                    </div>
+                </section>
+
+                <!-- § Syntax Highlighting -->
+                <section class="vellum-section" id="syntax">
+                    <h2 class="vellum-section__heading">Syntax Highlighting</h2>
+                    <p class="vellum-section__description"
+                        >Kimbie Light via highlight.js. Background overridden to
+                        <code class="post__codespan">--ecru</code> for palette
+                        cohesion.</p
+                    >
+
+                    <pre
+                        class="post__pre"
+                        data-lang="python"
+                    ><code class="post__code hljs language-python">def fibonacci(n: int) -> list[int]:
+    sequence = [0, 1]
+    while len(sequence) < n:
+        sequence.append(sequence[-1] + sequence[-2])
+    return sequence[:n]</code></pre>
+
+                    <pre
+                        class="post__pre"
+                        data-lang="go"
+                    ><code class="post__code hljs language-go">type Repository interface {
+    FindByID(ctx context.Context, id string) (*User, error)
+    Save(ctx context.Context, user *User) error
+}</code></pre>
+                </section>
+
+                <!-- § Usage Rules -->
+                <section class="vellum-section" id="usage">
+                    <h2 class="vellum-section__heading">Usage Rules</h2>
+                    <p class="vellum-section__description"
+                        >For porting Vellum to a new surface (Obsidian,
+                        Markdeep, etc.), apply these constraints.</p
+                    >
+                    <ul class="vellum-rules">
+                        <li
+                            >Page background is always
+                            <strong>off-white</strong>
+                            <code class="post__codespan">#faf8f4</code>. Never
+                            ecru — ecru is a surface colour only.</li
+                        >
+                        <li
+                            ><strong>Burgundian</strong> is currently the only
+                            interactive accent. Use it for links and active
+                            states. Do not introduce other accent colours for
+                            interactivity.</li
+                        >
+                        <li
+                            ><strong>Racing green</strong> is currently for
+                            taxonomic elements only — tags, categories, labels.
+                            Not for links or buttons.</li
+                        >
+                        <li
+                            ><strong>Oxbridge blue</strong> is reserved. Use it
+                            only if a third accent is genuinely required, or for
+                            dark-mode surfaces.</li
+                        >
+                        <li
+                            ><strong>Bell MT</strong> is the reading font. Use
+                            it for all long-form prose and headings. Fallback:
+                            Georgia, serif.</li
+                        >
+                        <li
+                            ><strong>PT Mono</strong> signals metadata, system,
+                            or code context. Never use it for running prose.
+                            Fallback: monospace.</li
+                        >
+                        <li
+                            >Code blocks and inline code always use an
+                            <strong>ecru background</strong>. On dark surfaces,
+                            use a darkened ecru equivalent rather than a pure
+                            black terminal look.</li
+                        >
+                        <li
+                            >Borders and rules use
+                            <strong>deep-black at varying opacity</strong>: 100%
+                            structural, ~15% subtle containers, ~8%
+                            hairlines.</li
+                        >
+                        <li
+                            >Border radius is <strong>8px</strong> everywhere.
+                            Do not mix radius values.</li
+                        >
+                        <li
+                            >The animated underline on links (CSS
+                            <code class="post__codespan">background-size</code>
+                            transition) is a core interaction pattern — preserve
+                            it on any ported theme that supports CSS
+                            transitions.</li
+                        >
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-5" id="footer">
+            <div class="container">
+                <div class="small text-center" id="footer-text"
+                    >&copy; JAMES ATKIN <span id="year"></span
+                ></div>
+            </div>
+        </footer>
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script src="insertCurrentYear.js"></script>
+
+        <script>
+            // Render palette swatches from the JSON tokens block
+            (function () {
+                const tokens = JSON.parse(
+                    document.getElementById("vellum-tokens").textContent,
+                );
+                const container = document.getElementById(
+                    "vellum-palette-render",
+                );
+                const groupLabels = {
+                    neutrals: "Neutrals",
+                    surfaces: "Surfaces",
+                    accents: "Accents",
+                };
+
+                Object.entries(tokens.colors).forEach(function ([
+                    groupKey,
+                    group,
+                ]) {
+                    const groupEl = document.createElement("div");
+                    groupEl.className = "vellum-palette-group";
+
+                    const label = document.createElement("p");
+                    label.className = "vellum-palette-group__label";
+                    label.textContent = groupLabels[groupKey] || groupKey;
+                    groupEl.appendChild(label);
+
+                    Object.entries(group).forEach(function ([key, color]) {
+                        const row = document.createElement("div");
+                        row.className = "vellum-swatch";
+
+                        const block = document.createElement("div");
+                        block.className = "vellum-swatch__block";
+                        block.style.backgroundColor = color.value;
+
+                        const name = document.createElement("span");
+                        name.className = "vellum-swatch__name";
+                        const raw = key.replace(/-/g, " ");
+                        name.textContent =
+                            raw.charAt(0).toUpperCase() + raw.slice(1);
+
+                        const hex = document.createElement("span");
+                        hex.className = "vellum-swatch__hex";
+                        hex.textContent =
+                            color.value + (color.css ? " · " + color.css : "");
+
+                        const role = document.createElement("span");
+                        role.className = "vellum-swatch__role";
+                        role.textContent = color.role;
+
+                        row.appendChild(block);
+                        row.appendChild(name);
+                        row.appendChild(hex);
+                        row.appendChild(role);
+                        groupEl.appendChild(row);
+                    });
+
+                    container.appendChild(groupEl);
+                });
+            })();
+
+            // Syntax highlighting
+            hljs.highlightAll();
+
+            // Nav hamburger
+            (function () {
+                var btn = document.getElementById("navHamburger");
+                var nav = document.getElementById("rightHandNav");
+                if (!btn || !nav) return;
+                btn.addEventListener("click", function () {
+                    var open = nav.classList.toggle("is-open");
+                    btn.setAttribute("aria-expanded", open ? "true" : "false");
+                });
+            })();
+        </script>
+    </body>
+</html>

@@ -46,7 +46,7 @@
     "devDependencies": {
         "browser-sync": "^3.0.2",
         "clean-css": "^5.3.3",
-        "concurrently": "^9.2.1",
+        "concurrently": "^10.0.3",
         "del": "^3.0.0",
         "nodemon": "^3.1.11",
         "uglify-js": "^3.19.3"

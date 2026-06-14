@@ -4,6 +4,9 @@
 // Import Bootstrap
 @import "bootstrap/scss/bootstrap.scss";
 
+// Base styles
+@import "./base/_root.scss";
+
 // Import custom styles
 @import "./global.scss";
 // @import "./navbar.scss";

@@ -1,0 +1,41 @@
+:root {
+    // Vellum colours
+    --deep-black: #0c0c0c;
+    --cloudy: #83868c;
+    --off-white: #faf8f4;
+    --ecru: #fbf3d3;
+    --red-ochre: #5a0f19;
+    --woad: #0c2340;
+    --vergaut: #2e3b0a;
+    // TODO: decide what to do with these
+    --lapis: #265ead;
+    --malachite: #71a2a2;
+    --madder: #dc505e;
+    --orpiment: #c79809;
+
+    // Brand-specific colors
+    --linkedin-blue: #728dbe;
+    --github-purple: #8c72bd;
+
+    // Convenience colors for opacity variations
+    --red-ochre-75: rgb(from (var(--red-ochre) r g b / 0.75));
+    --red-ochre-85: rgb(from (var(--red-ochre) r g b / 0.85));
+    --woad-85: rgb(from (var(--woad) r g b / 0.85));
+    --vergaut-85: rgb(from (var(--vergaut) r g b / 0.85));
+    --border: rgb(from var(--deep-black) r g b / 0.1);
+
+    /* Easy way to set page elements */
+    --body-background-color: var(--off-white);
+    --body-color: var(--deep-black);
+    --header-color: var(--deep-black);
+    --writing-hover-color: var(--madder);
+    --border-amount: 8px;
+    --link-underline-color: var(--deep-black);
+    /* Dark mode page elements */
+    --dark-body-color: var(--deep-black);
+
+    --font-family-monospace: PT Mono, monospace;
+    --font-family-serif: "Bell MT", PT Mono, Georgia, serif;
+    // --font-family-subtitle: Inter, sans-serif;
+    --font-family-subtitle: var(--font-family-monospace);
+}

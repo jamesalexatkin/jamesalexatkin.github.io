@@ -51,8 +51,8 @@
 
 .vellum-toc__item {
     margin-bottom: 0.3rem;
-    font-family: var(--font-family-monospace);
-    font-size: 0.85rem;
+    font-family: var(--font-family-serif);
+    font-size: 1rem;
     break-inside: avoid;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .vellum-swatch__block {
-    width: 3rem;
+    width: 2rem;
     height: 2rem;
     border-radius: 4px;
     border: 1px solid rgba(12, 12, 12, 0.15);
@@ -124,6 +124,7 @@
 
 .vellum-swatch__role {
     font-family: var(--font-family-monospace);
+    width: 18rem;
     font-size: 0.72rem;
     opacity: 0.5;
     text-align: right;
@@ -230,7 +231,7 @@
 .vellum-rules li {
     padding: 0.6rem 0 0.6rem 1.25rem;
     border-bottom: 1px solid rgba(12, 12, 12, 0.07);
-    font-family: var(--font-family-monospace);
+    font-family: var(--font-family-serif);
     font-size: 0.875rem;
     line-height: 1.6;
     position: relative;

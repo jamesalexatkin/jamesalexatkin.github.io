@@ -35,8 +35,7 @@
 
                     const hex = document.createElement("span");
                     hex.className = "vellum-swatch__hex";
-                    hex.textContent =
-                        color.value + (color.css ? " · " + color.css : "");
+                    hex.textContent = color.value;
 
                     const role = document.createElement("span");
                     role.className = "vellum-swatch__role";

@@ -14,7 +14,7 @@
             "off-white": {
                 "value": "#faf8f4",
                 "css": "--off-white",
-                "role": "Page background"
+                "role": "Page background."
             }
         },
         "surfaces": {
@@ -28,17 +28,17 @@
             "red-ochre": {
                 "value": "#5a0f19",
                 "css": "--red-ochre",
-                "role": "Primary interactive accent — body links, active states. Use sparingly."
+                "role": "Primary interactive accent — body links, active states."
             },
             "vergaut": {
                 "value": "#003d32",
                 "css": "--vergaut",
-                "role": "Tags, secondary labels"
+                "role": "Tags, secondary labels."
             },
             "woad": {
                 "value": "#0c2340",
                 "css": "--woad",
-                "role": "Reserved — available for dark surfaces or a third accent if genuinely needed"
+                "role": "Third accent."
             }
         }
     },

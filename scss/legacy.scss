@@ -42,19 +42,22 @@
     --nord14: #a3be8c;
     --nord15: #b48ead;
 
-    // New colours
+    // Vellum colours
     --deep-black: #0c0c0c;
     --off-white: #faf8f4;
     --ecru: #fbf3d3;
     --red-ochre: #5a0f19;
     --woad: #0c2340;
     --vergaut: #2e3b0a;
+    // TODO: decide what to do with this
     --canard: #265ead;
 
-    --red-ochre-75: var(hsl(var(--red-ochre) / 0.75));
-    --red-ochre-85: var(hsl(var(--red-ochre) / 0.85));
-    --woad-85: var(hsl(var(--woad) / 0.85));
-    --vergaut-85: var(hsl(var(--vergaut) / 0.85));
+    // Convenience colors for opacity variations
+    --red-ochre-75: rgb(from (var(--red-ochre) r g b / 0.75));
+    --red-ochre-85: rgb(from (var(--red-ochre) r g b / 0.85));
+    --woad-85: rgb(from (var(--woad) r g b / 0.85));
+    --vergaut-85: rgb(from (var(--vergaut) r g b / 0.85));
+    --border: rgb(from var(--deep-black) r g b / 0.1);
 
     /* Easy way to set page elements */
     --body-background-color: var(--off-white);

@@ -30,7 +30,7 @@
     padding: 1.25rem 1.5rem;
     background: var(--ecru);
     border-radius: var(--border-amount);
-    border: 1px solid rgba(12, 12, 12, 0.15);
+    border: 1px solid var(--border);
 }
 
 .vellum-toc__title {
@@ -95,7 +95,7 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(12, 12, 12, 0.08);
+    border-bottom: 1px solid var(--border);
 }
 
 .vellum-swatch:last-child {
@@ -106,7 +106,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 4px;
-    border: 1px solid rgba(12, 12, 12, 0.15);
+    border: 1px solid var(--border);
     flex-shrink: 0;
 }
 
@@ -149,7 +149,7 @@
     align-items: baseline;
     gap: 1.5rem;
     padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(12, 12, 12, 0.07);
+    border-bottom: 1px solid var(--border);
 }
 
 .vellum-type-row__size {
@@ -166,7 +166,7 @@
     align-items: center;
     gap: 1rem;
     padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(12, 12, 12, 0.07);
+    border-bottom: 1px solid var(--border);
 }
 
 .vellum-spacing-row__demo {
@@ -201,7 +201,7 @@
 
 .vellum-component__render {
     padding: 1.25rem 1.5rem;
-    border: 1px solid rgba(12, 12, 12, 0.12);
+    border: 1px solid var(--border);
     border-radius: var(--border-amount);
     margin-bottom: 0.5rem;
 }
@@ -230,7 +230,7 @@
 
 .vellum-rules li {
     padding: 0.6rem 0 0.6rem 1.25rem;
-    border-bottom: 1px solid rgba(12, 12, 12, 0.07);
+    border-bottom: 1px solid var(--border);
     font-family: var(--font-family-serif);
     font-size: 0.875rem;
     line-height: 1.6;

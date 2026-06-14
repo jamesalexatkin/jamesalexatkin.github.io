@@ -46,15 +46,15 @@
     --deep-black: #0c0c0c;
     --off-white: #faf8f4;
     --ecru: #fbf3d3;
-    --burgundian: #5a0f19;
-    --oxbridge-blue: #0c2340;
-    --racing-green: #003d32;
+    --red-ochre: #5a0f19;
+    --woad: #0c2340;
+    --vergaut: #2e3b0a;
     --canard: #265ead;
 
-    --burgundian-75: #5a0f19bf;
-    --burgundian-85: #5a0f19d9;
-    --oxbridge-blue-85: #0c2340d9;
-    --racing-green-85: #003d32d9;
+    --red-ochre-75: var(hsl(var(--red-ochre) / 0.75));
+    --red-ochre-85: var(hsl(var(--red-ochre) / 0.85));
+    --woad-85: var(hsl(var(--woad) / 0.85));
+    --vergaut-85: var(hsl(var(--vergaut) / 0.85));
 
     /* Easy way to set page elements */
     --body-background-color: var(--off-white);
@@ -247,7 +247,12 @@ a:active {
     text-align: left;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-family-serif);
     color: var(--deep-black);
 }
@@ -602,7 +607,7 @@ ul.writing-list li:hover {
 .portfolio-box-caption {
     position: absolute;
     inset: 0;
-    background: var(--burgundian-85);
+    background: var(--red-ochre-85);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -615,13 +620,13 @@ ul.writing-list li:hover {
 }
 
 .portfolio-box-caption-color-1 {
-    background: var(--burgundian-85);
+    background: var(--red-ochre-85);
 }
 .portfolio-box-caption-color-2 {
-    background: var(--oxbridge-blue-85);
+    background: var(--woad-85);
 }
 .portfolio-box-caption-color-3 {
-    background: var(--racing-green-85);
+    background: var(--vergaut-85);
 }
 
 .project-name {

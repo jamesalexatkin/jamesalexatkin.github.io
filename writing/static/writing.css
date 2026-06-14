@@ -108,8 +108,8 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 0.2em 0.6em;
-    border: 1px solid var(--racing-green);
-    color: var(--racing-green);
+    border: 1px solid var(--vergaut);
+    color: var(--vergaut);
     opacity: 0.5;
 }
 
@@ -173,13 +173,13 @@
 .post__link {
     color: var(--body-color, var(--deep-black));
     font-weight: 700;
-    background-image: linear-gradient(var(--burgundian), var(--burgundian));
+    background-image: linear-gradient(var(--red-ochre), var(--red-ochre));
     background-size: 0% 0.1em;
     background-position-y: 100%;
     background-position-x: 0%;
     background-repeat: no-repeat;
     transition: background-size 0.2s ease-in-out;
-    color: var(--burgundian);
+    color: var(--red-ochre);
     opacity: 80%;
 }
 

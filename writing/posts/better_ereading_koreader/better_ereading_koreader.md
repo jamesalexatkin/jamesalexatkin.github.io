@@ -5,7 +5,7 @@ tags: ["kobo", "koreader", "reading"]
 date: "2026-06-14"
 ---
 
-![Reading Sibyl - Simon Cantarini](https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_Cantarini_-_Reading_Sibyl.jpg)
+![Reading Sibyl - Simon Cantarini](https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_Cantarini_-_Reading_Sibyl.jpg){height=500}
 
 ## Intro
 

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel=icon href=/favicon.png>
+  <title>Better e-reading with KOReader — James Atkin</title>
+  <meta name="description" content="Improving my reading flow with new firmware.">
+  <meta property="og:title" content="Better e-reading with KOReader">
+  <meta property="og:description" content="Improving my reading flow with new firmware.">
+
+  <!-- Font Awesome Icons -->
+  <script src="https://use.fontawesome.com/134696755a.js"></script>
+
+  <!-- Main site stylesheet — single source of truth for design tokens -->
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link rel="stylesheet" href="/css/creative.css"  />
+  <!-- Blog-specific styles (post__* classes, code highlighting, etc.) -->
+  <link rel="stylesheet" href="/writing/static/writing.css">
+  <!-- Syntax highlighting — Kimbie Light theme, background overridden in writing.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/kimbie-light.min.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       NAV — copy from your main site and keep in sync
+       ===================================================================== -->
+  <!-- NAV — matches main site markup, anchor links point back to / -->
+  <div class="header" id="header" role="banner">
+    <a href="/" class="header-link">
+      <span>James Atkin</span>
+    </a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="rightHandNav">
+      <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </button>
+    <div class="right-hand-nav" id="rightHandNav" role="navigation">
+      <a href="/#portfolio" class="header-link writing-link" rel="noopener noreferrer">
+        <div class="title">Projects</div>
+      </a>
+      <div class="nav-divider"></div>
+      <a href="/writing/" class="header-link writing-link" rel="noopener noreferrer">
+        <div class="title">Writing</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       PAGE CONTENT
+       ===================================================================== -->
+  <main class="site-main">
+    
+    <article class="post">
+      <header class="post__header">
+        <h1 class="post__title">Better e-reading with KOReader</h1>
+        <div class="post-meta">
+          <time class="post-meta__date" datetime="2026-06-14">2026-06-14</time>
+          <ul class="post-meta__tags"><li class="post-meta__tag">kobo</li><li class="post-meta__tag">koreader</li><li class="post-meta__tag">reading</li></ul>
+        </div>
+        <p class='post__description'>Improving my reading flow with new firmware.</p>
+      </header>
+
+      <div class="post__body">
+        <p class="post__p"><figure class="post__figure"><img class="post__img" src="https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_Cantarini_-_Reading_Sibyl.jpg" alt="Reading Sibyl - Simon Cantarini" loading="lazy"><figcaption class="post__figcaption">Reading Sibyl - Simon Cantarini</figcaption></figure>
+</p>
+<h2 class="post__h2" id="intro"><a class="post__heading-anchor" href="#intro">Intro</a></h2>
+<p class="post__p">I've gotten back into reading in the last couple of years.
+What started as a way to put bedtime scrolling, well, to bed, reminded me of why I loved it in the first place.
+I've explored new worlds, dove deeply into niche topics, and learnt all kinds of new things.</p>
+<p class="post__p">While I enjoy the feel of physical paper, I also love the convenience of an e-reader and the sheer amount of content it can have on it.
+One of the original reasons I bought a Kobo Clara in the first place was the neat native integration with Pocket; a read-it-later service. I was using this to bookmark all manner of articles from history, to tech, to BBC News stories I didn't fancy reading at the time they popped up on my phone. I can also deposit any articles shared by friends or colleagues, storing them somewhere I'll not forget to read them.</p>
+<p class="post__p">When Mozilla <a href="https://blog.mozilla.org/en/mozilla/building-whats-next/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">unexpectedly killed it last year</a> though, I needed an alternative.</p>
+<h2 class="post__h2" id="enter-koreader"><a class="post__heading-anchor" href="#enter-koreader">Enter KOReader</a></h2>
+<p class="post__p"><a href="https://koreader.rocks/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">KOReader</a> is an open-source alternative firmware for e-readers. It installs alongside the stock Nickel firmware on Kobo, and is also available for other brands. [^1]
+On Kobo, at least, it doesn't replace Nickel but sits alongside it, meaning you can choose not to use once installed, and have the confidence to restore if needed.</p>
+<p class="post__p">It's highly customisable, though a little unintuitive. It's taken me some time to get it to a place I'm really happy with day-to-day, but was eventually rewarding. This guide is thus quite technical and as much to help me remember how to set it up, as help anyone reading discover any useful bits.</p>
+<p class="post__p">I've focused on a few useful aspects of my workflow for managing articles and eBooks.</p>
+<h3 class="post__h3" id="wallabag"><a class="post__heading-anchor" href="#wallabag">Wallabag</a></h3>
+<p class="post__p">One of the main features on it is its integration with Wallabag; an open source alternative to Pocket. It's completely self-hostable, though for 11€/year you can get access to a solid instance hosted by the creator themselves. [^2]</p>
+<p class="post__p">I saved the <a href="https://doc.wallabag.org/user/articles/save/#by-using-a-bookmarklet" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">official bookmarklet</a> to my bookmarks bar on my personal Firefox and work Chrome so that I can save things I'm interested in with one click.</p>
+<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/wallabag_web.png" alt="Wallabag web app" loading="lazy"><figcaption class="post__figcaption">Wallabag web app</figcaption></figure>
+</p>
+<p class="post__p">Since it downloads each saved post as its own EPUB file, it is useful to separate into a separate folder away from the main books:</p>
+<ul class="post__ul"><li class="post__li"><code class="post__codespan">.wallabag</code> - toggle <em class="post__em">&quot;Show hidden files&quot;</em> temporarily.</li>
+<li class="post__li">Plug in the e-reader and open <code class="post__codespan">./settings/wallabag.lua</code> on PC (it's much easier to edit). Copy-paste client ID and secret. [^3]</li>
+<li class="post__li">Retoggle <em class="post__em">&quot;Show hidden files&quot;</em> to hide the save folder.</li>
+</ul>
+<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/wallabag_kobo.png" alt="KOReader view of Wallabag articles" height="400" loading="lazy"><figcaption class="post__figcaption">KOReader view of Wallabag articles</figcaption></figure>
+</p>
+<h4 class="post__h4" id="killing-newsletters"><a class="post__heading-anchor" href="#killing-newsletters">Killing newsletters</a></h4>
+<p class="post__p">You can also configure RSS Feeds on the Wallabag web app to stay up-to-date with certain blogs. I've been cutting down on emails recently and found that <a href="https://kill-the-newsletter.com/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Kill the Newsletter</a> is a helpful tool here to turn mailing lists into RSS feeds.
+This means I can convert my otherwise-spam into readable content in a form I'll actually read it.</p>
+<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/wallabag_web_feeds.png" alt="'Feeds' view" loading="lazy"><figcaption class="post__figcaption">'Feeds' view</figcaption></figure>
+</p>
+<h3 class="post__h3" id="calibre"><a class="post__heading-anchor" href="#calibre">Calibre</a></h3>
+<p class="post__p"><a href="https://calibre-ebook.com/" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">Calibre</a> is a desktop app that makes managing eBooks really easy. It's very powerful and great for editing metadata to keep series together.</p>
+<p class="post__p"><figure class="post__figure"><img class="post__img" src="img/calibre.png" alt="Calibre" loading="lazy"><figcaption class="post__figcaption">Calibre</figcaption></figure>
+</p>
+<p class="post__p">One note is to export all books to the root level of the device. This is a little messy when viewed in a file browser, but it allows me to see all books on the home screen in a mosaic fashion with their covers, in a manner closer to Kobo's stock UI.</p>
+<h3 class="post__h3" id="other-settings"><a class="post__heading-anchor" href="#other-settings">Other settings</a></h3>
+<ul class="post__ul"><li class="post__li"><strong class="post__strong">Locking the home folder</strong> (🗄️ -&gt; <em class="post__em">Settings</em> -&gt; <em class="post__em">Home folder settings</em> -&gt; <em class="post__em">Lock home folder</em>) - Locking the home folder makes it so you can't navigate around other hidden files in the file system above the home directory. Without this, I find it looks a bit hacky, and there's no real need to view system files on the Kobo itself.</li>
+<li class="post__li"><strong class="post__strong">Display</strong> (🗄️ -&gt; <em class="post__em">Display mode</em>) - various options here for changing how books appear on the home screen.</li>
+<li class="post__li"><strong class="post__strong">Gestures</strong> (⚙️ -&gt; <em class="post__em">Taps and gestures</em>) - you can configure various swipes, taps and double taps to map to common actions. A couple of my favourites are swiping up on the left to change screen brightness, and swiping up on the right to change screen warmth.</li>
+<li class="post__li"><strong class="post__strong">Reading history stats</strong> (🛠️ -&gt; <em class="post__em">Reading statistics</em>) - various options in here to view stats about reading for the current book and history over time.</li>
+<li class="post__li"><strong class="post__strong">Searching menus</strong> (🍔 -&gt; <em class="post__em">Help</em> -&gt; <em class="post__em">Menu search</em>) - useful to search for a menu item and get its location; some of the menus can be hard to navigate and remember where everything is.</li>
+</ul>
+<p class="post__p">You can export a copy of the settings config to back them up as well. <a href="https://www.youtube.com/watch?app=desktop&v=jmurwwx5zIQ" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">This video</a> gives a good overview.</p>
+<h1 class="post__h1" id="in-closing"><a class="post__heading-anchor" href="#in-closing">In closing</a></h1>
+<p class="post__p">KOReader is a powerful tool for e-readers; something it owes a lot to its flexibility.
+Tailoring it to something you find useful can take time but means you can have a reading setup that works nicely for you.</p>
+<p class="post__p">I may well add to this guide over time as I adjust bits or discover new things.</p>
+<hr class="post__hr">
+<h2 class="post__h2" id="addenda"><a class="post__heading-anchor" href="#addenda">Addenda</a></h2>
+<p class="post__p">A couple of other points:</p>
+<ol class="post__ol"><li class="post__li">After a Kobo firmware update, it may not be possible to launch KOReader. This is because firmware updates break <a href="https://github.com/NiLuJe/kfmon" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">kfmon</a> in the NickelMenu. To fix this, update kfmon using the <a href="https://www.mobileread.com/forums/showpost.php?p=3797095&postcount=1" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">latest version</a>. With these &quot;one-click&quot; packages (linked), it should be as simple as dragging the ZIP over the Kobo's root directory and unzipping the contents directly there.</li>
+<li class="post__li">Unfortunately after one such instance of the above, re-installing kfmon and NickelMenu didn't work. I found that the NickelMenu config file (<code class="post__codespan">.adds/nm/config</code>) was missing. Inspecting <code class="post__codespan">.adds/nm/koreader</code>, I found the comment suggesting adding <code class="post__codespan">menu_item : main : KOReader : cmd_spawn : quiet : exec /mnt/onboard/.adds/koreader/koreader.sh</code> to the config file. Creating the file and adding this line fixed it for me.</li>
+</ol>
+<hr class="post__hr">
+<p class="post__p">[^1] Official README gives tailored <a href="https://github.com/koreader/koreader?tab=readme-ov-file#installation" class="post__link post__link--external" rel="noopener noreferrer" target="_blank">installation guides</a> for each device.
+[^2] I did try self-hosting for a while on a mini PC but ran into some boring network issues that I never got round to solving.
+[^3] Must restart KOReader once settings have changed! It isn't enough to simply wait for it to reload once the USB connection is done.</p>
+
+      </div>
+
+      <footer class="post__footer">
+        <a class="post__back-link" href="/writing/">← All posts</a>
+      </footer>
+    </article>
+    
+  </main>
+
+  <!-- =====================================================================
+       FOOTER — copy from your main site and keep in sync
+       ===================================================================== -->
+  <!-- Footer -->
+  <footer class="py-5" id="footer">
+      <div class="container">
+          <div class="small text-center" id="footer-text"
+              >&copy; JAMES ATKIN <span id="year"></span
+          ></div>
+      </div>
+  </footer>
+  <script src="insertCurrentYear.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('navHamburger');
+      var nav = document.getElementById('rightHandNav');
+      btn.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open navigation menu');
+        });
+      });
+    })();
+  </script>
+  <!-- Syntax highlighting init -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+</body>
+</html>

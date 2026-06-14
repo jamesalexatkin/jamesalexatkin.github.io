@@ -5,6 +5,7 @@ Converts Markdown posts to HTML using a shared layout and component renderer.
 """
 
 import os
+import re
 import shutil
 from pathlib import Path
 from datetime import datetime
@@ -29,14 +30,49 @@ POSTS_DIR = BASE_WRITING_DIR / "posts"
 OUTPUT_DIR = BASE_WRITING_DIR
 
 # ---------------------------------------------------------------------------
-# Build
+# Attribute Lists Plugin
 # ---------------------------------------------------------------------------
+
+def extract_image_attributes(content: str) -> tuple[str, dict]:
+    """
+    Parse markdown image attribute lists and extract them.
+    Converts: ![alt](url){height=400} -> ![alt](url) with attributes stored
+    Returns: (modified_content, attributes_map)
+    """
+    attributes_map = {}
+    
+    # Pattern: ![alt](url){attr=value attr2=value2}
+    pattern = r'!\[([^\]]*)\]\(([^)]+)\)\s*\{\s*([^}]+)\s*\}'
+    
+    def replace_image(match):
+        alt = match.group(1)
+        url = match.group(2)
+        attr_str = match.group(3)
+        
+        # Parse attributes (simple key=value pairs)
+        attrs = {}
+        for attr in re.findall(r'(\w+)=(["\']?)([^"\'\s}]+)\2', attr_str):
+            key, _, value = attr
+            attrs[key] = value
+        
+        # Store attributes keyed by URL for later retrieval
+        attributes_map[url] = attrs
+        
+        # Return standard markdown image
+        return f'![{alt}]({url})'
+    
+    modified_content = re.sub(pattern, replace_image, content)
+    return modified_content, attributes_map
+
 
 def parse_post(path: Path) -> dict:
     """Parse a Markdown file and return metadata + rendered HTML body."""
     post = frontmatter.load(path)
+    
+    # Extract image attributes before rendering
+    content, img_attrs = extract_image_attributes(post.content)
 
-    renderer = BlogRenderer()
+    renderer = BlogRenderer(image_attributes=img_attrs)
     md = mistune.create_markdown(
         renderer=renderer,
         plugins=["strikethrough", "table", "footnotes"],
@@ -49,7 +85,7 @@ def parse_post(path: Path) -> dict:
         "description": post.get("description", ""),
         "tags":        post.get("tags", []),
         "draft":       post.get("draft", False),
-        "body":        md(post.content),
+        "body":        md(content),
     }
 
 

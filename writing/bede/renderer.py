@@ -12,6 +12,10 @@ import mistune
 
 
 class BlogRenderer(mistune.HTMLRenderer):
+    
+    def __init__(self, image_attributes=None, **kwargs):
+        super().__init__(**kwargs)
+        self.image_attributes = image_attributes or {}
 
     # -------------------------------------------------------------------------
     # Headings
@@ -56,10 +60,18 @@ class BlogRenderer(mistune.HTMLRenderer):
 
     def image(self, alt: str, url: str, title: str = None) -> str:
         title_attr = f' title="{title}"' if title else ""
+        
+        # Get stored attributes from attribute list parsing
+        attrs = self.image_attributes.get(url, {})
+        height = attrs.get("height")
+        height_attr = f' height="{height}"' if height else ""
+        width = attrs.get("width")
+        width_attr = f' width="{width}"' if width else ""
+        
         caption = f'<figcaption class="post__figcaption">{alt}</figcaption>' if alt else ""
         return (
             f'<figure class="post__figure">'
-            f'<img class="post__img" src="{url}" alt="{alt}"{title_attr} loading="lazy">'
+            f'<img class="post__img" src="{url}" alt="{alt}"{title_attr}{height_attr}{width_attr} loading="lazy">'
             f'{caption}'
             f'</figure>\n'
         )

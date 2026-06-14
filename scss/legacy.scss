@@ -14,19 +14,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-@font-face {
-    font-family: "Bell MT";
-    src:
-        local("Bell MT"),
-        url("../asset/font/bell-mt/bell-mt.woff2") format("woff2"),
-        url("../asset/font/bell-mt/bell-mt.woff") format("woff"),
-        url("../asset/font/bell-mt/bell-mt.ttf") format("truetype");
-    font-weight: 100;
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
 body {
     margin: 0;
     font-family: "PT Mono", monospace;

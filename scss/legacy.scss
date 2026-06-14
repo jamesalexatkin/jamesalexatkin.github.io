@@ -196,27 +196,6 @@ a:active {
     );
 }
 
-.four-oh-four {
-    background-color: var(--about-color);
-    padding: 64px;
-    margin: inherit;
-    border-radius: var(--border-amount);
-    text-align: center;
-    height: 90%;
-}
-
-.four-oh-four h1 {
-    font-size: 128px;
-    color: white;
-    height: auto;
-}
-
-.four-oh-four h2 {
-    font-size: 64px;
-    color: var(--off-white);
-    margin-bottom: 256px;
-}
-
 .about {
     margin: inherit;
 }
@@ -639,8 +618,4 @@ ul.writing-list li:hover {
 
 .portfolio-box:hover .portfolio-box-caption {
     opacity: 1;
-}
-
-.not-found-header {
-    font-size: 6rem;
 }

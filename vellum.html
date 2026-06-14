@@ -15,100 +15,11 @@
         <title>Vellum — James Atkin</title>
 
         <!-- Vellum design tokens (machine-readable) -->
-        <script type="application/json" id="vellum-tokens">
-            {
-                "meta": {
-                    "name": "Vellum",
-                    "description": "Warm, typographic, sparse. Bell MT for content, PT Mono for metadata and UI.",
-                    "version": "1.0.0"
-                },
-                "colors": {
-                    "neutrals": {
-                        "deep-black": {
-                            "value": "#0c0c0c",
-                            "css": "--deep-black",
-                            "role": "Body text, borders, structural elements, headings"
-                        },
-                        "off-white": {
-                            "value": "#faf8f4",
-                            "css": "--off-white",
-                            "role": "Page background"
-                        }
-                    },
-                    "surfaces": {
-                        "ecru": {
-                            "value": "#fbf3d3",
-                            "css": "--ecru",
-                            "role": "Code blocks, inline code, inset surfaces. Never use as page background."
-                        }
-                    },
-                    "accents": {
-                        "red-ochre": {
-                            "value": "#5a0f19",
-                            "css": "--red-ochre",
-                            "role": "Primary interactive accent — body links, active states. Use sparingly."
-                        },
-                        "vergaut": {
-                            "value": "#003d32",
-                            "css": "--vergaut",
-                            "role": "Tags, secondary labels"
-                        },
-                        "woad": {
-                            "value": "#0c2340",
-                            "css": "--woad",
-                            "role": "Reserved — available for dark surfaces or a third accent if genuinely needed"
-                        }
-                    }
-                },
-                "fonts": {
-                    "serif": {
-                        "name": "Bell MT",
-                        "css": "--font-family-serif",
-                        "value": "\"Bell MT\", Georgia, serif",
-                        "role": "Headings (h1–h6), body text, long-form reading"
-                    },
-                    "monospace": {
-                        "name": "PT Mono",
-                        "css": "--font-family-monospace",
-                        "value": "\"PT Mono\", monospace",
-                        "role": "Subtitles, metadata, tags, UI labels, code"
-                    }
-                },
-                "scale": {
-                    "h1": "2rem",
-                    "h2": "1.5rem",
-                    "h3": "1.25rem",
-                    "h4": "1rem",
-                    "h5": "0.875rem",
-                    "h6": "0.75rem",
-                    "body": "1.0625rem",
-                    "small": "0.875rem",
-                    "caption": "0.8125rem"
-                },
-                "spacing": {
-                    "border-radius": {
-                        "value": "8px",
-                        "css": "--border-amount",
-                        "role": "Cards, buttons, code blocks"
-                    },
-                    "page-margin": {
-                        "value": "8%",
-                        "role": "Left/right margin of .main"
-                    },
-                    "post-max-width": {
-                        "value": "680px",
-                        "role": "Max width for reading content"
-                    }
-                },
-                "syntax-highlighting": {
-                    "theme": "Kimbie Light",
-                    "source": "highlight.js 11",
-                    "cdn": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/kimbie-light.min.css",
-                    "background-override": "var(--ecru)",
-                    "note": "Background is overridden to ecru so the code surface matches the Vellum palette."
-                }
-            }
-        </script>
+        <script
+            type="application/json"
+            id="vellum-tokens"
+            src="js/vellum_design_tokens.json"
+        ></script>
 
         <!-- Font Awesome Icons -->
         <script src="https://use.fontawesome.com/134696755a.js"></script>
@@ -739,80 +650,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <script src="insertCurrentYear.js"></script>
 
-        <script>
-            // Render palette swatches from the JSON tokens block
-            (function () {
-                const tokens = JSON.parse(
-                    document.getElementById("vellum-tokens").textContent,
-                );
-                const container = document.getElementById(
-                    "vellum-palette-render",
-                );
-                const groupLabels = {
-                    neutrals: "Neutrals",
-                    surfaces: "Surfaces",
-                    accents: "Accents",
-                };
-
-                Object.entries(tokens.colors).forEach(function ([
-                    groupKey,
-                    group,
-                ]) {
-                    const groupEl = document.createElement("div");
-                    groupEl.className = "vellum-palette-group";
-
-                    const label = document.createElement("p");
-                    label.className = "vellum-palette-group__label";
-                    label.textContent = groupLabels[groupKey] || groupKey;
-                    groupEl.appendChild(label);
-
-                    Object.entries(group).forEach(function ([key, color]) {
-                        const row = document.createElement("div");
-                        row.className = "vellum-swatch";
-
-                        const block = document.createElement("div");
-                        block.className = "vellum-swatch__block";
-                        block.style.backgroundColor = color.value;
-
-                        const name = document.createElement("span");
-                        name.className = "vellum-swatch__name";
-                        const raw = key.replace(/-/g, " ");
-                        name.textContent =
-                            raw.charAt(0).toUpperCase() + raw.slice(1);
-
-                        const hex = document.createElement("span");
-                        hex.className = "vellum-swatch__hex";
-                        hex.textContent =
-                            color.value + (color.css ? " · " + color.css : "");
-
-                        const role = document.createElement("span");
-                        role.className = "vellum-swatch__role";
-                        role.textContent = color.role;
-
-                        row.appendChild(block);
-                        row.appendChild(name);
-                        row.appendChild(hex);
-                        row.appendChild(role);
-                        groupEl.appendChild(row);
-                    });
-
-                    container.appendChild(groupEl);
-                });
-            })();
-
-            // Syntax highlighting
-            hljs.highlightAll();
-
-            // Nav hamburger
-            (function () {
-                var btn = document.getElementById("navHamburger");
-                var nav = document.getElementById("rightHandNav");
-                if (!btn || !nav) return;
-                btn.addEventListener("click", function () {
-                    var open = nav.classList.toggle("is-open");
-                    btn.setAttribute("aria-expanded", open ? "true" : "false");
-                });
-            })();
-        </script>
+        <script src="js/vellum.js"></script>
     </body>
 </html>

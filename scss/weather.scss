@@ -31,12 +31,12 @@
     min-width: 0;
 
     &::placeholder {
-        color: var(--taupe-gray);
+        color: var(--cloudy);
         opacity: 1;
     }
 
     &:focus {
-        outline: 2px solid var(--canard);
+        outline: 2px solid var(--lapis);
         outline-offset: 1px;
     }
 }
@@ -102,7 +102,7 @@
 .weather-status {
     font-family: "PT Mono", monospace;
     font-size: 0.85rem;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
     margin: 0;
 
     &:empty {
@@ -117,7 +117,7 @@
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
     margin: 0;
 }
 
@@ -151,7 +151,7 @@
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
     align-self: flex-end;
     padding-bottom: 0.35rem;
 }
@@ -163,7 +163,7 @@
     gap: 0.4rem 2rem;
     font-family: "PT Mono", monospace;
     font-size: 0.8rem;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
     margin-top: 0.15rem;
 }
 
@@ -182,7 +182,7 @@
     text-transform: uppercase;
     letter-spacing: 0.18em;
     margin: 0;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
 }
 
 // ── Hourly strip ──────────────────────────────────────────────────────────────
@@ -244,7 +244,7 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
 }
 
 .hour-icon {
@@ -263,10 +263,10 @@
 .hour-precip {
     font-family: "PT Mono", monospace;
     font-size: 0.68rem;
-    color: var(--canard);
+    color: var(--lapis);
 
     &.is-zero {
-        color: var(--taupe-gray);
+        color: var(--cloudy);
         opacity: 0.5;
     }
 }
@@ -312,7 +312,7 @@
 .day-date {
     font-family: "PT Mono", monospace;
     font-size: 0.65rem;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
 }
 
 .day-icon {
@@ -336,16 +336,16 @@
 .day-low {
     font-family: "PT Mono", monospace;
     font-size: 0.75rem;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
 }
 
 .day-precip {
     font-family: "PT Mono", monospace;
     font-size: 0.65rem;
-    color: var(--canard);
+    color: var(--lapis);
 
     &.is-zero {
-        color: var(--taupe-gray);
+        color: var(--cloudy);
         opacity: 0.4;
     }
 }

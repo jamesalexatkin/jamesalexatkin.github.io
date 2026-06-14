@@ -14,43 +14,23 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-    /* Custom colors */
-    --dark-pastel-blue: #728dbe;
-    --cadet-blue: #73ada4;
-    --ucla-blue: #54688c;
-    --asparagus: #71a372;
-    --coral-pink: #ff837d;
-    --taupe-gray: #83868c;
-    --dark-terracotta: #dc505e;
-    --deep-carmine: #b02a3c;
-    --ube: #8c72bd;
-    /* Nord colors */
-    --nord0: #2e3440;
-    --nord1: #3b4252;
-    --nord2: #434c5e;
-    --nord3: #4c566a;
-    --nord4: #d8dee9;
-    --nord5: #e5e9f0;
-    --nord6: #eceff4;
-    --nord7: #8fbcbb;
-    --nord8: #88c0d0;
-    --nord9: #81a1c1;
-    --nord10: #5e81ac;
-    --nord11: #bf616a;
-    --nord12: #d08770;
-    --nord13: #ebcb8b;
-    --nord14: #a3be8c;
-    --nord15: #b48ead;
-
     // Vellum colours
     --deep-black: #0c0c0c;
+    --cloudy: #83868c;
     --off-white: #faf8f4;
     --ecru: #fbf3d3;
     --red-ochre: #5a0f19;
     --woad: #0c2340;
     --vergaut: #2e3b0a;
-    // TODO: decide what to do with this
-    --canard: #265ead;
+    // TODO: decide what to do with these
+    --lapis: #265ead;
+    --malachite: #71a2a2;
+    --madder: #dc505e;
+    --orpiment: #c79809;
+
+    // Brand-specific colors
+    --linkedin-blue: #728dbe;
+    --github-purple: #8c72bd;
 
     // Convenience colors for opacity variations
     --red-ochre-75: rgb(from (var(--red-ochre) r g b / 0.75));
@@ -63,11 +43,11 @@
     --body-background-color: var(--off-white);
     --body-color: var(--deep-black);
     --header-color: var(--deep-black);
-    --writing-hover-color: var(--nord11);
+    --writing-hover-color: var(--madder);
     --border-amount: 8px;
     --link-underline-color: var(--deep-black);
     /* Dark mode page elements */
-    --dark-body-color: var(--nord0);
+    --dark-body-color: var(--deep-black);
 
     --font-family-monospace: PT Mono, monospace;
     --font-family-serif: "Bell MT", PT Mono, Georgia, serif;
@@ -138,7 +118,6 @@ btn-dark-mode {
 }
 
 .header {
-    // font-family: var(--font-family-monospace);
     font-family: var(--font-family-serif);
     font-weight: 700;
     width: 70%;
@@ -151,7 +130,6 @@ btn-dark-mode {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* background: var(--nord5); */
 }
 .header .logo {
     /* position: absolute; */
@@ -235,7 +213,7 @@ a:active {
 
 .four-oh-four h2 {
     font-size: 64px;
-    color: var(--nord5);
+    color: var(--off-white);
     margin-bottom: 256px;
 }
 
@@ -383,7 +361,6 @@ h6 {
 .contact {
     font-family: "PT Mono", monospace;
     font-size: 20px;
-    /* background-color: var(--nord12); */
     color: inherit;
     padding-top: 1%;
     padding-bottom: 1%;
@@ -404,7 +381,7 @@ h6 {
 
 /* Wrapper */
 .icon-button {
-    background-color: var(--nord5);
+    background-color: var(--off-white);
     // border-radius: 3.6rem;
     cursor: pointer;
     display: inline-block;
@@ -427,17 +404,17 @@ h6 {
 }
 
 .icon-button.contact-button.dark-mode {
-    background-color: var(--nord2) !important;
+    background-color: var(--deep-black) !important;
 }
 
 .btn {
     color: white;
-    background-color: var(--nord9);
+    background-color: var(--malachite);
 }
 
 .btn:hover {
-    color: var(--nord0);
-    background-color: var(--nord10);
+    color: var(--deep-black);
+    background-color: var(--lapis);
     /* border-color: #dae0e5; */
     background-size: 0%;
 }
@@ -469,19 +446,19 @@ h6 {
     background-color: transparent;
 }
 .dark span {
-    background-color: var(--nord0);
+    background-color: var(--deep-black);
 }
 .light span {
-    background-color: var(--nord13);
+    background-color: var(--orpiment);
 }
 .envelope span {
-    background-color: var(--dark-terracotta);
+    background-color: var(--madder);
 }
 .github span {
     background-color: var(--ube);
 }
 .linkedin span {
-    background-color: var(--dark-pastel-blue);
+    background-color: var(--linkedin-blue);
 }
 
 .project-name2 {
@@ -559,19 +536,19 @@ ul.writing-list li:hover {
 }
 
 .icon-button .fa-moon-o {
-    color: var(--nord0);
+    color: var(--deep-black);
 }
 .icon-button .fa-sun-o {
     color: #fff;
 }
 .icon-button .fa-envelope {
-    color: var(--dark-terracotta);
+    color: var(--madder);
 }
 .icon-button .fa-github {
     color: var(--ube);
 }
 .icon-button .fa-linkedin {
-    color: var(--dark-pastel-blue);
+    color: var(--linkedin-blue);
 }
 .icon-button:hover .fa-moon-o,
 .icon-button:hover .fa-sun-o,

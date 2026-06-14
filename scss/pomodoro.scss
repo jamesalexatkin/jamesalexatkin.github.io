@@ -15,11 +15,11 @@
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
 }
 
 .pomodoro-status.is-break {
-    color: var(--cadet-blue);
+    color: var(--malachite);
 }
 
 .pomodoro-clock {
@@ -31,7 +31,7 @@
 }
 
 .pomodoro-clock.is-break {
-    color: var(--cadet-blue);
+    color: var(--malachite);
 }
 
 .pomodoro-actions {
@@ -71,8 +71,8 @@
 
 .pomodoro-btn.primary:hover,
 .pomodoro-btn.primary:focus {
-    background: var(--cadet-blue);
-    border-color: var(--cadet-blue);
+    background: var(--malachite);
+    border-color: var(--malachite);
     color: #fff;
 }
 
@@ -92,7 +92,7 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 0 0 0.5rem 0;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
 }
 
 .setting-row {
@@ -129,12 +129,12 @@
 }
 
 .setting-input:focus {
-    outline: 2px solid var(--cadet-blue);
+    outline: 2px solid var(--malachite);
     outline-offset: 1px;
 }
 
 .setting-unit {
     font-family: "PT Mono", monospace;
     font-size: 0.8rem;
-    color: var(--taupe-gray);
+    color: var(--cloudy);
 }

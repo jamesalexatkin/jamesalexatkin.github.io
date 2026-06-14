@@ -86,6 +86,8 @@ A couple of other points:
 
 ---
 
-[^1] Official README gives tailored [installation guides](https://github.com/koreader/koreader?tab=readme-ov-file#installation) for each device.
-[^2] I did try self-hosting for a while on a mini PC but ran into some boring network issues that I never got round to solving.
-[^3] Must restart KOReader once settings have changed! It isn't enough to simply wait for it to reload once the USB connection is done.
+[^1]: Official README gives tailored [installation guides](https://github.com/koreader/koreader?tab=readme-ov-file#installation) for each device.
+
+[^2]: I did try self-hosting for a while on a mini PC but ran into some boring network issues that I never got round to solving.
+
+[^3]: Must restart KOReader once settings have changed! It isn't enough to simply wait for it to reload once the USB connection is done.

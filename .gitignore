@@ -13,3 +13,4 @@ js/*.map
 .venv
 __pycache__/
 *.pyc
+.claude/plans

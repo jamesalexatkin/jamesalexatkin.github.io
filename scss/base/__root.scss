@@ -1,4 +1,5 @@
 :root {
+    // ────────────────────── PALETTE ──────────────────────
     // Vellum colours
     --deep-black: #0c0c0c;
     --cloudy: #83868c;
@@ -34,8 +35,8 @@
     /* Dark mode page elements */
     --dark-body-color: var(--deep-black);
 
+    // ────────────────────── TYPOGRAPHY ──────────────────────
     --font-family-monospace: PT Mono, monospace;
     --font-family-serif: "Bell MT", PT Mono, Georgia, serif;
-    // --font-family-subtitle: Inter, sans-serif;
     --font-family-subtitle: var(--font-family-monospace);
 }

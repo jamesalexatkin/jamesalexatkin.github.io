@@ -1,8 +1,8 @@
 // Render palette swatches from the JSON tokens file
 (function () {
     fetch("js/vellum_design_tokens.json")
-        .then(response => response.json())
-        .then(tokens => {
+        .then((response) => response.json())
+        .then((tokens) => {
             const container = document.getElementById("vellum-palette-render");
             const groupLabels = {
                 neutrals: "Neutrals",
@@ -30,7 +30,8 @@
                     const name = document.createElement("span");
                     name.className = "vellum-swatch__name";
                     const raw = key.replace(/-/g, " ");
-                    name.textContent = raw.charAt(0).toUpperCase() + raw.slice(1);
+                    name.textContent =
+                        raw.charAt(0).toUpperCase() + raw.slice(1);
 
                     const hex = document.createElement("span");
                     hex.className = "vellum-swatch__hex";
@@ -51,7 +52,9 @@
                 container.appendChild(groupEl);
             });
         })
-        .catch(error => console.error("Failed to load design tokens:", error));
+        .catch((error) =>
+            console.error("Failed to load design tokens:", error),
+        );
 })();
 
 // Syntax highlighting

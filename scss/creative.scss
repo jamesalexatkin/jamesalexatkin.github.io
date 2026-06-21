@@ -15,11 +15,12 @@
 @import "./layout/_main.scss";
 @import "./layout/_sections.scss";
 
-// Import custom styles
 @import "./global.scss";
-@import "./pomodoro.scss";
-@import "./vellum.scss";
-@import "./weather.scss";
+
+// Specific page styles
+@import "./pages/_pomodoro.scss";
+@import "./pages/_vellum.scss";
+@import "./pages/_weather.scss";
 
 // Components
 @import "./components/_link.scss";

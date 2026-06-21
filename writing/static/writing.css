@@ -361,7 +361,7 @@
     margin-bottom: 1.5em;
     border-bottom: 1px solid var(--deep-black, #0c0c0c);
     overflow: hidden;
-    /* Animated underline on the full block, matching .writing-link-title in legacy.scss */
+    /* Animated underline on the full block, matching .writing-link-title */
     background-image: linear-gradient(var(--deep-black), var(--deep-black));
     background-size: 0% 2px;
     background-position-y: 100%;

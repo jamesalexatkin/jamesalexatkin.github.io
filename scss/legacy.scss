@@ -38,35 +38,7 @@ body {
     color: #fff;
 }
 
-.header {
-    font-family: var(--font-family-serif);
-    font-weight: 700;
-    width: 70%;
-    text-align: right;
-    position: relative;
-    margin-top: 16px;
-    margin-bottom: 48px;
-    margin-left: 15%;
-    color: var(--header-color);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.header .logo {
-    /* position: absolute; */
-    top: 0;
-    font-size: 28px;
-    font-weight: 100;
-    /*padding: 26px;*/
-}
-
-.right-hand-nav {
-    display: flex;
-    flex-direction: row;
-    /* gap: 50%; */
-    justify-content: space-between;
-}
-
+// Link underline effect
 a {
     color: var(--body-color);
     font-weight: 700;
@@ -97,26 +69,6 @@ a:active {
     background-size: 0% 0rem;
 }
 
-.header-link {
-    margin-top: 2px;
-    padding: 15px 0;
-    position: relative;
-    font-size: 1.8rem;
-    text-wrap: nowrap;
-}
-
-.writing-link {
-    margin-right: 18px;
-}
-
-.writing-link:hover {
-    color: var(--writing-hover-color);
-    background-image: linear-gradient(
-        var(--writing-hover-color),
-        var(--writing-hover-color)
-    );
-}
-
 .about {
     margin: inherit;
 }
@@ -134,114 +86,6 @@ a:active {
     border-bottom-style: solid;
     border-bottom-color: var(--deep-black);
     border-bottom-width: 1px;
-}
-
-.nav-divider {
-    width: 1px;
-    height: 1.5rem;
-    background-color: var(--deep-black);
-    margin-top: 1.8rem;
-    margin-right: 18px;
-}
-
-// Hamburger button (hidden on desktop)
-.nav-hamburger {
-    display: none;
-    background: none;
-    border: none;
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 14px;
-    font-size: 1.8rem;
-    color: var(--deep-black);
-    line-height: 1;
-
-    .fa {
-        display: block;
-        transition: transform 0.25s ease;
-    }
-
-    &[aria-expanded="true"] .fa {
-        transform: rotate(180deg);
-    }
-}
-
-// Responsive navbar
-@media (max-width: 767.98px) {
-    .header {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 12px;
-        margin-bottom: 16px;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        box-sizing: border-box;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        position: relative;
-    }
-
-    .nav-hamburger {
-        display: flex;
-        margin-left: auto;
-    }
-
-    .right-hand-nav {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        padding-bottom: 12px;
-
-        &.is-open {
-            display: flex;
-        }
-    }
-
-    .header-link {
-        font-size: 1.4rem;
-        padding: 8px 0;
-    }
-
-    .writing-link {
-        margin-right: 0;
-        margin-bottom: 4px;
-    }
-
-    .nav-divider {
-        display: none;
-    }
-
-    .main {
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-}
-
-.contact {
-    font-family: "PT Mono", monospace;
-    font-size: 20px;
-    color: inherit;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    border-radius: var(--border-amount);
-    width: 50%;
-}
-
-.main {
-    overflow: hidden;
-    margin-left: 8%;
-    margin-right: 8%;
-    /* margin-top: 26px; */
-    margin-bottom: 26px;
 }
 
 /* Wrapper */

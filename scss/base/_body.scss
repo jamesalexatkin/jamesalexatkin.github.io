@@ -1,0 +1,15 @@
+// ════════════════════════════════════════════════════════════════════════════════
+// Body Element Styles
+// Base typography and styling for the document body element
+// ════════════════════════════════════════════════════════════════════════════════
+
+body {
+    margin: 0;
+    font-family: "PT Mono", monospace;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    color: var(--body-color);
+    background-color: var(--body-background-color);
+}

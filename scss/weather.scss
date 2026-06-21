@@ -19,7 +19,7 @@
     flex-wrap: wrap;
 }
 
-.weather-search-input {
+.weather-search__input {
     font-family: "PT Mono", monospace;
     font-size: 0.85rem;
     padding: 0.45rem 0.75rem;
@@ -41,7 +41,7 @@
     }
 }
 
-.weather-search-btn {
+.weather-search__btn {
     font-family: "PT Mono", monospace;
     font-size: 0.85rem;
     padding: 0.45rem 0.75rem;
@@ -79,7 +79,7 @@
     z-index: 100;
 }
 
-.weather-suggestion-item {
+.weather-suggestions__item {
     font-family: "PT Mono", monospace;
     font-size: 0.8rem;
     padding: 0.5rem 0.75rem;
@@ -132,13 +132,13 @@
     border-bottom: 1px solid var(--deep-black);
 }
 
-.weather-current-icon {
+.weather-current__icon {
     font-size: 2.5rem;
     line-height: 1;
     align-self: center;
 }
 
-.weather-current-temp {
+.weather-current__temp {
     font-family: var(--font-family-serif);
     font-size: clamp(3.5rem, 10vw, 6rem);
     line-height: 1;
@@ -146,7 +146,7 @@
     color: var(--deep-black);
 }
 
-.weather-current-desc {
+.weather-current__desc {
     font-family: "PT Mono", monospace;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -156,7 +156,7 @@
     padding-bottom: 0.35rem;
 }
 
-.weather-current-details {
+.weather-current__details {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -175,7 +175,7 @@
     gap: 0.75rem;
 }
 
-.weather-section-title {
+.weather-section__title {
     font-family: "PT Mono", monospace;
     font-size: 0.78rem;
     font-weight: 700;
@@ -207,7 +207,7 @@
     }
 }
 
-.hour-card {
+.hourly-strip__card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,25 +221,25 @@
         border-right: none;
     }
 
-    &.is-current {
+    &--current {
         background-color: rgba(244, 98, 58, 0.07);
 
-        .hour-time {
+        .hourly-strip__card-time {
             color: #f4623a;
             font-weight: 700;
         }
 
-        .hour-temp {
+        .hourly-strip__card-temp {
             color: #f4623a;
         }
     }
 
-    &.is-night {
+    &--night {
         background-color: rgba(12, 12, 12, 0.03);
     }
 }
 
-.hour-time {
+.hourly-strip__card-time {
     font-family: "PT Mono", monospace;
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -247,25 +247,25 @@
     color: var(--cloudy);
 }
 
-.hour-icon {
+.hourly-strip__card-icon {
     font-size: 1.3rem;
     line-height: 1;
     margin: 0.1rem 0;
 }
 
-.hour-temp {
+.hourly-strip__card-temp {
     font-family: var(--font-family-serif);
     font-size: 1.05rem;
     letter-spacing: -0.01em;
     color: var(--deep-black);
 }
 
-.hour-precip {
+.hourly-strip__card-precip {
     font-family: "PT Mono", monospace;
     font-size: 0.68rem;
     color: var(--lapis);
 
-    &.is-zero {
+    &--zero {
         color: var(--cloudy);
         opacity: 0.5;
     }
@@ -279,7 +279,7 @@
     border: 1.5px solid var(--deep-black);
 }
 
-.day-card {
+.day-grid__card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -291,16 +291,16 @@
         border-right: none;
     }
 
-    &.is-today {
+    &--today {
         background-color: rgba(244, 98, 58, 0.06);
 
-        .day-name {
+        .day-grid__card-name {
             color: #f4623a;
         }
     }
 }
 
-.day-name {
+.day-grid__card-name {
     font-family: "PT Mono", monospace;
     font-size: 0.72rem;
     font-weight: 700;
@@ -309,42 +309,42 @@
     color: var(--deep-black);
 }
 
-.day-date {
+.day-grid__card-date {
     font-family: "PT Mono", monospace;
     font-size: 0.65rem;
     color: var(--cloudy);
 }
 
-.day-icon {
+.day-grid__card-icon {
     font-size: 1.6rem;
     line-height: 1;
     margin: 0.2rem 0;
 }
 
-.day-temps {
+.day-grid__card-temps {
     display: flex;
     gap: 0.35rem;
     align-items: baseline;
 }
 
-.day-high {
+.day-grid__card-high {
     font-family: var(--font-family-serif);
     font-size: 1rem;
     color: var(--deep-black);
 }
 
-.day-low {
+.day-grid__card-low {
     font-family: "PT Mono", monospace;
     font-size: 0.75rem;
     color: var(--cloudy);
 }
 
-.day-precip {
+.day-grid__card-precip {
     font-family: "PT Mono", monospace;
     font-size: 0.65rem;
     color: var(--lapis);
 
-    &.is-zero {
+    &--zero {
         color: var(--cloudy);
         opacity: 0.4;
     }

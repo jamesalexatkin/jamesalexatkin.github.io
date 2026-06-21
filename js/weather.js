@@ -154,14 +154,14 @@ function render(data, locationName) {
 
   // Insert a "Now" card first using current conditions
   const nowCard = document.createElement("div");
-  nowCard.className = "hour-card is-current";
+  nowCard.className = "hourly-strip__card hourly-strip__card--current";
   nowCard.setAttribute("role", "listitem");
   nowCard.setAttribute("aria-current", "true");
   nowCard.innerHTML =
-    `<span class="hour-time">Now</span>` +
-    `<span class="hour-icon">${faIcon(curWmo.icon)}</span>` +
-    `<span class="hour-temp">${Math.round(cur.temperature_2m)}°</span>` +
-    `<span class="hour-precip${cur.precipitation <= 0 ? " is-zero" : ""}">${Math.round(cur.precipitation_probability ?? 0)}%</span>`;
+    `<span class="hourly-strip__card-time">Now</span>` +
+    `<span class="hourly-strip__card-icon">${faIcon(curWmo.icon)}</span>` +
+    `<span class="hourly-strip__card-temp">${Math.round(cur.temperature_2m)}°</span>` +
+    `<span class="hourly-strip__card-precip${cur.precipitation <= 0 ? " hourly-strip__card-precip--zero" : ""}">${Math.round(cur.precipitation_probability ?? 0)}%</span>`;
   hourlyStrip.appendChild(nowCard);
 
   times.forEach(function (timeStr, i) {
@@ -175,13 +175,13 @@ function render(data, locationName) {
     const precip = data.hourly.precipitation_probability[i] ?? 0;
 
     const card = document.createElement("div");
-    card.className = "hour-card" + (isDay ? "" : " is-night");
+    card.className = "hourly-strip__card" + (isDay ? "" : " hourly-strip__card--night");
     card.setAttribute("role", "listitem");
     card.innerHTML =
-      `<span class="hour-time">${hour.toString().padStart(2, "0")}:00</span>` +
-      `<span class="hour-icon">${faIcon(w.icon)}</span>` +
-      `<span class="hour-temp">${Math.round(data.hourly.temperature_2m[i])}°</span>` +
-      `<span class="hour-precip${precip === 0 ? " is-zero" : ""}">${precip}%</span>`;
+      `<span class="hourly-strip__card-time">${hour.toString().padStart(2, "0")}:00</span>` +
+      `<span class="hourly-strip__card-icon">${faIcon(w.icon)}</span>` +
+      `<span class="hourly-strip__card-temp">${Math.round(data.hourly.temperature_2m[i])}°</span>` +
+      `<span class="hourly-strip__card-precip${precip === 0 ? " hourly-strip__card-precip--zero" : ""}">${precip}%</span>`;
     hourlyStrip.appendChild(card);
   });
 
@@ -194,17 +194,17 @@ function render(data, locationName) {
     const precip = data.daily.precipitation_probability_max[i] ?? 0;
 
     const card = document.createElement("div");
-    card.className = "day-card" + (isToday ? " is-today" : "");
+    card.className = "day-grid__card" + (isToday ? " day-grid__card--today" : "");
     card.setAttribute("role", "listitem");
     card.innerHTML =
-      `<span class="day-name">${formatDayName(dateStr)}</span>` +
-      `<span class="day-date">${formatDayDate(dateStr)}</span>` +
-      `<span class="day-icon">${faIcon(w.icon)}</span>` +
-      `<div class="day-temps">` +
-      `<span class="day-high">${Math.round(data.daily.temperature_2m_max[i])}°</span>` +
-      `<span class="day-low">${Math.round(data.daily.temperature_2m_min[i])}°</span>` +
+      `<span class="day-grid__card-name">${formatDayName(dateStr)}</span>` +
+      `<span class="day-grid__card-date">${formatDayDate(dateStr)}</span>` +
+      `<span class="day-grid__card-icon">${faIcon(w.icon)}</span>` +
+      `<div class="day-grid__card-temps">` +
+      `<span class="day-grid__card-high">${Math.round(data.daily.temperature_2m_max[i])}°</span>` +
+      `<span class="day-grid__card-low">${Math.round(data.daily.temperature_2m_min[i])}°</span>` +
       `</div>` +
-      `<span class="day-precip${precip === 0 ? " is-zero" : ""}">${precip}%</span>`;
+      `<span class="day-grid__card-precip${precip === 0 ? " day-grid__card-precip--zero" : ""}">${precip}%</span>`;
     dayGrid.appendChild(card);
   });
 

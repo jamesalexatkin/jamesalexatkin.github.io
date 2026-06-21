@@ -53,7 +53,7 @@ def _layout(title: str, description: str, body: str) -> str:
        ===================================================================== -->
   <!-- NAV — matches main site markup, anchor links point back to / -->
   <div class="header" id="header" role="banner">
-    <a href="/" class="header-link">
+    <a href="/" class="header__logo">
       <span>James Atkin</span>
     </a>
     <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="rightHandNav">

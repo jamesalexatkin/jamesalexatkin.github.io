@@ -1,0 +1,141 @@
+// ════════════════════════════════════════════════════════════════════════════════
+// Header & Navigation Component
+// ════════════════════════════════════════════════════════════════════════════════
+
+// Block: Main header container
+.header {
+    font-family: var(--font-family-serif);
+    font-weight: 700;
+    width: 70%;
+    text-align: right;
+    position: relative;
+    margin-top: 16px;
+    margin-bottom: 48px;
+    margin-left: 15%;
+    color: var(--header-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+// Element: Logo/branding
+.header__logo {
+    top: 0;
+    font-size: 28px;
+    font-weight: 100;
+}
+
+// Element: Navigation container
+.header__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+// Element: Navigation link (header link)
+.header__link {
+    margin-top: 2px;
+    padding: 15px 0;
+    position: relative;
+    font-size: 1.8rem;
+    text-wrap: nowrap;
+}
+
+// Modifier: Writing section link
+.header__link--writing {
+    margin-right: 18px;
+
+    &:hover {
+        color: var(--writing-hover-color);
+        background-image: linear-gradient(
+            var(--writing-hover-color),
+            var(--writing-hover-color)
+        );
+    }
+}
+
+// Element: Visual divider between nav items
+.header__divider {
+    width: 1px;
+    height: 1.5rem;
+    background-color: var(--deep-black);
+    margin-top: 1.8rem;
+    margin-right: 18px;
+}
+
+// Element: Hamburger menu button (hidden on desktop)
+.header__hamburger {
+    display: none;
+    background: none;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 14px;
+    font-size: 1.8rem;
+    color: var(--deep-black);
+    line-height: 1;
+}
+
+// Element: Icon inside hamburger (FontAwesome)
+.header__hamburger .fa {
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+// Modifier: Hamburger when expanded
+.header__hamburger[aria-expanded="true"] .fa {
+    transform: rotate(180deg);
+}
+
+// ════════════════════════════════════════════════════════════════════════════════
+// Responsive: Mobile Navigation
+// ════════════════════════════════════════════════════════════════════════════════
+
+@media (max-width: 767.98px) {
+    .header {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 12px;
+        margin-bottom: 16px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .header__hamburger {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .header__nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-bottom: 12px;
+
+        &.is-open {
+            display: flex;
+        }
+    }
+
+    .header__link {
+        font-size: 1.4rem;
+        padding: 8px 0;
+    }
+
+    .header__link--writing {
+        margin-right: 0;
+        margin-bottom: 4px;
+    }
+
+    .header__divider {
+        display: none;
+    }
+}

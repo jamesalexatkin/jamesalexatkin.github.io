@@ -24,10 +24,12 @@
     border-style: solid;
     border-width: 1px;
     border-color: var(--deep-black);
+    overflow: hidden;
+    outline: none;
 }
 
-// Element: Icon inside the button
-.icon-btn__icon {
+// Element: Icon inside the button (Font Awesome icon)
+.icon-btn i {
     background: none;
     color: white;
     height: 3.6rem;
@@ -43,23 +45,29 @@
     z-index: 10;
 }
 
-// Element: Circular hover background
-.icon-btn__circle {
+// Element: Circular hover background (the span inside icon-btn)
+.icon-btn span {
     border-radius: 0;
     display: block;
     height: 0;
     left: 50%;
     margin: 0;
-    position: relative;
+    position: absolute;
     top: 50%;
     width: 0;
 }
 
-.icon-btn:hover .icon-btn__circle {
+.icon-btn:hover span {
     width: 3.6rem;
     height: 3.6rem;
     margin: -1.8rem;
     border-radius: var(--border-amount);
+}
+
+.icon-btn:hover,
+.icon-btn:focus {
+    text-decoration: none;
+    outline: none;
 }
 
 // ════════════════════════════════════════════════════════════════════════════════
@@ -71,27 +79,27 @@
     background-color: transparent;
 }
 
-.icon-btn--dark .icon-btn__circle {
+.icon-btn--dark span {
     background-color: var(--deep-black);
 }
 
 // Modifier: Light mode icon styles
-.icon-btn--light .icon-btn__circle {
+.icon-btn--light span {
     background-color: var(--orpiment);
 }
 
 // Modifier: Contact/Email button
-.icon-btn--envelope .icon-btn__circle {
+.icon-btn--envelope span {
     background-color: var(--madder);
 }
 
 // Modifier: GitHub button
-.icon-btn--github .icon-btn__circle {
+.icon-btn--github span {
     background-color: var(--ube);
 }
 
 // Modifier: LinkedIn button
-.icon-btn--linkedin .icon-btn__circle {
+.icon-btn--linkedin span {
     background-color: var(--linkedin-blue);
 }
 
@@ -109,20 +117,8 @@
 // Icon Color Variants
 // ════════════════════════════════════════════════════════════════════════════════
 
-.icon-btn .fa-moon-o {
-    color: var(--deep-black);
-}
-
-.icon-btn .fa-sun-o {
-    color: #fff;
-}
-
-.icon-btn .fa-envelope {
-    color: var(--madder);
-}
-
 .icon-btn .fa-github {
-    color: var(--ube);
+    color: var(--github-purple);
 }
 
 .icon-btn .fa-linkedin {
@@ -130,10 +126,15 @@
 }
 
 // Icon hover states
-.icon-btn:hover .fa-moon-o,
-.icon-btn:hover .fa-sun-o,
-.icon-btn:hover .fa-envelope,
 .icon-btn:hover .fa-github,
 .icon-btn:hover .fa-linkedin {
     color: white;
+}
+
+.icon-btn:hover .fa-github {
+    background-color: var(--github-purple);
+}
+
+.icon-btn:hover .fa-linkedin {
+    background-color: var(--linkedin-blue);
 }

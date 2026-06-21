@@ -28,9 +28,14 @@ a:active {
 }
 
 // Override link underline effect for icon buttons
-.icon-button:hover,
-.icon-button:focus,
-.icon-button:active {
+.icon-btn {
+    background-image: none;
+    background-size: 0% 0rem;
+}
+
+.icon-btn:hover,
+.icon-btn:focus,
+.icon-btn:active {
     text-decoration: none;
     background-image: none;
     background-size: 0% 0rem;

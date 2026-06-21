@@ -1,6 +1,6 @@
 ---
 title: "Better e-reading with KOReader"
-description: "Improving my reading flow with new firmware."
+description: "Improving my reading flow."
 tags: ["kobo", "koreader", "reading"]
 date: "2026-06-14"
 ---

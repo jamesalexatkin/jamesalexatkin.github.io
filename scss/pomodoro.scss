@@ -18,7 +18,7 @@
     color: var(--cloudy);
 }
 
-.pomodoro-status.is-break {
+.pomodoro-status--break {
     color: var(--malachite);
 }
 
@@ -30,7 +30,7 @@
     color: var(--deep-black);
 }
 
-.pomodoro-clock.is-break {
+.pomodoro-clock--break {
     color: var(--malachite);
 }
 
@@ -64,13 +64,13 @@
     outline: none;
 }
 
-.pomodoro-btn.primary {
+.pomodoro-btn--primary {
     background: var(--deep-black);
     color: var(--off-white);
 }
 
-.pomodoro-btn.primary:hover,
-.pomodoro-btn.primary:focus {
+.pomodoro-btn--primary:hover,
+.pomodoro-btn--primary:focus {
     background: var(--malachite);
     border-color: var(--malachite);
     color: #fff;
@@ -95,13 +95,13 @@
     color: var(--cloudy);
 }
 
-.setting-row {
+.pomodoro-settings__row {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.setting-label {
+.pomodoro-settings__label {
     font-family: "PT Mono", monospace;
     font-size: 0.85rem;
     color: var(--deep-black);
@@ -109,7 +109,7 @@
     flex-shrink: 0;
 }
 
-.setting-input {
+.pomodoro-settings__input {
     font-family: "PT Mono", monospace;
     font-size: 0.85rem;
     width: 4.5rem;
@@ -122,18 +122,18 @@
     -moz-appearance: textfield;
 }
 
-.setting-input::-webkit-outer-spin-button,
-.setting-input::-webkit-inner-spin-button {
+.pomodoro-settings__input::-webkit-outer-spin-button,
+.pomodoro-settings__input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.setting-input:focus {
+.pomodoro-settings__input:focus {
     outline: 2px solid var(--malachite);
     outline-offset: 1px;
 }
 
-.setting-unit {
+.pomodoro-settings__unit {
     font-family: "PT Mono", monospace;
     font-size: 0.8rem;
     color: var(--cloudy);

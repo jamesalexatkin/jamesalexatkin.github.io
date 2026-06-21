@@ -75,7 +75,7 @@
 
                 <div class="pomodoro-actions">
                     <button
-                        class="pomodoro-btn primary"
+                        class="pomodoro-btn pomodoro-btn--primary"
                         id="playPauseBtn"
                         aria-label="Start timer"
                     >
@@ -93,12 +93,14 @@
 
                 <div class="pomodoro-settings">
                     <h2>Settings</h2>
-                    <div class="setting-row">
-                        <label class="setting-label" for="workDurationInput"
+                    <div class="pomodoro-settings__row">
+                        <label
+                            class="pomodoro-settings__label"
+                            for="workDurationInput"
                             >Work</label
                         >
                         <input
-                            class="setting-input"
+                            class="pomodoro-settings__input"
                             type="number"
                             id="workDurationInput"
                             min="1"
@@ -106,14 +108,16 @@
                             value="25"
                             aria-label="Work duration in minutes"
                         />
-                        <span class="setting-unit">min</span>
+                        <span class="pomodoro-settings__unit">min</span>
                     </div>
-                    <div class="setting-row">
-                        <label class="setting-label" for="breakDurationInput"
+                    <div class="pomodoro-settings__row">
+                        <label
+                            class="pomodoro-settings__label"
+                            for="breakDurationInput"
                             >Break</label
                         >
                         <input
-                            class="setting-input"
+                            class="pomodoro-settings__input"
                             type="number"
                             id="breakDurationInput"
                             min="1"
@@ -121,7 +125,7 @@
                             value="5"
                             aria-label="Break duration in minutes"
                         />
-                        <span class="setting-unit">min</span>
+                        <span class="pomodoro-settings__unit">min</span>
                     </div>
                 </div>
             </div>

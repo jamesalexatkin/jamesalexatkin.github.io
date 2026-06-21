@@ -38,7 +38,27 @@
             "woad": {
                 "value": "#0c2340",
                 "css": "--woad",
-                "role": "Third accent."
+                "role": "Accent."
+            },
+            "lapis": {
+                "value": "#265ead",
+                "css": "--lapis",
+                "role": "Accent."
+            },
+            "malachite": {
+                "value": "#71a2a2",
+                "css": "--malachite",
+                "role": "Accent."
+            },
+            "madder": {
+                "value": "#dc505e",
+                "css": "--madder",
+                "role": "Accent."
+            },
+            "orpiment": {
+                "value": "#c79809",
+                "css": "--orpiment",
+                "role": "Accent."
             }
         }
     },

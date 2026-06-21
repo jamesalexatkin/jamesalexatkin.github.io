@@ -175,7 +175,8 @@ function render(data, locationName) {
     const precip = data.hourly.precipitation_probability[i] ?? 0;
 
     const card = document.createElement("div");
-    card.className = "hourly-strip__card" + (isDay ? "" : " hourly-strip__card--night");
+    card.className =
+      "hourly-strip__card" + (isDay ? "" : " hourly-strip__card--night");
     card.setAttribute("role", "listitem");
     card.innerHTML =
       `<span class="hourly-strip__card-time">${hour.toString().padStart(2, "0")}:00</span>` +
@@ -194,7 +195,8 @@ function render(data, locationName) {
     const precip = data.daily.precipitation_probability_max[i] ?? 0;
 
     const card = document.createElement("div");
-    card.className = "day-grid__card" + (isToday ? " day-grid__card--today" : "");
+    card.className =
+      "day-grid__card" + (isToday ? " day-grid__card--today" : "");
     card.setAttribute("role", "listitem");
     card.innerHTML =
       `<span class="day-grid__card-name">${formatDayName(dateStr)}</span>` +

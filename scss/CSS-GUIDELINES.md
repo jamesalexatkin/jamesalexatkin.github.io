@@ -6,22 +6,28 @@ Use BEM (Block, Element, Modifier) for all component styles.
 
 ```scss
 // Block: independent component
-.component-name { }
+.component-name {
+}
 
 // Element: part of a block (double underscore)
-.component-name__element { }
+.component-name__element {
+}
 
 // Modifier: variation of block or element (double dash)
-.component-name--variant { }
-.component-name__element--variant { }
+.component-name--variant {
+}
+.component-name__element--variant {
+}
 ```
 
 **Rules:**
+
 - Lowercase with hyphens only (no camelCase)
 - One level of nesting: `.block__element`, not `.block__element__subelement`
 - Modifiers represent states/variations, not layout
 
 **When NOT to use BEM:**
+
 - Page-level sections (`.about`, `.intro`, `.projects`)
 - Generic reset/base styles (body, html)
 - Layout wrappers in `_layout/`
@@ -45,6 +51,7 @@ Import order in `creative.scss`: abstracts → vendors → base → layout → g
 All tokens in `variables.scss` under `:root`:
 
 **Colors:**
+
 - `--deep-black`: Main text/borders
 - `--body-color`: Body text
 - `--body-background-color`: Page background
@@ -53,17 +60,20 @@ All tokens in `variables.scss` under `:root`:
 - `--link-hover`: Link hover state
 
 **Typography:**
+
 - `--font-family-serif`: Display font (Bell MT)
 - `--font-family-monospace`: Code/labels (PT Mono)
 
 **Spacing:**
+
 - `--border-amount`: Standard border width (1px)
 
 **Use in SCSS:**
+
 ```scss
 .component {
-    color: var(--deep-black);
-    border: var(--border-amount) solid var(--link-color);
+  color: var(--deep-black);
+  border: var(--border-amount) solid var(--link-color);
 }
 ```
 
@@ -73,19 +83,21 @@ All tokens in `variables.scss` under `:root`:
 
 1. **Create file** in `scss/components/_component-name.scss`
 2. **Use BEM structure:**
+
    ```scss
    .component-name {
-       /* block styles */
+     /* block styles */
    }
-   
+
    .component-name__element {
-       /* element styles */
+     /* element styles */
    }
-   
+
    .component-name--variant {
-       /* modifier styles */
+     /* modifier styles */
    }
    ```
+
 3. **Import** in `scss/creative.scss` in components section
 4. **Update HTML** with matching class names
 5. **Update JavaScript** if needed for dynamic classes
@@ -104,6 +116,7 @@ All tokens in `variables.scss` under `:root`:
 ## Testing Changes
 
 After SCSS edits:
+
 1. Verify compiled CSS has no errors: `just build`
 2. Check target pages still render correctly
 3. Use browser DevTools to inspect specific classes
@@ -114,12 +127,15 @@ After SCSS edits:
 ## Common Patterns
 
 **Dark Mode (Unused)**
+
 - Vestigial dark mode code in `utilities/_dark-mode.scss` — remove if needed
 
 **Responsive Layouts**
+
 - Media queries in `_layout/_responsive.scss`
 - Use Bootstrap grid classes (col-lg-4, col-sm-6) where applicable
 
 **Icon Buttons**
+
 - Use `.icon-btn` with FontAwesome icons
 - Variants: `.icon-btn--color-{1-4}`, `.icon-btn--dark`

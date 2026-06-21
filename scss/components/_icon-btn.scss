@@ -1,0 +1,139 @@
+// ════════════════════════════════════════════════════════════════════════════════
+// Icon Button Component
+// Uses BEM naming convention
+// ════════════════════════════════════════════════════════════════════════════════
+
+// Block: Icon button container
+.icon-btn {
+    background-color: var(--off-white);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 28px;
+    height: 3.6rem;
+    line-height: 3.6rem;
+    margin: 5px 5px;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 3.6rem;
+    border-radius: var(--border-amount);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--deep-black);
+}
+
+// Element: Icon inside the button
+.icon-btn__icon {
+    background: none;
+    color: white;
+    height: 3.6rem;
+    left: 0;
+    line-height: 3.6rem;
+    position: absolute;
+    top: 0;
+    transition: all 0.7s ease;
+    -webkit-transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
+    width: 3.6rem;
+    z-index: 10;
+}
+
+// Element: Circular hover background
+.icon-btn__circle {
+    border-radius: 0;
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    width: 0;
+}
+
+.icon-btn:hover .icon-btn__circle {
+    width: 3.6rem;
+    height: 3.6rem;
+    margin: -1.8rem;
+    border-radius: var(--border-amount);
+}
+
+// ════════════════════════════════════════════════════════════════════════════════
+// Modifiers
+// ════════════════════════════════════════════════════════════════════════════════
+
+// Modifier: Dark mode toggle button
+.icon-btn--dark {
+    background-color: transparent;
+}
+
+.icon-btn--dark .icon-btn__circle {
+    background-color: var(--deep-black);
+}
+
+// Modifier: Light mode icon styles
+.icon-btn--light .icon-btn__circle {
+    background-color: var(--orpiment);
+}
+
+// Modifier: Contact/Email button
+.icon-btn--envelope .icon-btn__circle {
+    background-color: var(--madder);
+}
+
+// Modifier: GitHub button
+.icon-btn--github .icon-btn__circle {
+    background-color: var(--ube);
+}
+
+// Modifier: LinkedIn button
+.icon-btn--linkedin .icon-btn__circle {
+    background-color: var(--linkedin-blue);
+}
+
+// Modifier: Contact button variant
+.icon-btn--contact {
+    /* Additional contact button styles if needed */
+}
+
+// Modifier: Dark mode state
+.icon-btn--dark-mode {
+    background-color: var(--deep-black) !important;
+}
+
+// ════════════════════════════════════════════════════════════════════════════════
+// Icon Color Variants
+// ════════════════════════════════════════════════════════════════════════════════
+
+.icon-btn .fa-moon-o {
+    color: var(--deep-black);
+}
+
+.icon-btn .fa-sun-o {
+    color: #fff;
+}
+
+.icon-btn .fa-envelope {
+    color: var(--madder);
+}
+
+.icon-btn .fa-github {
+    color: var(--ube);
+}
+
+.icon-btn .fa-linkedin {
+    color: var(--linkedin-blue);
+}
+
+// Icon hover states
+.icon-btn:hover .fa-moon-o,
+.icon-btn:hover .fa-sun-o,
+.icon-btn:hover .fa-envelope,
+.icon-btn:hover .fa-github,
+.icon-btn:hover .fa-linkedin {
+    color: white;
+}

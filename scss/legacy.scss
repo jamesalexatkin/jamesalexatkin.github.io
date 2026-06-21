@@ -38,37 +38,6 @@ body {
     color: #fff;
 }
 
-// Link underline effect
-a {
-    color: var(--body-color);
-    font-weight: 700;
-    text-decoration: none;
-    background-image: linear-gradient(
-        var(--link-underline-color),
-        var(--link-underline-color)
-    );
-    background-size: 0% 0.1em;
-    background-position-y: 100%;
-    background-position-x: 0%;
-    background-repeat: no-repeat;
-    transition: background-size 0.2s ease-in-out;
-}
-a:hover,
-a:focus,
-a:active {
-    background-size: 100% 0.1em;
-    transition: 0.3s;
-}
-
-// Needed in order to override the <a> rollover effects
-.icon-button:hover,
-.icon-button:focus,
-.icon-button:active {
-    text-decoration: none;
-    background-image: none;
-    background-size: 0% 0rem;
-}
-
 .about {
     margin: inherit;
 }
@@ -86,88 +55,6 @@ a:active {
     border-bottom-style: solid;
     border-bottom-color: var(--deep-black);
     border-bottom-width: 1px;
-}
-
-/* Wrapper */
-.icon-button {
-    background-color: var(--off-white);
-    // border-radius: 3.6rem;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 28px;
-    height: 3.6rem;
-    line-height: 3.6rem;
-    margin: 5px 5px;
-    position: relative;
-    text-decoration: none;
-    text-align: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: 3.6rem;
-    border-radius: var(--border-amount);
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--deep-black);
-}
-
-.icon-button.contact-button.dark-mode {
-    background-color: var(--deep-black) !important;
-}
-
-.btn {
-    color: white;
-    background-color: var(--malachite);
-}
-
-.btn:hover {
-    color: var(--deep-black);
-    background-color: var(--lapis);
-    /* border-color: #dae0e5; */
-    background-size: 0%;
-}
-
-/* .btn:focus, .btn.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
-} */
-
-/* Circle */
-.icon-button span {
-    border-radius: 0;
-    display: block;
-    height: 0;
-    left: 50%;
-    margin: 0;
-    position: relative;
-    top: 50%;
-    width: 0;
-}
-.icon-button:hover span {
-    width: 3.6rem;
-    height: 3.6rem;
-    margin: -1.8rem;
-    border-radius: var(--border-amount);
-}
-.dark {
-    /* top: 20px; */
-    background-color: transparent;
-}
-.dark span {
-    background-color: var(--deep-black);
-}
-.light span {
-    background-color: var(--orpiment);
-}
-.envelope span {
-    background-color: var(--madder);
-}
-.github span {
-    background-color: var(--ube);
-}
-.linkedin span {
-    background-color: var(--linkedin-blue);
 }
 
 .project-name2 {
@@ -225,46 +112,6 @@ ul.writing-list li:hover {
     font-size: 0.85rem;
     color: #666;
     margin-bottom: 0;
-}
-
-/* Icons */
-.icon-button i {
-    background: none;
-    color: white;
-    height: 3.6rem;
-    left: 0;
-    line-height: 3.6rem;
-    position: absolute;
-    top: 0;
-    transition: all 0.7s ease;
-    -webkit-transition: all 0.7s ease;
-    -moz-transition: all 0.7s ease;
-    -o-transition: all 0.7s ease;
-    width: 3.6rem;
-    z-index: 10;
-}
-
-.icon-button .fa-moon-o {
-    color: var(--deep-black);
-}
-.icon-button .fa-sun-o {
-    color: #fff;
-}
-.icon-button .fa-envelope {
-    color: var(--madder);
-}
-.icon-button .fa-github {
-    color: var(--ube);
-}
-.icon-button .fa-linkedin {
-    color: var(--linkedin-blue);
-}
-.icon-button:hover .fa-moon-o,
-.icon-button:hover .fa-sun-o,
-.icon-button:hover .fa-envelope,
-.icon-button:hover .fa-github,
-.icon-button:hover .fa-linkedin {
-    color: white;
 }
 
 #portfolio .container-fluid {

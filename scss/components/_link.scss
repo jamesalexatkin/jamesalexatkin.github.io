@@ -1,0 +1,37 @@
+// ════════════════════════════════════════════════════════════════════════════════
+// Link Component
+// Animated underline effect for text links
+// ════════════════════════════════════════════════════════════════════════════════
+
+// Base link styles with animated underline on hover
+a {
+    color: var(--body-color);
+    font-weight: 700;
+    text-decoration: none;
+    background-image: linear-gradient(
+        var(--link-underline-color),
+        var(--link-underline-color)
+    );
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+}
+
+// Hover, focus, and active states
+a:hover,
+a:focus,
+a:active {
+    background-size: 100% 0.1em;
+    transition: 0.3s;
+}
+
+// Override link underline effect for icon buttons
+.icon-button:hover,
+.icon-button:focus,
+.icon-button:active {
+    text-decoration: none;
+    background-image: none;
+    background-size: 0% 0rem;
+}

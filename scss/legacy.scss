@@ -61,59 +61,6 @@ body {
     padding: 4px;
 }
 
-/* Writing list */
-ul.writing-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-ul.writing-list li {
-    margin-bottom: 1.5em;
-    // border-style: solid;
-    border-width: 2px;
-    // border-color: var(--deep-black);
-    // border-bottom-style: solid;
-    border-bottom-color: var(--deep-black);
-    overflow: hidden;
-    transition:
-        background-color 0.35s ease,
-        border-radius 0.35s ease;
-}
-
-ul.writing-list li:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    // border-radius: var(--border-amount);
-}
-
-.writing-link-title {
-    display: block;
-    padding: 0.6em 0.75em;
-    text-decoration: none;
-    background-size: 0% 2px;
-    font-family: var(--font-family-serif);
-}
-
-.writing-link-title:hover,
-.writing-link-title:focus,
-.writing-link-title:active {
-    background-size: 100% 2px;
-}
-
-.writing-title {
-    display: block;
-    font-size: 1.35rem;
-    font-weight: 600;
-    margin-bottom: 0.15em;
-    color: var(--body-color);
-}
-
-.writing-subtitle {
-    font-family: var(--font-family-subtitle);
-    font-size: 0.85rem;
-    color: #666;
-    margin-bottom: 0;
-}
-
 #portfolio .container-fluid {
     max-width: 1920px;
     font-family:

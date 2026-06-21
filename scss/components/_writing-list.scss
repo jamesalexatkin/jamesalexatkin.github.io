@@ -1,0 +1,57 @@
+// ════════════════════════════════════════════════════════════════════════════════
+// Writing List Component
+// Uses BEM naming convention
+// ════════════════════════════════════════════════════════════════════════════════
+
+// Block: Writing list container
+.writing-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+// Element: List item
+.writing-list__item {
+    margin-bottom: 1.5em;
+    border-width: 2px;
+    border-bottom-color: var(--deep-black);
+    overflow: hidden;
+    transition:
+        background-color 0.35s ease,
+        border-radius 0.35s ease;
+}
+
+.writing-list__item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+// Element: Link wrapper
+.writing-list__link {
+    display: block;
+    padding: 0.6em 0.75em;
+    text-decoration: none;
+    background-size: 0% 2px;
+    font-family: var(--font-family-serif);
+}
+
+.writing-list__link:hover,
+.writing-list__link:focus,
+.writing-list__link:active {
+    background-size: 100% 2px;
+}
+
+// Element: Article title
+.writing-list__title {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.15em;
+    color: var(--body-color);
+}
+
+// Element: Article subtitle/description
+.writing-list__subtitle {
+    font-family: var(--font-family-subtitle);
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0;
+}

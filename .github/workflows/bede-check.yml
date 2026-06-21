@@ -1,0 +1,37 @@
+name: Check Bede Posts
+
+on:
+    pull_request:
+        paths:
+            - "writing/posts/**/*.md"
+            - "writing/bede/**"
+            - ".github/workflows/bede-check.yml"
+    push:
+        branches:
+            - main
+        paths:
+            - "writing/posts/**/*.md"
+            - "writing/bede/**"
+            - ".github/workflows/bede-check.yml"
+
+jobs:
+    check-posts:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
+
+            - name: Install dependencies
+              run: |
+                  cd writing/bede
+                  pip install -r requirements.txt
+
+            - name: Check bede posts
+              run: |
+                  cd writing/bede
+                  python build.py --check

@@ -14,3 +14,6 @@ lint_fix:
 
 bede_build:
     python ./writing/bede/build.py
+
+bede_check:
+    python .\writing\bede\build.py --check

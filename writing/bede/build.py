@@ -4,9 +4,11 @@ build.py — Static blog builder for jamesatk.in/writing
 Converts Markdown posts to HTML using a shared layout and component renderer.
 """
 
+import argparse
 import os
 import re
 import shutil
+import sys
 from pathlib import Path
 from datetime import datetime
 
@@ -89,7 +91,7 @@ def parse_post(path: Path) -> dict:
     }
 
 
-def build():
+def build(check: bool = False):
     print(f"♝  Starting Bede build\n")
     
     # Parse all non-draft posts
@@ -97,17 +99,32 @@ def build():
     print(f"Found {len(md_files)} Markdown files in {POSTS_DIR}:")
         
     posts = []
+    errors = []
+    
     for md_file in md_files:
-        post = parse_post(md_file)
-        post["slug"] = md_file.parent.name  # e.g. "mot_du_jour"
-        if post["draft"]:
-            print(f"  [skip] {md_file.name} (draft)")
-            continue
-        posts.append(post)
-        print(f" ✍️  [build] {md_file.name}")
+        try:
+            post = parse_post(md_file)
+            post["slug"] = md_file.parent.name  # e.g. "mot_du_jour"
+            if post["draft"]:
+                print(f"  [skip] {md_file.name} (draft)")
+                continue
+            posts.append(post)
+            print(f" ✍️  [build] {md_file.name}")
+        except Exception as e:
+            error_msg = f"  [error] {md_file.name}: {str(e)}"
+            print(error_msg)
+            errors.append(error_msg)
+
+    if errors:
+        print(f"\n❌ Build failed with {len(errors)} error(s)")
+        return False
 
     # Sort by date descending
     posts.sort(key=lambda p: p["date"] or datetime.min, reverse=True)
+
+    if check:
+        print(f"\n✅ Check passed — {len(posts)} posts validated")
+        return True
 
     # Write individual post pages
     for post in posts:
@@ -120,7 +137,13 @@ def build():
     index_path.write_text(render_index(posts), encoding="utf-8")
 
     print(f"\n✅ Built {len(posts)} posts → {OUTPUT_DIR}/")
+    return True
 
 
 if __name__ == "__main__":
-    build()
+    parser = argparse.ArgumentParser(description="Static blog builder for bede posts")
+    parser.add_argument("--check", action="store_true", help="Validate posts without writing output")
+    args = parser.parse_args()
+    
+    success = build(check=args.check)
+    sys.exit(0 if success else 1)

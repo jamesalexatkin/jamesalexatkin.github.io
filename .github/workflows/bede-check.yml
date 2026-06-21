@@ -2,17 +2,8 @@ name: Check Bede Posts
 
 on:
     pull_request:
-        paths:
-            - "writing/posts/**/*.md"
-            - "writing/bede/**"
-            - ".github/workflows/bede-check.yml"
     push:
-        branches:
-            - main
-        paths:
-            - "writing/posts/**/*.md"
-            - "writing/bede/**"
-            - ".github/workflows/bede-check.yml"
+        branches: ["master"]
 
 jobs:
     check-posts:

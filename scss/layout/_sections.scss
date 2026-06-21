@@ -1,0 +1,30 @@
+// ════════════════════════════════════════════════════════════════════════════════
+// Section Layout Styles
+// Page-level section wrappers and layout overrides
+// ════════════════════════════════════════════════════════════════════════════════
+
+.about {
+    margin: inherit;
+}
+
+.intro {
+    margin-left: 6px;
+    font-family: var(--font-family-serif);
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.projects {
+    overflow: hidden;
+    margin: inherit;
+    border-bottom-style: solid;
+    border-bottom-color: var(--deep-black);
+    border-bottom-width: 1px;
+}
+
+#portfolio .container-fluid {
+    max-width: 1920px;
+    font-family:
+        PT Mono,
+        monospace;
+}

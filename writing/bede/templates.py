@@ -84,7 +84,8 @@ def _layout(title: str, description: str, body: str) -> str:
   <footer class="py-5" id="footer">
       <div class="container">
           <div class="small text-center" id="footer-text"
-              >&copy; JAMES ATKIN <span id="year"></span
+              >
+          <a href="/meta" rel="noopener noreferrer">Meta</a> | &copy; JAMES ATKIN <span id="year"></span
           ></div>
       </div>
   </footer>

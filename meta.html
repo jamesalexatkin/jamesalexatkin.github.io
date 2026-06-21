@@ -10,7 +10,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title>404 — James Atkin</title>
+        <title>James Atkin</title>
 
         <!-- Font Awesome Icons -->
         <script src="https://use.fontawesome.com/134696755a.js"></script>
@@ -28,7 +28,7 @@
     <body id="page-top">
         <!-- Navbar/header -->
         <div class="header" id="header" role="banner">
-            <a href="/" class="header__logo">
+            <a href="#" class="header__logo">
                 <span>James Atkin</span>
             </a>
             <button class="header__hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="rightHandNav">
@@ -36,7 +36,7 @@
             </button>
             <div class="header__nav" id="rightHandNav" role="navigation">
                 <a
-                    href="/#portfolio"
+                    href="#portfolio"
                     class="header__link header__link--writing"
                     rel="noopener noreferrer"
                 >
@@ -50,16 +50,35 @@
                 >
                     <div class="title">Writing</div>
                 </a>
+                <!-- <div class="nav-divider"></div>
+                <a
+                    href="#photography"
+                    class="header-link writing-link"
+                    rel="noopener noreferrer"
+                >
+                    <div class="title">Photography</div>
+                </a> -->
             </div>
         </div>
-
         <div class="main" role="main">
-            <section class="page-section" id="four-oh-four">
-                <div class="container text-center">
-                    <h1 class="header__not-found">404</h1>
-                    <p>Page not found.</p>
-                </div>
-            </section>
+            <!-- Meta  Section -->
+            <div class="projects" id="portfolio">
+                <h1 class="title">Meta </h1>
+                <ul class="writing-list">
+                    <li class="writing-list__item">
+                        <a class="writing-list__link" href="https://github.com/jamesalexatkin/jamesalexatkin.github.io" rel="noopener noreferrer" target ="_blank">
+                            <span class="writing-list__title">Source</span>
+                            <div class="writing-list__subtitle">View on GitHub ➡️</div>  
+                        </a>
+                    </li>
+                    <li class="writing-list__item">
+                        <a class="writing-list__link" href="/vellum" rel="noopener noreferrer">
+                            <span class="writing-list__title">Vellum</span>
+                            <div class="writing-list__subtitle">Minimal design system.</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <!-- Footer -->
@@ -93,6 +112,7 @@
                     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
                     btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
                 });
+                // Close menu when a nav link is clicked
                 nav.querySelectorAll('a').forEach(function (link) {
                     link.addEventListener('click', function () {
                         nav.classList.remove('is-open');

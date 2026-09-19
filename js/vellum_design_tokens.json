@@ -11,30 +11,57 @@
                 "css": "--deep-black",
                 "role": "Body text, borders, structural elements, headings"
             },
+            "night": {
+                "value": "#1b272e",
+                "css": "--night",
+                "role": "Body text, borders, structural elements, headings"
+            },
             "off-white": {
                 "value": "#faf8f4",
                 "css": "--off-white",
                 "role": "Page background."
-            }
-        },
-        "surfaces": {
+            },
             "ecru": {
                 "value": "#fbf3d3",
                 "css": "--ecru",
-                "role": "Code blocks, inline code, inset surfaces. Never use as page background."
+                "role": "Code blocks, inline code, inset surfaces."
             }
         },
-        "accents": {
-            "red-ochre": {
+        "reds": {
+            "kermes": {
                 "value": "#5a0f19",
-                "css": "--red-ochre",
-                "role": "Primary interactive accent — body links, active states."
+                "css": "--kermes",
+                "role": "Accent."
             },
+            "ochre": {
+                "value": "#89483d",
+                "css": "--ochre",
+                "role": "Accent."
+            },
+            "madder": {
+                "value": "#dc505e",
+                "css": "--madder",
+                "role": "Accent."
+            }
+        },
+        "greens": {
             "vergaut": {
                 "value": "#003d32",
                 "css": "--vergaut",
-                "role": "Tags, secondary labels."
+                "role": "Accent."
             },
+            "verdigris": {
+                "value": "#058d70",
+                "css": "--verdigris",
+                "role": "Accent."
+            },
+            "nettle": {
+                "value": "#9ECBBB",
+                "css": "--nettle",
+                "role": "Accent."
+            }
+        },
+        "blues": {
             "woad": {
                 "value": "#0c2340",
                 "css": "--woad",
@@ -49,15 +76,22 @@
                 "value": "#71a2a2",
                 "css": "--malachite",
                 "role": "Accent."
-            },
-            "madder": {
-                "value": "#dc505e",
-                "css": "--madder",
+            }
+        },
+        "yellows": {
+            "yellowOchre": {
+                "value": "#998356",
+                "css": "--yellow-ochre",
                 "role": "Accent."
             },
             "orpiment": {
                 "value": "#c79809",
                 "css": "--orpiment",
+                "role": "Accent."
+            },
+            "weld": {
+                "value": "#dfe290",
+                "css": "--weld",
                 "role": "Accent."
             }
         }

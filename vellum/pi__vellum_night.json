@@ -1,0 +1,92 @@
+{
+    "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+    "name": "vellum-night",
+    "vars": {
+        "deepBlack": "#0c0c0c",
+        "night": "#1b272e",
+
+        "offWhite": "#faf8f4",
+        "ecru": "#fbf3d3",
+
+        "kermes": "#5a0f19",
+        "ochre": "#89483d",
+        "madder": "#dc505e",
+
+        "vergaut": "#003d32",
+        "verdigris": "#058d70",
+        "nettle": "#9ECBBB",
+
+        "woad": "#0c2340",
+        "lapis": "#265ead",
+        "malachite": "#71a2a2",
+
+        "rawSienna": "#998356",
+        "orpiment": "#c79809",
+        "weld": "#dfe290"
+    },
+    "colors": {
+        "accent": "lapis",
+        "border": "lapis",
+        "borderAccent": "lapis",
+        "borderMuted": "lapis",
+        "success": "verdigris",
+        "error": "kermes",
+        "warning": "orpiment",
+        "muted": "rawSienna",
+        "dim": "ochre",
+        "text": "",
+        "thinkingText": "malachite",
+
+        "selectedBg": "malachite",
+        "userMessageBg": "night",
+        "userMessageText": "ecru",
+        "customMessageBg": "ochre",
+        "customMessageText": "",
+        "customMessageLabel": "vergaut",
+
+        "toolPendingBg": "ochre",
+        "toolSuccessBg": "nettle",
+        "toolErrorBg": "ochre",
+        "toolTitle": "kermes",
+        "toolOutput": "",
+
+        "mdHeading": "lapis",
+        "mdLink": "kermes",
+        "mdLinkUrl": "rawSienna",
+        "mdCode": "ochre",
+        "mdCodeBlock": "malachite",
+        "mdCodeBlockBorder": "rawSienna",
+        "mdQuote": "rawSienna",
+        "mdQuoteBorder": "kermes",
+        "mdHr": "ochre",
+        "mdListBullet": "kermes",
+
+        "toolDiffAdded": "vergaut",
+        "toolDiffRemoved": "kermes",
+        "toolDiffContext": "rawSienna",
+
+        "syntaxComment": "orpiment",
+        "syntaxKeyword": "ochre",
+        "syntaxFunction": "woad",
+        "syntaxVariable": "kermes",
+        "syntaxString": "malachite",
+        "syntaxNumber": "madder",
+        "syntaxType": "vergaut",
+        "syntaxOperator": "deepBlack",
+        "syntaxPunctuation": "rawSienna",
+
+        "thinkingOff": "ochre",
+        "thinkingMinimal": "rawSienna",
+        "thinkingLow": "malachite",
+        "thinkingMedium": "lapis",
+        "thinkingHigh": "kermes",
+        "thinkingXhigh": "madder",
+
+        "bashMode": "orpiment"
+    },
+    "export": {
+        "pageBg": "deepBlack",
+        "cardBg": "night",
+        "infoBg": "ochre"
+    }
+}
